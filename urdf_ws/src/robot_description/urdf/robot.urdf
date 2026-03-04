@@ -1,0 +1,685 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape https://cad.onshape.com/documents/d1966859336362bc930929a4/w/56b6dcc60dcf28ac3423a25e/e/f2d5778f9e18520024d3cda4 -->
+<robot name="upper_body">
+  <!-- Link chest -->
+  <link name="chest">
+    <inertial>
+      <origin xyz="0.0368306 -0.00749969 0.074" rpy="0 0 0"/>
+      <mass value="0.637448"/>
+      <inertia ixx="0.0016361" ixy="3.9256e-19" ixz="2.90175e-19" iyy="0.000850356" iyz="1.2446e-33" izz="0.000950422"/>
+    </inertial>
+    <!-- Part atom_puxador -->
+    <visual>
+      <origin xyz="0.227225 0.0296218 0.0381393" rpy="1.5708 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_puxador.stl"/>
+      </geometry>
+      <material name="atom_puxador_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.227225 0.0296218 0.0381393" rpy="1.5708 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_puxador.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_tampa_puxador -->
+    <visual>
+      <origin xyz="0.208356 -0.12664 0.0398518" rpy="1.5708 0.549853 7.57619e-32"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_tampa_puxador.stl"/>
+      </geometry>
+      <material name="atom_tampa_puxador_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.208356 -0.12664 0.0398518" rpy="1.5708 0.549853 7.57619e-32"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_tampa_puxador.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_peito_lateral -->
+    <visual>
+      <origin xyz="-0.0584844 0.0801503 0.002" rpy="1.5708 -6.72533e-16 -1.33227e-15"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_peito_lateral.stl"/>
+      </geometry>
+      <material name="atom_peito_lateral_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0584844 0.0801503 0.002" rpy="1.5708 -6.72533e-16 -1.33227e-15"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_peito_lateral.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_amortecedor_tras_lados_invertidos -->
+    <visual>
+      <origin xyz="-0.0584844 0.0801503 0.002" rpy="-6.65601e-16 -6.72533e-16 -1.33227e-15"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_amortecedor_tras_lados_invertidos.stl"/>
+      </geometry>
+      <material name="atom_amortecedor_tras_lados_invertidos_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0584844 0.0801503 0.002" rpy="-6.65601e-16 -6.72533e-16 -1.33227e-15"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_amortecedor_tras_lados_invertidos.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_chapa_ombro_cima_fibra -->
+    <visual>
+      <origin xyz="-0.0449844 -0.0799997 0.179" rpy="-3.14159 4.46816e-31 3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_chapa_ombro_cima_fibra.stl"/>
+      </geometry>
+      <material name="atom_chapa_ombro_cima_fibra_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0449844 -0.0799997 0.179" rpy="-3.14159 4.46816e-31 3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_chapa_ombro_cima_fibra.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_amortecedor_tras_lados_invertidos_2 -->
+    <visual>
+      <origin xyz="-0.0584844 -0.0799997 0.00200303" rpy="-6.65601e-16 -6.72533e-16 -1.33227e-15"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_amortecedor_tras_lados_invertidos__2.stl"/>
+      </geometry>
+      <material name="atom_amortecedor_tras_lados_invertidos_2_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0584844 -0.0799997 0.00200303" rpy="-6.65601e-16 -6.72533e-16 -1.33227e-15"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_amortecedor_tras_lados_invertidos__2.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_peito_traseira_impressao -->
+    <visual>
+      <origin xyz="0.0595156 -0.0799997 0.002" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_peito_traseira_impressao.stl"/>
+      </geometry>
+      <material name="atom_peito_traseira_impressao_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0595156 -0.0799997 0.002" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_peito_traseira_impressao.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part part_1 -->
+    <visual>
+      <origin xyz="-0.0538823 0.0705003 0.0181314" rpy="4.93038e-32 -2.54675e-16 -1.25564e-47"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/part_1.stl"/>
+      </geometry>
+      <material name="part_1_material">
+        <color rgba="0.615686 0.811765 0.929412 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0538823 0.0705003 0.0181314" rpy="4.93038e-32 -2.54675e-16 -1.25564e-47"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/part_1.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_amortecedor_frente_corrigido -->
+    <visual>
+      <origin xyz="-0.0627844 0.0781503 0.1175" rpy="-1.66533e-16 6.65601e-16 1.5708"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_amortecedor_frente_corrigido.stl"/>
+      </geometry>
+      <material name="atom_amortecedor_frente_corrigido_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0627844 0.0781503 0.1175" rpy="-1.66533e-16 6.65601e-16 1.5708"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_amortecedor_frente_corrigido.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_peito_lateral_2 -->
+    <visual>
+      <origin xyz="-0.0584844 -0.0759997 0.002" rpy="1.5708 -3.9443e-31 -5.32083e-32"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_peito_lateral.stl"/>
+      </geometry>
+      <material name="atom_peito_lateral_2_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0584844 -0.0759997 0.002" rpy="1.5708 -3.9443e-31 -5.32083e-32"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_peito_lateral.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_porta_bateria -->
+    <visual>
+      <origin xyz="-0.0584844 0.0755003 0.009" rpy="0 -0 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_porta_bateria.stl"/>
+      </geometry>
+      <material name="atom_porta_bateria_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0584844 0.0755003 0.009" rpy="0 -0 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_porta_bateria.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_chapa_motores_ombro -->
+    <visual>
+      <origin xyz="-0.0584617 0.0800222 0.1415" rpy="2.9521e-30 1.75645e-30 3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_chapa_motores_ombro.stl"/>
+      </geometry>
+      <material name="atom_chapa_motores_ombro_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0584617 0.0800222 0.1415" rpy="2.9521e-30 1.75645e-30 3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_chapa_motores_ombro.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_tampa_puxador_2 -->
+    <visual>
+      <origin xyz="0.185378 0.0882428 0.0772378" rpy="-1.5708 0.549853 0.00190927"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_tampa_puxador.stl"/>
+      </geometry>
+      <material name="atom_tampa_puxador_2_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.185378 0.0882428 0.0772378" rpy="-1.5708 0.549853 0.00190927"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_tampa_puxador.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part xm540 -->
+    <visual>
+      <origin xyz="-0.0444617 -0.0599778 0.16025" rpy="9.45915e-49 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+      <material name="xm540_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0444617 -0.0599778 0.16025" rpy="9.45915e-49 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_chapa_peito_baixo -->
+    <visual>
+      <origin xyz="0.0565156 -0.0799997 0" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_chapa_peito_baixo.stl"/>
+      </geometry>
+      <material name="atom_chapa_peito_baixo_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0565156 -0.0799997 0" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_chapa_peito_baixo.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part xm540_2 -->
+    <visual>
+      <origin xyz="-0.0444617 0.0600222 0.16025" rpy="-3.14159 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+      <material name="xm540_2_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0444617 0.0600222 0.16025" rpy="-3.14159 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_1_peito_frontal_impressao -->
+    <visual>
+      <origin xyz="-0.0584844 0.0800253 0.05875" rpy="-3.14159 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_1_peito_frontal_impressao.stl"/>
+      </geometry>
+      <material name="atom_1_peito_frontal_impressao_material">
+        <color rgba="0 0.45098 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0584844 0.0800253 0.05875" rpy="-3.14159 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_1_peito_frontal_impressao.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part part_1_2 -->
+    <visual>
+      <origin xyz="0.0171456 -0.0715045 0.134203" rpy="-4.996e-16 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/part_1__2.stl"/>
+      </geometry>
+      <material name="part_1_2_material">
+        <color rgba="0.615686 0.811765 0.929412 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0171456 -0.0715045 0.134203" rpy="-4.996e-16 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/part_1__2.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_chapa_peito_traseira_fibra -->
+    <visual>
+      <origin xyz="0.0565156 -0.0799997 0.002" rpy="3.50386e-32 -3.05311e-16 3.9443e-31"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_chapa_peito_traseira_fibra.stl"/>
+      </geometry>
+      <material name="atom_chapa_peito_traseira_fibra_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0565156 -0.0799997 0.002" rpy="3.50386e-32 -3.05311e-16 3.9443e-31"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_chapa_peito_traseira_fibra.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_amortecedor_frente_corrigido_2 -->
+    <visual>
+      <origin xyz="-0.0627844 -0.0779997 0.1175" rpy="-6.72533e-16 6.65601e-16 1.5708"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_amortecedor_frente_corrigido.stl"/>
+      </geometry>
+      <material name="atom_amortecedor_frente_corrigido_2_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0627844 -0.0779997 0.1175" rpy="-6.72533e-16 6.65601e-16 1.5708"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_amortecedor_frente_corrigido.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link atom_ombro_chapa -->
+  <link name="atom_ombro_chapa">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part atom_ombro -->
+    <visual>
+      <origin xyz="0.014 0.0265 -0.001" rpy="-3.14159 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_ombro.stl"/>
+      </geometry>
+      <material name="atom_ombro_material">
+        <color rgba="0.576471 0.576471 0.576471 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.014 0.0265 -0.001" rpy="-3.14159 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_ombro.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_ombro_chapa -->
+    <visual>
+      <origin xyz="-0.016 0.027 0.000284271" rpy="3.14159 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_ombro_chapa.stl"/>
+      </geometry>
+      <material name="atom_ombro_chapa_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.016 0.027 0.000284271" rpy="3.14159 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_ombro_chapa.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link atom_braco -->
+  <link name="atom_braco">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part atom_braco -->
+    <visual>
+      <origin xyz="-0.01675 0.14775 -0.0465" rpy="-3.48451e-30 -2.1684e-19 -3.21935e-15"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_braco.stl"/>
+      </geometry>
+      <material name="atom_braco_material">
+        <color rgba="0.627451 0.627451 0.627451 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.01675 0.14775 -0.0465" rpy="-3.48451e-30 -2.1684e-19 -3.21935e-15"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_braco.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part xm540_3 -->
+    <visual>
+      <origin xyz="3.88578e-16 0.131 -0.0269125" rpy="-1.5708 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+      <material name="xm540_3_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="3.88578e-16 0.131 -0.0269125" rpy="-1.5708 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part xm540_4 -->
+    <visual>
+      <origin xyz="-2.77556e-17 0 -0.0245" rpy="-1.5708 6.50521e-19 3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+      <material name="xm540_4_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-2.77556e-17 0 -0.0245" rpy="-1.5708 6.50521e-19 3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link atom_mao -->
+  <link name="atom_mao">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part atom_mao -->
+    <visual>
+      <origin xyz="0.015 0.0025 0.051" rpy="-3.14159 4.68375e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao.stl"/>
+      </geometry>
+      <material name="atom_mao_material">
+        <color rgba="0.627451 0.627451 0.627451 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.015 0.0025 0.051" rpy="-3.14159 4.68375e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_mao_espacador -->
+    <visual>
+      <origin xyz="1.49013e-10 -0.196 0.051" rpy="3.14159 3.70797e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao_espacador.stl"/>
+      </geometry>
+      <material name="atom_mao_espacador_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="1.49013e-10 -0.196 0.051" rpy="3.14159 3.70797e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao_espacador.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_mao_2 -->
+    <visual>
+      <origin xyz="0.015 0.0025 2.77556e-17" rpy="3.14159 -1.33357e-16 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao.stl"/>
+      </geometry>
+      <material name="atom_mao_2_material">
+        <color rgba="0.627451 0.627451 0.627451 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.015 0.0025 2.77556e-17" rpy="3.14159 -1.33357e-16 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from atom_braco to atom_mao -->
+  <joint name="elbow_right (1)" type="revolute">
+    <origin xyz="0.0245 0.131 -0.0269125" rpy="-3.14159 1.5708 0"/>
+    <parent link="atom_braco"/>
+    <child link="atom_mao"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from atom_ombro_chapa to atom_braco -->
+  <joint name="shoulder_right (1)" type="revolute">
+    <origin xyz="0.03 -0.0245 -0.037" rpy="1.5708 1.5708 0"/>
+    <parent link="atom_ombro_chapa"/>
+    <child link="atom_braco"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from chest to atom_ombro_chapa -->
+  <joint name="right_arm" type="revolute">
+    <origin xyz="-0.0444617 0.0845222 0.16025" rpy="1.5708 1.5708 0"/>
+    <parent link="chest"/>
+    <child link="atom_ombro_chapa"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Link atom_ombro_chapa_2 -->
+  <link name="atom_ombro_chapa_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part atom_ombro_2 -->
+    <visual>
+      <origin xyz="-0.014 -0.0265 -0.001" rpy="-7.43613e-32 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_ombro.stl"/>
+      </geometry>
+      <material name="atom_ombro_2_material">
+        <color rgba="0.576471 0.576471 0.576471 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.014 -0.0265 -0.001" rpy="-7.43613e-32 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_ombro.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_ombro_chapa_2 -->
+    <visual>
+      <origin xyz="0.014 0.028 0.000284271" rpy="3.14159 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_ombro_chapa.stl"/>
+      </geometry>
+      <material name="atom_ombro_chapa_2_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.014 0.028 0.000284271" rpy="3.14159 -1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_ombro_chapa.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link atom_braco_2 -->
+  <link name="atom_braco_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part atom_braco_2 -->
+    <visual>
+      <origin xyz="0.01675 -0.14775 -0.0465" rpy="8.11237e-34 4.33681e-19 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_braco.stl"/>
+      </geometry>
+      <material name="atom_braco_2_material">
+        <color rgba="0.627451 0.627451 0.627451 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.01675 -0.14775 -0.0465" rpy="8.11237e-34 4.33681e-19 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_braco.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part xm540_5 -->
+    <visual>
+      <origin xyz="0 0 -0.0245" rpy="-1.5708 -1.66273e-35 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+      <material name="xm540_5_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.0245" rpy="-1.5708 -1.66273e-35 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part xm540_6 -->
+    <visual>
+      <origin xyz="2.77556e-17 -0.131 -0.0269125" rpy="1.5708 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+      <material name="xm540_6_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="2.77556e-17 -0.131 -0.0269125" rpy="1.5708 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/xm540.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link atom_mao_2 -->
+  <link name="atom_mao_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part atom_mao_3 -->
+    <visual>
+      <origin xyz="0.015 0.0025 -1.38778e-17" rpy="3.14159 -1.33357e-16 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao.stl"/>
+      </geometry>
+      <material name="atom_mao_3_material">
+        <color rgba="0.627451 0.627451 0.627451 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.015 0.0025 -1.38778e-17" rpy="3.14159 -1.33357e-16 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_mao_4 -->
+    <visual>
+      <origin xyz="0.015 0.0025 0.051" rpy="-3.14159 4.68375e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao.stl"/>
+      </geometry>
+      <material name="atom_mao_4_material">
+        <color rgba="0.627451 0.627451 0.627451 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.015 0.0025 0.051" rpy="-3.14159 4.68375e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_mao_espacador_2 -->
+    <visual>
+      <origin xyz="1.49013e-10 -0.196 0.051" rpy="3.14159 3.70797e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao_espacador.stl"/>
+      </geometry>
+      <material name="atom_mao_espacador_2_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="1.49013e-10 -0.196 0.051" rpy="3.14159 3.70797e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="package://robot_description/assets/atom_mao_espacador.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from atom_braco_2 to atom_mao_2 -->
+  <joint name="elbow_left (1)" type="revolute">
+    <origin xyz="-0.0245 -0.131 -0.0269125" rpy="-5.29681e-24 1.5708 0"/>
+    <parent link="atom_braco_2"/>
+    <child link="atom_mao_2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from atom_ombro_chapa_2 to atom_braco_2 -->
+  <joint name="shoulder_left_left (1)" type="revolute">
+    <origin xyz="-0.025 -0.0245 -0.037" rpy="1.5708 1.5708 0"/>
+    <parent link="atom_ombro_chapa_2"/>
+    <child link="atom_braco_2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+  <!-- Joint from chest to atom_ombro_chapa_2 -->
+  <joint name="left_arm" type="revolute">
+    <origin xyz="-0.0444617 -0.0844778 0.16025" rpy="-1.5708 -1.5708 0"/>
+    <parent link="chest"/>
+    <child link="atom_ombro_chapa_2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+  </joint>
+</robot>

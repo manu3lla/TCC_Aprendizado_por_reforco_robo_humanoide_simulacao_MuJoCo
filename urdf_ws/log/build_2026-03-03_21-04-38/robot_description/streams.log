@@ -1,0 +1,145 @@
+[0.014s] Invoking command in '/home/letizia/urdf_ws/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/letizia/urdf_ws/src/robot_description -DCMAKE_INSTALL_PREFIX=/home/letizia/urdf_ws/install/robot_description
+[0.086s] -- The C compiler identification is GNU 11.4.0
+[0.170s] -- The CXX compiler identification is GNU 11.4.0
+[0.180s] -- Detecting C compiler ABI info
+[0.271s] -- Detecting C compiler ABI info - done
+[0.286s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.286s] -- Detecting C compile features
+[0.287s] -- Detecting C compile features - done
+[0.292s] -- Detecting CXX compiler ABI info
+[0.411s] -- Detecting CXX compiler ABI info - done
+[0.425s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.425s] -- Detecting CXX compile features
+[0.426s] -- Detecting CXX compile features - done
+[0.431s] -- Found ament_cmake: 1.3.13 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.046s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.180s] -- Found robot_state_publisher: 3.0.3 (/opt/ros/humble/share/robot_state_publisher/cmake)
+[1.232s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.239s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.252s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.270s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.293s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.380s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.382s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.382s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.444s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.448s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.561s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.597s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.653s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.665s] -- Looking for pthread.h
+[1.760s] -- Looking for pthread.h - found
+[1.760s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.856s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.858s] -- Found Threads: TRUE  
+[2.149s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.280s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.281s] -- Configured cppcheck include dirs: 
+[2.281s] -- Configured cppcheck exclude dirs and/or files: 
+[2.283s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.288s] -- Added test 'lint_cmake' to check CMake code style
+[2.290s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[2.306s] -- Added test 'uncrustify' to check C / C++ code style
+[2.307s] -- Configured uncrustify additional arguments: 
+[2.309s] -- Added test 'xmllint' to check XML markup files
+[2.311s] -- Configuring done
+[2.319s] -- Generating done
+[2.322s] -- Build files have been written to: /home/letizia/urdf_ws/build/robot_description
+[2.337s] Invoked command in '/home/letizia/urdf_ws/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/letizia/urdf_ws/src/robot_description -DCMAKE_INSTALL_PREFIX=/home/letizia/urdf_ws/install/robot_description
+[2.339s] Invoking command in '/home/letizia/urdf_ws/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/letizia/urdf_ws/build/robot_description -- -j4 -l4
+[2.394s] Invoked command in '/home/letizia/urdf_ws/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/letizia/urdf_ws/build/robot_description -- -j4 -l4
+[2.407s] Invoking command in '/home/letizia/urdf_ws/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/letizia/urdf_ws/build/robot_description
+[2.417s] -- Install configuration: ""
+[2.417s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/launch
+[2.418s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/launch/display.launch.py
+[2.418s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/urdf
+[2.418s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/urdf/robot.urdf
+[2.418s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets
+[2.419s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_chapa_peito_baixo.stl
+[2.419s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_peito_lateral.stl
+[2.420s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_peito_traseira_impressao.part
+[2.420s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_junta_inferior_pe.part
+[2.420s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/xm540.stl
+[2.422s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_panturrilha.part
+[2.423s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/xm430.stl
+[2.424s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_ombro.stl
+[2.425s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_camera.stl
+[2.426s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_ombro_chapa.stl
+[2.426s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/part_1__2.part
+[2.427s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_chapa_motores_ombro.part
+[2.428s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_camera.part
+[2.428s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_conector_rolamento.stl
+[2.428s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_mao.stl
+[2.428s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_camera__2.part
+[2.428s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_pe.part
+[2.429s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_cravo_cilindrico.part
+[2.429s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_mao_espacador.part
+[2.429s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_junta.stl
+[2.429s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_junta_inferior_pe.stl
+[2.430s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_camera__3.stl
+[2.431s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_mao_espacador.stl
+[2.431s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_panturrilha_espacador.part
+[2.431s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/part_1.stl
+[2.432s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_chapa_peito_traseira_fibra.stl
+[2.432s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_panturrilha.stl
+[2.432s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_amortecedor_frente_corrigido.part
+[2.433s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/part_1__2.stl
+[2.433s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_conector_rolamento.part
+[2.433s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_mao.part
+[2.433s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_amortecedor_frente_corrigido.stl
+[2.434s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_conector_motores_dir.part
+[2.434s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/part_1__3.part
+[2.434s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/part_1__3.stl
+[2.435s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_cravo_cilindrico.stl
+[2.435s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_ombro.part
+[2.435s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_peito_lateral.part
+[2.436s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/part_1.part
+[2.436s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/xm430.part
+[2.436s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_chapa_ombro_cima_fibra.stl
+[2.436s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_peito_traseira_impressao.stl
+[2.437s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_pescoco.part
+[2.437s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_panturrilha_espacador.stl
+[2.437s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_pe.stl
+[2.438s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_camera__3.part
+[2.438s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_tampa_puxador.stl
+[2.438s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_quadril_espacador.stl
+[2.439s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_quadril_espacador.part
+[2.439s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_amortecedor_tras_lados_invertidos.part
+[2.439s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_braco.stl
+[2.439s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_pescoco.stl
+[2.440s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_amortecedor_tras_lados_invertidos__2.stl
+[2.440s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_puxador.part
+[2.441s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_1_peito_frontal_impressao.part
+[2.441s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_chapa_motores_ombro.stl
+[2.442s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_chapa_ombro_cima_fibra.part
+[2.442s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_amortecedor_tras_lados_invertidos.stl
+[2.442s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_braco.part
+[2.442s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_ombro_chapa.part
+[2.442s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_porta_bateria.part
+[2.442s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_1_peito_frontal_impressao.stl
+[2.443s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_porta_bateria.stl
+[2.443s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_junta.part
+[2.443s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_chapa_peito_baixo.part
+[2.444s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_amortecedor_tras_lados_invertidos__2.part
+[2.444s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_chapa_peito_traseira_fibra.part
+[2.444s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_conector_motores_dir.stl
+[2.445s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_tampa_puxador.part
+[2.445s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/xm540.part
+[2.445s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_puxador.stl
+[2.445s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/assets/atom_camera__2.stl
+[2.446s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/ament_index/resource_index/package_run_dependencies/robot_description
+[2.446s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/ament_index/resource_index/parent_prefix_path/robot_description
+[2.447s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/environment/ament_prefix_path.sh
+[2.447s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/environment/ament_prefix_path.dsv
+[2.447s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/environment/path.sh
+[2.448s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/environment/path.dsv
+[2.448s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/local_setup.bash
+[2.448s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/local_setup.sh
+[2.448s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/local_setup.zsh
+[2.449s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/local_setup.dsv
+[2.449s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/package.dsv
+[2.449s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/ament_index/resource_index/packages/robot_description
+[2.450s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/cmake/robot_descriptionConfig.cmake
+[2.450s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/cmake/robot_descriptionConfig-version.cmake
+[2.450s] -- Installing: /home/letizia/urdf_ws/install/robot_description/share/robot_description/package.xml
+[2.453s] Invoked command in '/home/letizia/urdf_ws/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/letizia/urdf_ws/build/robot_description
