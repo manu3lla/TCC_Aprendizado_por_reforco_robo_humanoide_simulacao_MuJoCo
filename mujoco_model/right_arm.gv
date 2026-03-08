@@ -1,0 +1,11 @@
+digraph G {
+node [shape=box];
+"atom_ombro" [label="atom_ombro"];
+"atom_braco" [label="atom_braco"];
+"atom_mao_espacador" [label="atom_mao_espacador"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"atom_ombro" -> "shoulder_right" [label="xyz: 0.00890892 0.0131659 0.0704347 \nrpy: 1.5708 3.10862e-15 -1.56889"]
+"shoulder_right" -> "atom_braco"
+"atom_braco" -> "elbow_right" [label="xyz: -0.0245 -0.131 -0.0269125 \nrpy: 0 1.5708 7.06239e-24"]
+"elbow_right" -> "atom_mao_espacador"
+}
