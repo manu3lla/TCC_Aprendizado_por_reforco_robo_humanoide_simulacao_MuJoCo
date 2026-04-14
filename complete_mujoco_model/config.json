@@ -1,0 +1,6 @@
+{
+    "url": "https://cad.onshape.com/documents/d1966859336362bc930929a4/w/56b6dcc60dcf28ac3423a25e/e/f2d5778f9e18520024d3cda4",
+    "output_format": "mujoco",
+    "merge_stls": "collision",
+    "simplify_stls": "collision"
+}
