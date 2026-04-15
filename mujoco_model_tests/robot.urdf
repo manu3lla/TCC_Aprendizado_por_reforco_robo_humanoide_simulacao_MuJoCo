@@ -1,0 +1,190 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape https://cad.onshape.com/documents/d1966859336362bc930929a4/w/56b6dcc60dcf28ac3423a25e/e/ef4346ef33e595185f4c45c3 -->
+<robot name="mujoco_model">
+  <!-- Link xm540 -->
+  <link name="xm540">
+    <inertial>
+      <origin xyz="-0.259602 -0.167365 0.0580926" rpy="0 0 0"/>
+      <mass value="0.354226"/>
+      <inertia ixx="0.00101465" ixy="1.04493e-08" ixz="4.06372e-05" iyy="0.00102232" iyz="5.21445e-06" izz="9.4737e-05"/>
+    </inertial>
+    <!-- Part xm540 -->
+    <visual>
+      <origin xyz="-0.262254 -0.167665 0.127653" rpy="-2.68422e-17 3.21934e-15 -1.56889"/>
+      <geometry>
+        <mesh filename="assets/xm540.stl"/>
+      </geometry>
+      <material name="xm540_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.262254 -0.167665 0.127653" rpy="-2.68422e-17 3.21934e-15 -1.56889"/>
+      <geometry>
+        <mesh filename="assets/xm540.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_braco -->
+    <visual>
+      <origin xyz="-0.240222 -0.184373 -0.020097" rpy="-1.5708 -3.21934e-15 1.57271"/>
+      <geometry>
+        <mesh filename="assets/atom_braco.stl"/>
+      </geometry>
+      <material name="atom_braco_material">
+        <color rgba="0.627451 0.627451 0.627451 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.240222 -0.184373 -0.020097" rpy="-1.5708 -3.21934e-15 1.57271"/>
+      <geometry>
+        <mesh filename="assets/atom_braco.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part xm540_2 -->
+    <visual>
+      <origin xyz="-0.259841 -0.16766 -0.00334704" rpy="-3.14159 2.68422e-17 0.00190927"/>
+      <geometry>
+        <mesh filename="assets/xm540.stl"/>
+      </geometry>
+      <material name="xm540_2_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.259841 -0.16766 -0.00334704" rpy="-3.14159 2.68422e-17 0.00190927"/>
+      <geometry>
+        <mesh filename="assets/xm540.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link atom_mao -->
+  <link name="atom_mao">
+    <inertial>
+      <origin xyz="1.50153e-10 -0.103187 0.0245" rpy="0 0 0"/>
+      <mass value="0.0784457"/>
+      <inertia ixx="0.000306946" ixy="-8.67553e-15" ixz="3.13831e-20" iyy="7.26017e-05" iyz="-7.07273e-20" izz="0.000278326"/>
+    </inertial>
+    <!-- Part atom_mao_espacador -->
+    <visual>
+      <origin xyz="1.49013e-10 -0.196 0.051" rpy="3.14159 3.72317e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="assets/atom_mao_espacador.stl"/>
+      </geometry>
+      <material name="atom_mao_espacador_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="1.49013e-10 -0.196 0.051" rpy="3.14159 3.72317e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="assets/atom_mao_espacador.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_mao -->
+    <visual>
+      <origin xyz="0.015 0.0025 -2.77556e-17" rpy="3.14159 -1.33205e-16 -3.14159"/>
+      <geometry>
+        <mesh filename="assets/atom_mao.stl"/>
+      </geometry>
+      <material name="atom_mao_material">
+        <color rgba="0.627451 0.627451 0.627451 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.015 0.0025 -2.77556e-17" rpy="3.14159 -1.33205e-16 -3.14159"/>
+      <geometry>
+        <mesh filename="assets/atom_mao.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_mao_2 -->
+    <visual>
+      <origin xyz="0.015 0.0025 0.051" rpy="-3.14159 4.69895e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="assets/atom_mao.stl"/>
+      </geometry>
+      <material name="atom_mao_2_material">
+        <color rgba="0.627451 0.627451 0.627451 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.015 0.0025 0.051" rpy="-3.14159 4.69895e-17 -3.14159"/>
+      <geometry>
+        <mesh filename="assets/atom_mao.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from xm540 to atom_mao -->
+  <joint name="elbow_left" type="revolute">
+    <origin xyz="-0.259888 -0.14316 -0.00334704" rpy="1.5708 2.68422e-17 0.00190927"/>
+    <parent link="xm540"/>
+    <child link="atom_mao"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+    <dynamics damping="0.05" friction="0.01"/>
+  </joint>
+  <!-- Link atom_ombro -->
+  <link name="atom_ombro">
+    <inertial>
+      <origin xyz="-0.0192767 -0.0223552 0.0245697" rpy="0 0 0"/>
+      <mass value="0.0432836"/>
+      <inertia ixx="2.93499e-05" ixy="-4.5151e-06" ixz="2.42475e-08" iyy="3.21231e-05" iyz="5.32541e-08" izz="1.71846e-05"/>
+    </inertial>
+    <!-- Part atom_ombro -->
+    <visual>
+      <origin xyz="-0.036 -0.011 -0.002" rpy="1.5708 8.86061e-19 -3.1925e-15"/>
+      <geometry>
+        <mesh filename="assets/atom_ombro.stl"/>
+      </geometry>
+      <material name="atom_ombro_material">
+        <color rgba="0.576471 0.576471 0.576471 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.036 -0.011 -0.002" rpy="1.5708 8.86061e-19 -3.1925e-15"/>
+      <geometry>
+        <mesh filename="assets/atom_ombro.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part atom_ombro_chapa -->
+    <visual>
+      <origin xyz="-0.0372843 -0.039 0.0525" rpy="-1.5708 -9.02955e-19 3.14159"/>
+      <geometry>
+        <mesh filename="assets/atom_ombro_chapa.stl"/>
+      </geometry>
+      <material name="atom_ombro_chapa_material">
+        <color rgba="0.74902 0.74902 0.74902 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0372843 -0.039 0.0525" rpy="-1.5708 -9.02955e-19 3.14159"/>
+      <geometry>
+        <mesh filename="assets/atom_ombro_chapa.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from xm540 to atom_ombro -->
+  <joint name="shoulder_left" type="revolute">
+    <origin xyz="-0.286754 -0.167712 0.127653" rpy="-1.5708 3.21934e-15 -1.56889"/>
+    <parent link="xm540"/>
+    <child link="atom_ombro"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.141592653589793" upper="3.141592653589793"/>
+    <dynamics damping="0.05" friction="0.01"/>
+  </joint>
+
+  <mujoco>
+    <actuator>
+      
+      <motor name="shoulder_motor"
+            joint="shoulder_left"
+            gear="50"/>
+            
+      <motor name="elbow_motor"
+            joint="elbow_left"
+            gear="50"/>
+
+    </actuator>
+  </mujoco>
+
+</robot>

@@ -1,0 +1,12 @@
+<mujoco>
+
+  <asset>
+    <mesh name="xm540" file="assets/xm540.stl"/>
+    <mesh name="atom_braco" file="assets/atom_braco.stl"/>
+    <mesh name="atom_mao_espacador" file="assets/atom_mao_espacador.stl"/>
+    <mesh name="atom_mao" file="assets/atom_mao.stl"/>
+    <mesh name="atom_ombro" file="assets/atom_ombro.stl"/>
+    <mesh name="atom_ombro_chapa" file="assets/atom_ombro_chapa.stl"/>
+  </asset>
+
+</mujoco>

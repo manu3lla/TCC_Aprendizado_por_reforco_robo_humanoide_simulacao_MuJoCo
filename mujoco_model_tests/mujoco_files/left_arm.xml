@@ -1,0 +1,120 @@
+<mujoco model="left_arm">
+
+  <compiler angle="radian"/>
+
+  <worldbody>
+
+    <!-- BASE DO OMBRO -->
+    <body name="shoulder_base_left">
+
+      <geom pos="-0.036 -0.011 -0.002"
+            quat="0.707105 0.707108 0 0"
+            type="mesh"
+            mesh="atom_ombro"
+            rgba="0.576471 0.576471 0.576471 1"
+            contype="0" conaffinity="0"/>
+
+      <geom pos="-0.0372843 -0.039 0.0525"
+            quat="9.38184e-07 -9.38187e-07 -0.707108 0.707105"
+            type="mesh"
+            mesh="atom_ombro_chapa"
+            rgba="0.74902 0.74902 0.74902 1"
+            contype="0" conaffinity="0"/>
+
+      <!-- BRAÇO -->
+      <body name="atom_braco_left"
+            pos="-0.286754 -0.167712 0.127653"
+            quat="0.500475 -0.500477 0.499524 -0.499522">
+
+        <inertial pos="-0.259602 -0.167365 0.0580926"
+                  mass="0.354226"
+                  diaginertia="0.00101465 0.00102232 9.4737e-05"/>
+
+        <joint name="shoulder_left"
+               pos="0 0 0"
+               axis="0 0 1"
+               range="-3.14159 3.14159"
+               damping="1"
+               armature="0.02"/>
+
+        <!-- VISUAL -->
+        <geom pos="-0.240222 -0.184373 -0.020097"
+              quat="0.49952 -0.499522 -0.500479 0.500477"
+              type="mesh"
+              mesh="atom_braco"
+              rgba="0.627451 0.627451 0.627451 1"
+              contype="0" conaffinity="0"/>
+
+        <geom pos="-0.262254 -0.167665 0.127653"
+              quat="0.70778 0 0 -0.706432"
+              type="mesh"
+              mesh="xm540"
+              rgba="0.74902 0.74902 0.74902 1"
+              contype="0" conaffinity="0"/>
+
+        <geom pos="-0.259841 -0.16766 -0.00334704"
+              quat="1.32679e-06 -1 -0.000954635 1.2666e-09"
+              type="mesh"
+              mesh="xm540"
+              rgba="0.74902 0.74902 0.74902 1"
+              contype="0" conaffinity="0"/>
+
+        <!-- COLISÃO SIMPLES DO BRAÇO -->
+        <geom type="capsule"
+              fromto="0 0 0 0 -0.15 0"
+              size="0.03"
+              rgba="0 0 0 0"/>
+
+        <!-- ANTEBRAÇO -->
+        <body name="atom_mao_left"
+              pos="-0.259888 -0.14316 -0.00334704"
+              quat="0.707105 0.707108 0.00067503 0.000675028">
+
+          <inertial pos="1.50153e-10 -0.103187 0.0245"
+                    quat="0.707107 0.707107 0 0"
+                    mass="0.0784457"
+                    diaginertia="0.000306946 0.000278326 7.26017e-05"/>
+
+          <joint name="elbow_left"
+                 pos="0 0 0"
+                 axis="0 0 1"
+                 range="-3.14159 3.14159"
+                 damping="1"
+                 armature="0.01"/>
+
+          <!-- VISUAL -->
+          <geom pos="1.49013e-10 -0.196 0.051"
+                quat="1.76037e-12 1.32679e-06 -1 -1.32679e-06"
+                type="mesh"
+                mesh="atom_mao_espacador"
+                rgba="0.74902 0.74902 0.74902 1"
+                contype="0" conaffinity="0"/>
+
+          <geom pos="0.015 0.0025 0"
+                quat="1.7604e-12 1.32679e-06 -1 -1.32679e-06"
+                type="mesh"
+                mesh="atom_mao"
+                rgba="0.627451 0.627451 0.627451 1"
+                contype="0" conaffinity="0"/>
+
+          <geom pos="0.015 0.0025 0.051"
+                quat="1.76037e-12 -1.32679e-06 1 -1.32679e-06"
+                type="mesh"
+                mesh="atom_mao"
+                rgba="0.627451 0.627451 0.627451 1"
+                contype="0" conaffinity="0"/>
+
+          <!-- COLISÃO DO ANTEBRAÇO -->
+          <geom type="capsule"
+                fromto="0 0 0 0 -0.18 0"
+                size="0.025"
+                rgba="0 0 0 0"/>
+
+        </body>
+      </body>
+
+    </body>
+
+  </worldbody>
+
+</mujoco>

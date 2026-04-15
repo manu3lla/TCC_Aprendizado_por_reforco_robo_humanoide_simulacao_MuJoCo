@@ -19,7 +19,7 @@
     <!-- Link chest -->
     <body name="chest" pos="0 0 0" quat="1 0 0 0" childclass="complete_mujoco_model">
       <freejoint name="chest_freejoint"/>
-      <inertial pos="0.0172994 0.0229471 -0.00779159" mass="2.2942" fullinertia="0.0161334 0.0143449 0.0105368 0.000124229 -0.00022085 -2.30736e-05"/>
+      <inertial pos="0.0114588 0.0235226 -0.0121161" mass="2.89666" fullinertia="0.0193754 0.0171584 0.0124067 0.000166433 -0.000570334 1.46743e-05"/>
       <!-- Part atom_porta_bateria -->
       <geom type="mesh" class="visual" pos="-0.0434123 0.101202 -0.0743185" quat="1.3542e-08 0 0 -1" mesh="atom_porta_bateria" material="atom_porta_bateria_material"/>
       <!-- Part atom_amortecedor_tras_lados_invertidos -->
@@ -65,7 +65,7 @@
       <!-- Part atom_peito_traseira_impressao -->
       <geom type="mesh" class="visual" pos="0.0745877 -0.0542981 -0.0813185" quat="1 0 -0 1.3542e-08" mesh="atom_peito_traseira_impressao" material="atom_peito_traseira_impressao_material"/>
       <!-- Part chest_parts -->
-      <geom type="mesh" class="collision" pos="0.0172994 0.0229471 -0.00779159" quat="1 0 0 0" mesh="chest_collision" material="chest_collision_material"/>
+      <geom type="mesh" class="collision" pos="0.0114588 0.0235226 -0.0121161" quat="1 0 0 0" mesh="chest_collision" material="chest_collision_material"/>
       <!-- Link atom_pescoco -->
       <body name="atom_pescoco" pos="-0.0296623 0.0258519 0.106682" quat="0 -0.707107 -0.707107 -0">
         <!-- Joint from chest to atom_pescoco -->
@@ -111,7 +111,7 @@
         <body name="left_arm" pos="-0.03 -0.0245 -0.037" quat="0.5 0.5 0.5 -0.5">
           <!-- Joint from shoulder to left_arm -->
           <joint axis="0 0 1" name="left_shoulder_roll" type="hinge"/>
-          <inertial pos="-0.000340834 -0.0655 -0.0257922" mass="0.306214" fullinertia="0.000908054 7.92334e-05 0.000906897 -5.56063e-06 -2.06004e-07 -3.07987e-05"/>
+          <inertial pos="-0.000305608 -0.0686966 -0.0270204" mass="0.341511" fullinertia="0.00100495 9.07464e-05 0.000998899 -5.22701e-06 -7.7811e-08 -4.23128e-05"/>
           <!-- Part xm540_6 -->
           <geom type="mesh" class="visual" pos="-0 0 -0.0245" quat="0.707107 -0.707107 0 -0" mesh="xm540" material="xm540_material"/>
           <!-- Part atom_braco -->
@@ -119,7 +119,7 @@
           <!-- Part xm540_7 -->
           <geom type="mesh" class="visual" pos="0 -0.131 -0.027766" quat="0.5 0.5 0.5 -0.5" mesh="xm540" material="xm540_material"/>
           <!-- Part left_arm_parts -->
-          <geom type="mesh" class="collision" pos="-0.000340834 -0.0655 -0.0257922" quat="0.5 -0.5 0.5 0.5" mesh="left_arm_collision" material="left_arm_collision_material"/>
+          <geom type="mesh" class="collision" pos="-0.000305608 -0.0686966 -0.0270204" quat="0.5 -0.5 0.5 0.5" mesh="left_arm_collision" material="left_arm_collision_material"/>
           <!-- Link hand -->
           <body name="hand" pos="-0.0245 -0.131 -0.027766" quat="0.707107 -0 0.707107 -0">
             <!-- Joint from left_arm to hand -->
@@ -151,7 +151,7 @@
         <body name="right_arm" pos="0.03 -0.0245 -0.037" quat="0.5 0.5 -0.5 0.5">
           <!-- Joint from shoulder_2 to right_arm -->
           <joint axis="0 0 1" name="right_shoulder_roll" type="hinge"/>
-          <inertial pos="-0.000340834 -0.0655 -0.0257922" mass="0.306214" fullinertia="0.000908054 7.92334e-05 0.000906897 -5.56063e-06 -2.06004e-07 -3.07987e-05"/>
+          <inertial pos="-0.000305608 -0.0686966 -0.0270204" mass="0.341511" fullinertia="0.00100495 9.07464e-05 0.000998899 -5.22701e-06 -7.7811e-08 -4.23128e-05"/>
           <!-- Part xm540_8 -->
           <geom type="mesh" class="visual" pos="-0 -0.131 -0.027766" quat="0.5 0.5 0.5 -0.5" mesh="xm540" material="xm540_material"/>
           <!-- Part xm540_9 -->
@@ -159,7 +159,7 @@
           <!-- Part atom_braco_2 -->
           <geom type="mesh" class="visual" pos="0.01675 -0.14775 -0.0465" quat="0 -0 0 1" mesh="atom_braco" material="atom_braco_material"/>
           <!-- Part right_arm_parts -->
-          <geom type="mesh" class="collision" pos="-0.000340834 -0.0655 -0.0257922" quat="0.5 -0.5 0.5 0.5" mesh="right_arm_collision" material="right_arm_collision_material"/>
+          <geom type="mesh" class="collision" pos="-0.000305608 -0.0686966 -0.0270204" quat="0.5 -0.5 0.5 0.5" mesh="right_arm_collision" material="right_arm_collision_material"/>
           <!-- Link hand_2 -->
           <body name="hand_2" pos="-0.0245 -0.131 -0.027766" quat="0.707107 -0 0.707107 -0">
             <!-- Joint from right_arm to hand_2 -->
@@ -375,69 +375,69 @@
     </body>
   </worldbody>
   <asset>
-    <mesh file="merged/head_collision.stl"/>
-    <mesh file="atom_puxador.stl"/>
-    <mesh file="atom_conector_rolamento.stl"/>
-    <mesh file="atom_ombro_chapa.stl"/>
-    <mesh file="atom_amortecedor_tras_lados_invertidos.stl"/>
-    <mesh file="part_1.stl"/>
-    <mesh file="atom_panturrilha.stl"/>
-    <mesh file="atom_pe.stl"/>
-    <mesh file="merged/left_glutes_collision.stl"/>
-    <mesh file="merged/left_foot_collision.stl"/>
-    <mesh file="atom_junta_inferior_coxa.stl"/>
-    <mesh file="xm540__2.stl"/>
-    <mesh file="part_1__2.stl"/>
-    <mesh file="atom_chapa_ombro_cima_fibra.stl"/>
-    <mesh file="atom_chapa_peito_baixo.stl"/>
-    <mesh file="atom_junta__2.stl"/>
-    <mesh file="merged/calf_collision.stl"/>
-    <mesh file="atom_pescoco.stl"/>
-    <mesh file="atom_camera__2.stl"/>
-    <mesh file="atom_coxa.stl"/>
-    <mesh file="merged/left_ankle_collision.stl"/>
-    <mesh file="atom_ombro.stl"/>
-    <mesh file="atom_chapa_peito_traseira_fibra.stl"/>
-    <mesh file="atom_quadril_espacador.stl"/>
-    <mesh file="part_1__3.stl"/>
-    <mesh file="merged/chest_collision.stl"/>
-    <mesh file="atom_1_peito_frontal_impressao.stl"/>
-    <mesh file="merged/left_arm_collision.stl"/>
-    <mesh file="atom_mao.stl"/>
-    <mesh file="xm540__4.stl"/>
-    <mesh file="atom_junta_inferior_pe.stl"/>
-    <mesh file="atom_camera.stl"/>
-    <mesh file="atom_camera__3.stl"/>
-    <mesh file="merged/hand_2_collision.stl"/>
-    <mesh file="merged/groin_collision.stl"/>
-    <mesh file="atom_mao_espacador.stl"/>
-    <mesh file="atom_chapa_motores_ombro.stl"/>
-    <mesh file="merged/hand_collision.stl"/>
-    <mesh file="atom_peito_traseira_impressao.stl"/>
-    <mesh file="merged/atom_pescoco_collision.stl"/>
-    <mesh file="xm430.stl"/>
-    <mesh file="atom_conector_motores_dir_simulacao.stl"/>
-    <mesh file="atom_conector_motores_esq_simulacao.stl"/>
-    <mesh file="atom_junta.stl"/>
-    <mesh file="atom_conector_rolamento__2.stl"/>
-    <mesh file="merged/groin_2_collision.stl"/>
-    <mesh file="atom_braco.stl"/>
-    <mesh file="merged/right_foot_collision.stl"/>
-    <mesh file="atom_cravo_cilindrico.stl"/>
     <mesh file="atom_porta_bateria.stl"/>
-    <mesh file="merged/thigh_2_collision.stl"/>
     <mesh file="xm540.stl"/>
-    <mesh file="merged/shoulder_2_collision.stl"/>
-    <mesh file="merged/right_arm_collision.stl"/>
-    <mesh file="atom_peito_lateral.stl"/>
-    <mesh file="xm540__3.stl"/>
-    <mesh file="merged/calf_2_collision.stl"/>
-    <mesh file="atom_amortecedor_tras_lados_invertidos__2.stl"/>
-    <mesh file="merged/shoulder_collision.stl"/>
-    <mesh file="merged/right_ankle_collision.stl"/>
+    <mesh file="merged/thigh_2_collision.stl"/>
+    <mesh file="merged/head_collision.stl"/>
     <mesh file="atom_amortecedor_frente_corrigido.stl"/>
+    <mesh file="merged/left_arm_collision.stl"/>
+    <mesh file="merged/hand_2_collision.stl"/>
+    <mesh file="part_1__3.stl"/>
+    <mesh file="atom_chapa_ombro_cima_fibra.stl"/>
+    <mesh file="merged/atom_pescoco_collision.stl"/>
+    <mesh file="atom_junta_inferior_coxa.stl"/>
+    <mesh file="merged/shoulder_2_collision.stl"/>
+    <mesh file="atom_ombro_chapa.stl"/>
+    <mesh file="atom_ombro.stl"/>
+    <mesh file="atom_conector_rolamento.stl"/>
+    <mesh file="merged/left_ankle_collision.stl"/>
+    <mesh file="merged/right_arm_collision.stl"/>
+    <mesh file="xm540__4.stl"/>
+    <mesh file="merged/groin_2_collision.stl"/>
     <mesh file="merged/right_glutes_collision.stl"/>
+    <mesh file="xm540__2.stl"/>
+    <mesh file="atom_chapa_peito_baixo.stl"/>
+    <mesh file="atom_camera__2.stl"/>
+    <mesh file="xm540__3.stl"/>
+    <mesh file="atom_pescoco.stl"/>
+    <mesh file="merged/left_glutes_collision.stl"/>
+    <mesh file="merged/chest_collision.stl"/>
+    <mesh file="atom_peito_lateral.stl"/>
+    <mesh file="atom_conector_motores_dir_simulacao.stl"/>
+    <mesh file="atom_coxa.stl"/>
+    <mesh file="atom_quadril_espacador.stl"/>
+    <mesh file="atom_chapa_motores_ombro.stl"/>
+    <mesh file="atom_junta__2.stl"/>
+    <mesh file="atom_camera.stl"/>
+    <mesh file="merged/right_ankle_collision.stl"/>
     <mesh file="merged/thigh_collision.stl"/>
+    <mesh file="atom_cravo_cilindrico.stl"/>
+    <mesh file="atom_puxador.stl"/>
+    <mesh file="atom_chapa_peito_traseira_fibra.stl"/>
+    <mesh file="atom_mao.stl"/>
+    <mesh file="atom_junta.stl"/>
+    <mesh file="atom_panturrilha.stl"/>
+    <mesh file="atom_junta_inferior_pe.stl"/>
+    <mesh file="atom_conector_rolamento__2.stl"/>
+    <mesh file="atom_amortecedor_tras_lados_invertidos.stl"/>
+    <mesh file="merged/hand_collision.stl"/>
+    <mesh file="atom_mao_espacador.stl"/>
+    <mesh file="atom_peito_traseira_impressao.stl"/>
+    <mesh file="part_1.stl"/>
+    <mesh file="merged/shoulder_collision.stl"/>
+    <mesh file="merged/calf_2_collision.stl"/>
+    <mesh file="merged/groin_collision.stl"/>
+    <mesh file="atom_camera__3.stl"/>
+    <mesh file="merged/left_foot_collision.stl"/>
+    <mesh file="atom_1_peito_frontal_impressao.stl"/>
+    <mesh file="atom_conector_motores_esq_simulacao.stl"/>
+    <mesh file="merged/right_foot_collision.stl"/>
+    <mesh file="merged/calf_collision.stl"/>
+    <mesh file="atom_pe.stl"/>
+    <mesh file="part_1__2.stl"/>
+    <mesh file="atom_amortecedor_tras_lados_invertidos__2.stl"/>
+    <mesh file="atom_braco.stl"/>
+    <mesh file="xm430.stl"/>
     <material name="atom_porta_bateria_material" rgba="0.74902 0.74902 0.74902 1"/>
     <material name="atom_amortecedor_tras_lados_invertidos_material" rgba="0.74902 0.74902 0.74902 1"/>
     <material name="xm540_material" rgba="0.74902 0.74902 0.74902 1"/>
@@ -455,7 +455,7 @@
     <material name="atom_chapa_motores_ombro_material" rgba="0.74902 0.74902 0.74902 1"/>
     <material name="atom_quadril_espacador_material" rgba="0.74902 0.74902 0.74902 1"/>
     <material name="atom_peito_traseira_impressao_material" rgba="0.74902 0.74902 0.74902 1"/>
-    <material name="chest_collision_material" rgba="0.591867 0.600193 0.606296 1"/>
+    <material name="chest_collision_material" rgba="0.606687 0.639553 0.660151 1"/>
     <material name="atom_pescoco_material" rgba="0.74902 0.74902 0.74902 1"/>
     <material name="atom_pescoco_collision_material" rgba="0.74902 0.74902 0.74902 1"/>
     <material name="atom_camera_material" rgba="0.501961 0.501961 0.501961 1"/>
@@ -468,12 +468,12 @@
     <material name="atom_ombro_material" rgba="0.576471 0.576471 0.576471 1"/>
     <material name="shoulder_collision_material" rgba="0.60058 0.60058 0.60058 1"/>
     <material name="atom_braco_material" rgba="0.627451 0.627451 0.627451 1"/>
-    <material name="left_arm_collision_material" rgba="0.74902 0.74902 0.74902 1"/>
+    <material name="left_arm_collision_material" rgba="0.736455 0.736455 0.736455 1"/>
     <material name="atom_mao_material" rgba="0.627451 0.627451 0.627451 1"/>
     <material name="atom_mao_espacador_material" rgba="0.74902 0.74902 0.74902 1"/>
     <material name="hand_collision_material" rgba="0.62903 0.62903 0.62903 1"/>
     <material name="shoulder_2_collision_material" rgba="0.60058 0.60058 0.60058 1"/>
-    <material name="right_arm_collision_material" rgba="0.74902 0.74902 0.74902 1"/>
+    <material name="right_arm_collision_material" rgba="0.736455 0.736455 0.736455 1"/>
     <material name="hand_2_collision_material" rgba="0.62903 0.62903 0.62903 1"/>
     <material name="atom_junta_inferior_coxa_material" rgba="0.74902 0.74902 0.74902 1"/>
     <material name="atom_junta_material" rgba="0.6 0.6 0.6 1"/>

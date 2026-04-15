@@ -1,0 +1,21 @@
+Entrar no âmbiente virtual MuJoCo:
+
+source mujoco_env/bin/activate
+
+-----------------------------------
+
+Rodar mujoco com atom
+
+python -m onshape_to_robot.mujoco .
+
+-----------------------------------
+
+Abrir ambiente MuJoCo com modelo:
+
+python3 view_robot.py
+
+-----------------------------------
+
+Abrir só interface do MuJoCo:
+
+~/.mujoco/mujoco-3.1.0/bin/simulate
