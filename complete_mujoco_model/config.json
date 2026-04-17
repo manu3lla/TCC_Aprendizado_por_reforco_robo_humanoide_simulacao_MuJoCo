@@ -3,4 +3,6 @@
     "output_format": "mujoco",
     "merge_stls": "collision",
     "simplify_stls": "collision"
+
+    
 }

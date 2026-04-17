@@ -17,7 +17,7 @@
   </default>
   <worldbody>
     <!-- Link chest -->
-    <body name="chest" pos="0 0 0" quat="1 0 0 0" childclass="complete_mujoco_model">
+    <body name="chest" pos="0 0 0.5" quat="1 0 0 0" childclass="complete_mujoco_model">
       <freejoint name="chest_freejoint"/>
       <inertial pos="0.0114588 0.0235226 -0.0121161" mass="2.89666" fullinertia="0.0193754 0.0171584 0.0124067 0.000166433 -0.000570334 1.46743e-05"/>
       <!-- Part atom_porta_bateria -->
@@ -188,7 +188,7 @@
         <!-- Part atom_junta_2 -->
         <geom type="mesh" class="visual" pos="0.0202 -0.0155 0" quat="0 0.707107 -0.707107 -0" mesh="atom_junta" material="atom_junta_material"/>
         <!-- Part groin_parts -->
-        <geom type="mesh" class="collision" pos="7.4e-11 0.00271958 -0.00730383" quat="0.707107 -0 -0 0.707107" mesh="groin_collision" material="groin_collision_material"/>
+        <geom contype="0" conaffinity="0" type="mesh" class="collision" pos="7.4e-11 0.00271958 -0.00730383" quat="0.707107 -0 -0 0.707107" mesh="groin_collision" material="groin_collision_material"/>
         <!-- Link right_glutes -->
         <body name="right_glutes" pos="8.04e-10 0.0297 -0.033" quat="0.707107 0.707107 -9.576e-09 -9.576e-09">
           <!-- Joint from groin to right_glutes -->
@@ -205,7 +205,7 @@
           <!-- Part xm540_11 -->
           <geom type="mesh" class="visual" pos="0 0 0.0268338" quat="0.5 -0.5 0.5 0.5" mesh="xm540__4" material="xm540__4_material"/>
           <!-- Part right_glutes_parts -->
-          <geom type="mesh" class="collision" pos="0.000322265 -0.0159488 0.00209484" quat="0.5 -0.5 0.5 0.5" mesh="right_glutes_collision" material="right_glutes_collision_material"/>
+          <geom contype="0" conaffinity="0" type="mesh" class="collision" pos="0.000322265 -0.0159488 0.00209484" quat="0.5 -0.5 0.5 0.5" mesh="right_glutes_collision" material="right_glutes_collision_material"/>
           <!-- Link thigh -->
           <body name="thigh" pos="0.0245 0 0.0268338" quat="0 -0.707107 0 0.707107">
             <!-- Joint from right_glutes to thigh -->
@@ -216,7 +216,7 @@
             <!-- Part atom_coxa -->
             <geom type="mesh" class="visual" pos="0.017 0.0939403 -0.0025" quat="0 0 0 1" mesh="atom_coxa" material="atom_coxa_material"/>
             <!-- Part thigh_parts -->
-            <geom type="mesh" class="collision" pos="4.87118e-05 0.102577 0.0240182" quat="0.707107 0.707107 -0 -0" mesh="thigh_collision" material="thigh_collision_material"/>
+            <geom contype="0" conaffinity="0" type="mesh" class="collision" pos="4.87118e-05 0.102577 0.0240182" quat="0.707107 0.707107 -0 -0" mesh="thigh_collision" material="thigh_collision_material"/>
             <!-- Link calf -->
             <body name="calf" pos="0 0.13869 -0" quat="0 -0 0 1">
               <!-- Joint from thigh to calf -->
@@ -286,7 +286,7 @@
         <!-- Part atom_junta_6 -->
         <geom type="mesh" class="visual" pos="0.0202 -0.0155 -0" quat="0 0.707107 -0.707107 -0" mesh="atom_junta" material="atom_junta_material"/>
         <!-- Part groin_2_parts -->
-        <geom type="mesh" class="collision" pos="7.4e-11 0.00271958 -0.00730383" quat="0.707107 -0 -0 0.707107" mesh="groin_2_collision" material="groin_2_collision_material"/>
+        <geom contype="0" conaffinity="0" type="mesh" class="collision" pos="7.4e-11 0.00271958 -0.00730383" quat="0.707107 -0 -0 0.707107" mesh="groin_2_collision" material="groin_2_collision_material"/>
         <!-- Link left_glutes -->
         <body name="left_glutes" pos="8.04e-10 0.0297 -0.033" quat="0.707107 0.707107 -9.576e-09 -9.576e-09">
           <!-- Joint from groin_2 to left_glutes -->
@@ -303,7 +303,7 @@
           <!-- Part xm540_16 -->
           <geom type="mesh" class="visual" pos="0 -0 -0.0245" quat="0.707107 -0.707107 -0 -0" mesh="xm540__3" material="xm540__3_material"/>
           <!-- Part left_glutes_parts -->
-          <geom type="mesh" class="collision" pos="-0.000250884 -0.0159646 0.00166864" quat="0.5 -0.5 0.5 0.5" mesh="left_glutes_collision" material="left_glutes_collision_material"/>
+          <geom contype="0" conaffinity="0" type="mesh" class="collision" pos="-0.000250884 -0.0159646 0.00166864" quat="0.5 -0.5 0.5 0.5" mesh="left_glutes_collision" material="left_glutes_collision_material"/>
           <!-- Link thigh_2 -->
           <body name="thigh_2" pos="-0.0245 0 0.0268338" quat="0 0.707107 -0 0.707107">
             <!-- Joint from left_glutes to thigh_2 -->
@@ -314,7 +314,7 @@
             <!-- Part atom_coxa_2 -->
             <geom type="mesh" class="visual" pos="0.017 0.0939403 -0.0025" quat="0 0 0 -1" mesh="atom_coxa" material="atom_coxa_material"/>
             <!-- Part thigh_2_parts -->
-            <geom type="mesh" class="collision" pos="4.87118e-05 0.102577 0.0240182" quat="0 -0 0.707107 -0.707107" mesh="thigh_2_collision" material="thigh_2_collision_material"/>
+            <geom contype="0" conaffinity="0" type="mesh" class="collision" pos="4.87118e-05 0.102577 0.0240182" quat="0 -0 0.707107 -0.707107" mesh="thigh_2_collision" material="thigh_2_collision_material"/>
             <!-- Link calf_2 -->
             <body name="calf_2" pos="-0 0.13869 0" quat="0 0 0 -1">
               <!-- Joint from thigh_2 to calf_2 -->
