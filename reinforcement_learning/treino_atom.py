@@ -70,6 +70,7 @@
 
 import os
 import sys
+import argparse
 
 import gymnasium as gym
 import numpy as np
@@ -79,6 +80,8 @@ import matplotlib.pyplot as plt
 from stable_baselines3 import PPO
 from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.callbacks import EvalCallback
+
+from rede_utils import imprimir_especificacoes_rede
 
 
 # ============================================================
@@ -419,18 +422,33 @@ def generate_all_plots():
 # TREINAMENTO
 # ============================================================
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Treina ou inspeciona o modelo PPO.")
+    parser.add_argument(
+        "--inspecionar-rede",
+        action="store_true",
+        help="Mostra a arquitetura da rede e encerra antes de treinar.",
+    )
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
+
     # ------------------------------------------------------------
     # Ambiente de treino
     # ------------------------------------------------------------
     train_env = gym.make("Atom-v1", render_mode=None)
-    train_env = Monitor(train_env, filename=TRAIN_MONITOR_PREFIX)
+    if not args.inspecionar_rede:
+        train_env = Monitor(train_env, filename=TRAIN_MONITOR_PREFIX)
 
     # ------------------------------------------------------------
     # Ambiente de avaliação
     # ------------------------------------------------------------
-    eval_env = gym.make("Atom-v1", render_mode=None)
-    eval_env = Monitor(eval_env, filename=EVAL_MONITOR_PREFIX)
+    eval_env = None
+    if not args.inspecionar_rede:
+        eval_env = gym.make("Atom-v1", render_mode=None)
+        eval_env = Monitor(eval_env, filename=EVAL_MONITOR_PREFIX)
 
     # ------------------------------------------------------------
     # Modelo PPO
@@ -451,6 +469,12 @@ def main():
         tensorboard_log=LOG_DIR,
     )
 
+    if args.inspecionar_rede:
+        output_path = os.path.join(SAVE_DIR, "especificacoes_rede.txt")
+        imprimir_especificacoes_rede(model, env=train_env, output_path=output_path)
+        train_env.close()
+        return
+
     # ------------------------------------------------------------
     # Callback de avaliação
     # ------------------------------------------------------------
@@ -467,7 +491,7 @@ def main():
     # Treinamento
     # ------------------------------------------------------------
     model.learn(
-        total_timesteps=2_000_000,
+        total_timesteps=7_500_000,
         callback=eval_callback,
         tb_log_name="ppo_atom",
     )

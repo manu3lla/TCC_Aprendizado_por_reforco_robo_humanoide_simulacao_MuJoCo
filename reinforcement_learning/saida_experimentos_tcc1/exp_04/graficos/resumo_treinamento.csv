@@ -1,0 +1,2 @@
+total_episodes,mean_reward,std_reward,min_reward,max_reward,first_100_mean_reward,last_100_mean_reward,mean_episode_length,last_100_mean_episode_length
+737,-57.956993819538674,222.28814167968275,-703.085166,150.494556,-156.38006007999996,24.741265,272.1275440976934,185.53
