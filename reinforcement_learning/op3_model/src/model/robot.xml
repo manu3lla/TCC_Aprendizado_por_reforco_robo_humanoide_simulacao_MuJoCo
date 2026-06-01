@@ -17,7 +17,7 @@
   </default>
   <worldbody>
     <!-- Link chest -->
-    <body name="chest" pos="0 0 0.5" quat="1 0 0 0" childclass="complete_mujoco_model">
+    <body name="chest" pos="0 0 0.507" quat="1 0 0 0" childclass="complete_mujoco_model">
       <freejoint name="chest_freejoint"/>
       <inertial pos="0.0114588 0.0235226 -0.0121161" mass="2.89666" fullinertia="0.0193754 0.0171584 0.0124067 0.000166433 -0.000570334 1.46743e-05"/>
       <!-- Part atom_porta_bateria -->
