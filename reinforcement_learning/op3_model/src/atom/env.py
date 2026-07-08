@@ -212,6 +212,13 @@ class AtomEnv(gym.Env):
     def _body_matrix(self, body_id):
         return self.data.xmat[body_id].reshape(3, 3)
 
+    def _body_orientation_error(self, body_id, initial_matrix):
+        current_matrix = self._body_matrix(body_id)
+        relative_rotation = current_matrix @ initial_matrix.T
+        cos_angle = (np.trace(relative_rotation) - 1.0) / 2.0
+
+        return float(np.arccos(np.clip(cos_angle, -1.0, 1.0)))
+
     def _distance_to_target(self, x_position):
         signed_distance = self.forward_direction * (self.target_x - x_position)
         return max(float(signed_distance), 0.0)
@@ -293,6 +300,40 @@ class AtomEnv(gym.Env):
 
         return float(knee_factor)
 
+    def _ankle_angle_magnitudes(self):
+        right_pitch = self._joint_qpos_by_names([
+            "right_foot_pitch",
+            "right_ankle_pitch",
+        ])
+        left_pitch = self._joint_qpos_by_names([
+            "left_foot_pitch",
+            "left_ankle_pitch",
+        ])
+        right_roll = self._joint_qpos_by_names([
+            "right_foot_roll",
+            "right_ankle_roll",
+        ])
+        left_roll = self._joint_qpos_by_names([
+            "left_foot_roll",
+            "left_ankle_roll",
+        ])
+
+        pitch_values = [
+            abs(value)
+            for value in (right_pitch, left_pitch)
+            if value is not None
+        ]
+        roll_values = [
+            abs(value)
+            for value in (right_roll, left_roll)
+            if value is not None
+        ]
+
+        pitch_mean = float(np.mean(pitch_values)) if pitch_values else 0.0
+        roll_mean = float(np.mean(roll_values)) if roll_values else 0.0
+
+        return pitch_mean, roll_mean
+
     def _foot_has_floor_contact(self, foot_body_id):
         for i in range(self.data.ncon):
             contact = self.data.contact[i]
@@ -370,6 +411,7 @@ class AtomEnv(gym.Env):
 
         self.prev_x = float(self.data.qpos[0])
         self.prev_y = float(self.data.qpos[1])
+        self.prev_torso_height = self._torso_height()
         self.prev_action[:] = 0.0
 
         self.prev_left_contact = self._foot_has_floor_contact(self.left_foot_body_id)
@@ -384,7 +426,8 @@ class AtomEnv(gym.Env):
             "y_position": self.prev_y,
             "target_x": self.target_x,
             "distance_to_target": self._distance_to_target(self.prev_x),
-            "torso_height": self._torso_height(),
+            "torso_height": self.prev_torso_height,
+            "torso_vertical_velocity": 0.0,
             "upright": self._torso_upright(),
             "heading": self._torso_heading(),
             "left_foot_height": float(left_foot_pos[2]),
@@ -437,6 +480,9 @@ class AtomEnv(gym.Env):
         target_progress_velocity = target_progress / self.dt
 
         torso_height = self._torso_height()
+        torso_vertical_velocity = (
+            torso_height - self.prev_torso_height
+        ) / self.dt
         upright = self._torso_upright()
         heading = self._torso_heading()
         roll, pitch, yaw = self._torso_euler()
@@ -502,6 +548,11 @@ class AtomEnv(gym.Env):
         )
 
         support_reward = weights["support"] if has_support else -weights["support"]
+        airborne_penalty = weights["airborne"] if not has_support else 0.0
+
+        torso_vertical_velocity_penalty = (
+            weights["torso_vertical_velocity"] * abs(torso_vertical_velocity)
+        )
 
         single_support_reward = 0.0
         if single_support and forward_velocity > 0.02:
@@ -545,6 +596,7 @@ class AtomEnv(gym.Env):
         )
 
         foot_clearance_reward = 0.0
+        excessive_foot_clearance_penalty = 0.0
 
         if forward_velocity > 0.02:
             if left_contact and not right_contact:
@@ -561,6 +613,43 @@ class AtomEnv(gym.Env):
                         1.0,
                     )
                 )
+
+        if not has_support:
+            excessive_foot_clearance_penalty = (
+                weights["excessive_foot_clearance"]
+                * min(
+                    max(left_clearance, right_clearance)
+                    / self.foot_clearance_target,
+                    2.0,
+                )
+            )
+
+        left_foot_orientation_error = self._body_orientation_error(
+            self.left_foot_body_id,
+            self.initial_left_foot_matrix,
+        )
+        right_foot_orientation_error = self._body_orientation_error(
+            self.right_foot_body_id,
+            self.initial_right_foot_matrix,
+        )
+
+        stance_orientation_errors = []
+        if left_contact:
+            stance_orientation_errors.append(left_foot_orientation_error)
+        if right_contact:
+            stance_orientation_errors.append(right_foot_orientation_error)
+
+        if stance_orientation_errors:
+            stance_foot_orientation_penalty = (
+                weights["stance_foot_orientation"]
+                * float(np.mean(stance_orientation_errors))
+            )
+        else:
+            stance_foot_orientation_penalty = 0.0
+
+        ankle_pitch_magnitude, ankle_roll_magnitude = self._ankle_angle_magnitudes()
+        ankle_pitch_penalty = weights["ankle_pitch"] * ankle_pitch_magnitude
+        ankle_roll_penalty = weights["ankle_roll"] * ankle_roll_magnitude
 
         lateral_drift_penalty = weights["lateral_drift"] * abs(current_y)
         lateral_velocity_penalty = weights["lateral_velocity"] * abs(lateral_velocity)
@@ -607,6 +696,12 @@ class AtomEnv(gym.Env):
             - pitch_penalty
             - yaw_penalty
             - knee_extension_penalty
+            - airborne_penalty
+            - torso_vertical_velocity_penalty
+            - excessive_foot_clearance_penalty
+            - stance_foot_orientation_penalty
+            - ankle_pitch_penalty
+            - ankle_roll_penalty
             - lateral_drift_penalty
             - lateral_velocity_penalty
             - double_support_drag_penalty
@@ -641,6 +736,7 @@ class AtomEnv(gym.Env):
                 f"forward_reward={forward_reward:.5f}",
                 f"target_progress_reward={target_progress_reward:.5f}",
                 f"torso_height={torso_height:.5f}",
+                f"torso_vz={torso_vertical_velocity:.5f}",
                 f"upright={upright:.5f}",
                 f"heading={heading:.5f}",
                 f"roll={roll:.5f}",
@@ -667,6 +763,7 @@ class AtomEnv(gym.Env):
             "lateral_velocity": lateral_velocity,
             "forward_direction": self.forward_direction,
             "torso_height": torso_height,
+            "torso_vertical_velocity": torso_vertical_velocity,
             "target_height": self.target_height,
             "upright": upright,
             "heading": heading,
@@ -675,6 +772,8 @@ class AtomEnv(gym.Env):
             "yaw": yaw,
             "left_foot_height": float(left_foot_pos[2]),
             "right_foot_height": float(right_foot_pos[2]),
+            "left_foot_orientation_error": left_foot_orientation_error,
+            "right_foot_orientation_error": right_foot_orientation_error,
             "left_foot_contact": left_contact,
             "right_foot_contact": right_contact,
             "single_support": single_support,
@@ -692,6 +791,14 @@ class AtomEnv(gym.Env):
             "pitch_penalty": pitch_penalty,
             "yaw_penalty": yaw_penalty,
             "knee_extension_penalty": knee_extension_penalty,
+            "airborne_penalty": airborne_penalty,
+            "torso_vertical_velocity_penalty": torso_vertical_velocity_penalty,
+            "excessive_foot_clearance_penalty": excessive_foot_clearance_penalty,
+            "stance_foot_orientation_penalty": stance_foot_orientation_penalty,
+            "ankle_pitch_penalty": ankle_pitch_penalty,
+            "ankle_roll_penalty": ankle_roll_penalty,
+            "ankle_pitch_magnitude": ankle_pitch_magnitude,
+            "ankle_roll_magnitude": ankle_roll_magnitude,
             "support_reward": support_reward,
             "single_support_reward": single_support_reward,
             "step_length_reward": step_length_reward,
@@ -710,6 +817,7 @@ class AtomEnv(gym.Env):
         }
 
         self.prev_action = action.copy()
+        self.prev_torso_height = torso_height
         self.prev_left_contact = left_contact
         self.prev_right_contact = right_contact
 
