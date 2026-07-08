@@ -311,7 +311,7 @@ def load_best_ppo_params(save_dir):
 
 
 def train_final_model(args, save_dir, ppo_params):
-    final_dir = save_dir / "treino_final_melhor"
+    final_dir = save_dir / args.final_run_name
     log_dir = final_dir / "logs"
     best_dir = final_dir / "melhor_modelo"
     final_dir.mkdir(parents=True, exist_ok=True)
@@ -353,7 +353,7 @@ def train_final_model(args, save_dir, ppo_params):
         model.learn(
             total_timesteps=args.final_timesteps,
             callback=eval_callback,
-            tb_log_name="melhor_optuna",
+            tb_log_name=args.final_run_name,
             progress_bar=args.progress_bar,
         )
 
@@ -376,6 +376,7 @@ def parse_args():
     parser.add_argument("--eval-freq", type=int, default=10_000)
     parser.add_argument("--n-eval-episodes", type=int, default=5)
     parser.add_argument("--final-timesteps", type=int, default=2_500_000)
+    parser.add_argument("--final-run-name", default="treino_final_melhor")
     parser.add_argument("--device", default="cuda", choices=["cpu", "cuda"])
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--study-name", default="ppo_atom_optuna")
