@@ -1,27 +1,27 @@
 {
-  "best_trial": 29,
-  "best_value_mean_reward": 271.486166,
+  "best_trial": 40,
+  "best_value_mean_reward": 1064.051822,
   "optuna_params": {
     "rollout_batch": "512_64",
-    "learning_rate": 5.958656213268896e-05,
+    "learning_rate": 0.0008286946154789709,
     "n_epochs": 10,
     "gamma": 0.98,
-    "gae_lambda": 0.92,
-    "clip_range": 0.12137756370532166,
-    "ent_coef": 0.01,
-    "vf_coef": 0.3765583002495441,
-    "max_grad_norm": 0.34003516863946487
+    "gae_lambda": 0.95,
+    "clip_range": 0.137826935848043,
+    "ent_coef": 0.0,
+    "vf_coef": 0.32937558580716303,
+    "max_grad_norm": 0.5222902926081441
   },
   "ppo_params": {
-    "learning_rate": 5.958656213268896e-05,
+    "learning_rate": 0.0008286946154789709,
     "n_steps": 512,
     "batch_size": 64,
     "n_epochs": 10,
     "gamma": 0.98,
-    "gae_lambda": 0.92,
-    "clip_range": 0.12137756370532166,
-    "ent_coef": 0.01,
-    "vf_coef": 0.3765583002495441,
-    "max_grad_norm": 0.34003516863946487
+    "gae_lambda": 0.95,
+    "clip_range": 0.137826935848043,
+    "ent_coef": 0.0,
+    "vf_coef": 0.32937558580716303,
+    "max_grad_norm": 0.5222902926081441
   }
 }

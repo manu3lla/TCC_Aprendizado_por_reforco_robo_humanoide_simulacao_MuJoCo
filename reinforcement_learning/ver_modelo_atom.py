@@ -95,7 +95,11 @@ def main():
         debug_reward=args.debug_reward,
     )
 
-    model = PPO.load(model_path, env=env)
+    model = PPO.load(
+        model_path,
+        env=env,
+        device="cpu",
+    )
 
     obs, info = env.reset()
     total_reward = 0.0

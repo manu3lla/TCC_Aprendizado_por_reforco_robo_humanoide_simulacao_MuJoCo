@@ -18,8 +18,8 @@
   <worldbody>
     <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
     <geom name="floor" size="0 0 0.05" type="plane" material="grass_mat"/>
-    <!-- <body name="sphere_body" pos="5.3 0 1.0">
+    <body name="target" pos="-5 0 0.0">
       <geom name="my_sphere" type="sphere" size="0.1" rgba="0 0 0 1"/>
-    </body> -->
+    </body>
   </worldbody>
 </mujoco>

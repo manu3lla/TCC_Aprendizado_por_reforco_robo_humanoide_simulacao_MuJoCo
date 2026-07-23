@@ -1,21 +1,59 @@
+-----------------------------------
 Entrar no âmbiente virtual MuJoCo:
 
 source mujoco_env/bin/activate
-
 -----------------------------------
 
+
+-----------------------------------
 Rodar mujoco com atom
 
 python -m onshape_to_robot.mujoco .
-
 -----------------------------------
 
+
+-----------------------------------
 Abrir ambiente MuJoCo com modelo:
 
 python3 view_robot.py
-
 -----------------------------------
 
+
+-----------------------------------
 Abrir só interface do MuJoCo:
 
 ~/.mujoco/mujoco-3.1.0/bin/simulate
+-----------------------------------
+
+
+-----------------------------------
+Rodar um treinamento com optuna já rodado:
+
+python3 otimizar_hpps_optuna.py --somente-treinar-melhor --trial-timesteps 5_000_000
+-----------------------------------
+
+
+-----------------------------------
+Rodar um treinamento com debug:
+
+python3 otimizar_hpps_optuna.py --mostrar-debug-env
+-----------------------------------
+
+
+-----------------------------------
+Rodar optuna:
+
+python3 otimizar_hpps_optuna.py
+-----------------------------------
+
+-----------------------------------
+Visualizar um treinamento
+
+python3 ver_modelo_atom.py --modelo saida_optuna_atom/treino_final_melhor/melhor_modelo/best_model.zip 
+-----------------------------------
+
+AVELL DA ROBOFEI
+Entrar no ambiente:
+cd tcc-le-rafa
+cd TCC...
+source .venv/bin/activate

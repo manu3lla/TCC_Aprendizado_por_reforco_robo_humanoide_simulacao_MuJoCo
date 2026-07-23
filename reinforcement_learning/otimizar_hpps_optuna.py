@@ -377,7 +377,7 @@ def parse_args():
     parser.add_argument("--n-eval-episodes", type=int, default=5)
     parser.add_argument("--final-timesteps", type=int, default=2_500_000)
     parser.add_argument("--final-run-name", default="treino_final_melhor")
-    parser.add_argument("--device", default="cuda", choices=["cpu", "cuda"])
+    parser.add_argument("--device", default="cpu", choices=["cpu", "cuda"])
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--study-name", default="ppo_atom_optuna")
     parser.add_argument("--save-dir", default=str(DEFAULT_SAVE_DIR))
