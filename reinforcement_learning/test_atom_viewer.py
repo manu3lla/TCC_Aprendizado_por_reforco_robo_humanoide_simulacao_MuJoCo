@@ -1,19 +1,11 @@
-import os
 import mujoco
 import mujoco.viewer
 
-MODEL_PATH = os.path.join(
-    os.path.dirname(__file__),
-    "op3_model",
-    "src",
-    "model",
-    "scene.xml"
-)
+from atom_paths import ATOM_SCENE_XML
 
-MODEL_PATH = os.path.abspath(MODEL_PATH)
-print("Usando XML em:", MODEL_PATH)
+print("Usando XML em:", ATOM_SCENE_XML)
 
-model = mujoco.MjModel.from_xml_path(MODEL_PATH)
+model = mujoco.MjModel.from_xml_path(str(ATOM_SCENE_XML))
 data = mujoco.MjData(model)
 
 with mujoco.viewer.launch_passive(model, data) as viewer:

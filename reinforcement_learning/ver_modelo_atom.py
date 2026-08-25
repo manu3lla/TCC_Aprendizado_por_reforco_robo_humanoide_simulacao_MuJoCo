@@ -1,49 +1,12 @@
-import os
-import sys
 import time
 import argparse
+from pathlib import Path
+
 import gymnasium as gym
 
 from stable_baselines3 import PPO
 
-
-# ============================================================
-# Caminhos do projeto
-# ============================================================
-
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-SRC_PATH = os.path.join(PROJECT_ROOT, "op3_model", "src")
-
-sys.path.insert(0, SRC_PATH)
-
-# Importa o ambiente Atom-v1
-# Esse import registra o ambiente no Gymnasium
-import atom  # noqa: F401
-
-
-def default_model_path():
-    candidates = [
-        os.path.join(
-            PROJECT_ROOT,
-            "saida_optuna_atom",
-            "treino_final_melhor",
-            "melhor_modelo",
-            "best_model.zip",
-        ),
-        os.path.join(
-            PROJECT_ROOT,
-            "saida_optuna_atom",
-            "treino_final_melhor",
-            "ppo_atom_optuna_final.zip",
-        ),
-        os.path.join(PROJECT_ROOT, "saida_treino_visual_atom", "ppo_atom_visual.zip"),
-    ]
-
-    for candidate in candidates:
-        if os.path.exists(candidate):
-            return candidate
-
-    return candidates[0]
+from atom_paths import default_model_path, register_atom_env
 
 
 def parse_args():
@@ -52,19 +15,29 @@ def parse_args():
     )
     parser.add_argument(
         "--modelo",
+        "--model",
+        "-m",
         default=default_model_path(),
+        type=Path,
+        dest="modelo",
         help="Caminho do arquivo .zip do modelo PPO.",
     )
     parser.add_argument(
         "--max-steps",
+        "--steps",
+        "-s",
         type=int,
         default=10_000,
+        dest="max_steps",
         help="Numero maximo de passos de simulacao.",
     )
     parser.add_argument(
         "--sleep",
+        "--delay",
+        "-d",
         type=float,
         default=0.01,
+        dest="sleep",
         help="Pausa entre passos para facilitar a visualizacao.",
     )
     parser.add_argument(
@@ -82,9 +55,11 @@ def parse_args():
 
 def main():
     args = parse_args()
-    model_path = os.path.abspath(args.modelo)
+    register_atom_env()
 
-    if not os.path.exists(model_path):
+    model_path = args.modelo.expanduser().resolve()
+
+    if not model_path.exists():
         raise FileNotFoundError(f"Modelo nao encontrado: {model_path}")
 
     print(f"Carregando modelo: {model_path}")
@@ -95,7 +70,7 @@ def main():
         debug_reward=args.debug_reward,
     )
 
-    model = PPO.load(model_path, env=env)
+    model = PPO.load(str(model_path), env=env, device="cpu")
 
     obs, info = env.reset()
     total_reward = 0.0

@@ -1,28 +1,20 @@
-import os
 import time
 from pathlib import Path
 import argparse
-
-import sys
 import gymnasium as gym
 from stable_baselines3 import PPO
 import mujoco.viewer
 
-# make local op3_model/src importable so `Atom-v1` is registered
-PROJECT_ROOT = Path(__file__).parent
-SRC_PATH = PROJECT_ROOT / "op3_model" / "src"
-sys.path.insert(0, str(SRC_PATH))
-import atom  # register env
-
-ROOT = Path(__file__).parent
-DEFAULT_DIR = ROOT / "saida_treino_atom" / "conjunto_melhores"
+from atom_paths import BEST_MODELS_DIR, register_atom_env
 
 parser = argparse.ArgumentParser(description="Run all best models sequentially in MuJoCo viewer")
-parser.add_argument("--models-dir", "-m", default=str(DEFAULT_DIR), help="Directory with best_model zip files")
+parser.add_argument("--models-dir", "-m", default=str(BEST_MODELS_DIR), help="Directory with best_model zip files")
 parser.add_argument("--steps", "-s", type=int, default=1000, help="Steps to run per model")
 parser.add_argument("--delay", "-d", type=float, default=0.01, help="Delay between steps (s)")
 parser.add_argument("--pause", "-p", type=float, default=1.0, help="Pause between models (s)")
 args = parser.parse_args()
+
+register_atom_env()
 
 models_dir = Path(args.models_dir)
 if not models_dir.exists():
