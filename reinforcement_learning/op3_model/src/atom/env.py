@@ -203,14 +203,13 @@ class AtomEnv(gym.Env):
 
         reward = 0.0
 
-        # 1. andar em direção ao target x
-        
+        # andar em direção ao target x
         pdif = target_pos - robot_pos # vetor até o alvo
         distance = np.linalg.norm(pdif) # distancia até o alvo (normalização do vetor)
 
         if distance > 1e-6:
             phat = pdif / distance
-            reward = np.dot(robot_vel, phat)
+            reward = np.dot(robot_vel, phat) * 2 # estava em 1.1
         else:
             reward = 0.0
 
@@ -218,8 +217,8 @@ class AtomEnv(gym.Env):
         reward += 0.1
 
         # penalidade por queda
-        # if fallen:
-        #     reward -= 100.0
+        if fallen:
+            reward -= 140.0
 
         # ------------------------------
         # Finalização
