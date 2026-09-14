@@ -5,8 +5,8 @@
   <compiler angle="radian" meshdir="assets" autolimits="true"/>
   <default>
     <default class="complete_mujoco_model">
-      <joint frictionloss="0.1" armature="0.005"/>
-      <position kp="50" dampratio="1"/>
+      <joint frictionloss="0.05" damping="0.025" armature="0.005"/>
+      <position kp="34" dampratio="0.9"/>
       <default class="visual">
         <geom type="mesh" contype="0" conaffinity="0" group="2"/>
       </default>
@@ -503,26 +503,26 @@
     <material name="left_foot_collision_material" rgba="0.702742 0.702742 0.702742 1"/>
   </asset>
   <actuator>
-    <position class="complete_mujoco_model" name="head_pan" joint="head_pan"/>
-    <position class="complete_mujoco_model" name="head_tilt" joint="head_tilt"/>
-    <position class="complete_mujoco_model" name="left_shoulder_pitch" joint="left_shoulder_pitch"/>
-    <position class="complete_mujoco_model" name="left_shoulder_roll" joint="left_shoulder_roll"/>
-    <position class="complete_mujoco_model" name="left_elbow_pitch" joint="left_elbow_pitch"/>
-    <position class="complete_mujoco_model" name="right_shoulder_pitch" joint="right_shoulder_pitch"/>
-    <position class="complete_mujoco_model" name="right_shoulder_roll" joint="right_shoulder_roll"/>
-    <position class="complete_mujoco_model" name="right_elbow_pitch" joint="right_elbow_pitch"/>
-    <position class="complete_mujoco_model" name="right_leg_yaw" joint="right_leg_yaw"/>
-    <position class="complete_mujoco_model" name="right_leg_roll" joint="right_leg_roll"/>
-    <position class="complete_mujoco_model" name="right_leg_pitch" joint="right_leg_pitch"/>
-    <position class="complete_mujoco_model" name="right_knee" joint="right_knee"/>
-    <position class="complete_mujoco_model" name="right_foot_pitch" joint="right_foot_pitch"/>
-    <position class="complete_mujoco_model" name="right_foot_roll" joint="right_foot_roll"/>
-    <position class="complete_mujoco_model" name="left_leg_yaw" joint="left_leg_yaw"/>
-    <position class="complete_mujoco_model" name="left_leg_roll" joint="left_leg_roll"/>
-    <position class="complete_mujoco_model" name="left_leg_pitch" joint="left_leg_pitch"/>
-    <position class="complete_mujoco_model" name="left_knee" joint="left_knee"/>
-    <position class="complete_mujoco_model" name="left_foot_pitch" joint="left_foot_pitch"/>
-    <position class="complete_mujoco_model" name="left_foot_roll" joint="left_foot_roll"/>
+    <position class="complete_mujoco_model" name="head_pan" joint="head_pan" ctrllimited="true" ctrlrange="-0.45 0.45" forcelimited="true" forcerange="-2.5 2.5"/>
+    <position class="complete_mujoco_model" name="head_tilt" joint="head_tilt" ctrllimited="true" ctrlrange="-0.35 0.35" forcelimited="true" forcerange="-2.5 2.5"/>
+    <position class="complete_mujoco_model" name="left_shoulder_pitch" joint="left_shoulder_pitch" ctrllimited="true" ctrlrange="-1.10 1.10" forcelimited="true" forcerange="-4.0 4.0"/>
+    <position class="complete_mujoco_model" name="left_shoulder_roll" joint="left_shoulder_roll" ctrllimited="true" ctrlrange="-0.80 0.80" forcelimited="true" forcerange="-4.0 4.0"/>
+    <position class="complete_mujoco_model" name="left_elbow_pitch" joint="left_elbow_pitch" ctrllimited="true" ctrlrange="-1.20 0.30" forcelimited="true" forcerange="-3.5 3.5"/>
+    <position class="complete_mujoco_model" name="right_shoulder_pitch" joint="right_shoulder_pitch" ctrllimited="true" ctrlrange="-1.10 1.10" forcelimited="true" forcerange="-4.0 4.0"/>
+    <position class="complete_mujoco_model" name="right_shoulder_roll" joint="right_shoulder_roll" ctrllimited="true" ctrlrange="-0.80 0.80" forcelimited="true" forcerange="-4.0 4.0"/>
+    <position class="complete_mujoco_model" name="right_elbow_pitch" joint="right_elbow_pitch" ctrllimited="true" ctrlrange="-0.30 1.20" forcelimited="true" forcerange="-3.5 3.5"/>
+    <position class="complete_mujoco_model" name="right_leg_yaw" joint="right_leg_yaw" ctrllimited="true" ctrlrange="-0.30 0.30" forcelimited="true" forcerange="-7.5 7.5"/>
+    <position class="complete_mujoco_model" name="right_leg_roll" joint="right_leg_roll" ctrllimited="true" ctrlrange="-0.45 0.45" forcelimited="true" forcerange="-8.0 8.0"/>
+    <position class="complete_mujoco_model" name="right_leg_pitch" joint="right_leg_pitch" ctrllimited="true" ctrlrange="-0.75 0.75" forcelimited="true" forcerange="-8.0 8.0"/>
+    <position class="complete_mujoco_model" name="right_knee" joint="right_knee" ctrllimited="true" ctrlrange="-1.20 0.15" forcelimited="true" forcerange="-8.0 8.0"/>
+    <position class="complete_mujoco_model" name="right_foot_pitch" joint="right_foot_pitch" ctrllimited="true" ctrlrange="-0.65 0.65" forcelimited="true" forcerange="-7.0 7.0"/>
+    <position class="complete_mujoco_model" name="right_foot_roll" joint="right_foot_roll" ctrllimited="true" ctrlrange="-0.35 0.35" forcelimited="true" forcerange="-6.0 6.0"/>
+    <position class="complete_mujoco_model" name="left_leg_yaw" joint="left_leg_yaw" ctrllimited="true" ctrlrange="-0.30 0.30" forcelimited="true" forcerange="-7.5 7.5"/>
+    <position class="complete_mujoco_model" name="left_leg_roll" joint="left_leg_roll" ctrllimited="true" ctrlrange="-0.45 0.45" forcelimited="true" forcerange="-8.0 8.0"/>
+    <position class="complete_mujoco_model" name="left_leg_pitch" joint="left_leg_pitch" ctrllimited="true" ctrlrange="-0.75 0.75" forcelimited="true" forcerange="-8.0 8.0"/>
+    <position class="complete_mujoco_model" name="left_knee" joint="left_knee" ctrllimited="true" ctrlrange="-0.15 1.20" forcelimited="true" forcerange="-8.0 8.0"/>
+    <position class="complete_mujoco_model" name="left_foot_pitch" joint="left_foot_pitch" ctrllimited="true" ctrlrange="-0.65 0.65" forcelimited="true" forcerange="-7.0 7.0"/>
+    <position class="complete_mujoco_model" name="left_foot_roll" joint="left_foot_roll" ctrllimited="true" ctrlrange="-0.35 0.35" forcelimited="true" forcerange="-6.0 6.0"/>
   </actuator>
   <equality/>
 </mujoco>

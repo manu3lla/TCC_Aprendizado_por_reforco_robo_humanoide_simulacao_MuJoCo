@@ -1,0 +1,114 @@
+{
+  "run_name": "treino_cuda_5m",
+  "registry_name": "treino_cuda_5m",
+  "registered_at": "2026-09-13T23:03:25.351430+00:00",
+  "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_cuda_5m",
+  "log_dir": "reinforcement_learning/saida_optuna_atom/treino_cuda_5m/logs",
+  "models": {
+    "best": {
+      "path": "reinforcement_learning/melhores_modelos/treino_cuda_5m/best_model.zip",
+      "source_path": "reinforcement_learning/saida_optuna_atom/treino_cuda_5m/melhor_modelo/best_model.zip",
+      "size_bytes": 235937,
+      "sha256": "91bba4c2432f10f251930e603780fba2980117fa21048a947caf99dd9fcb9e28"
+    },
+    "final": {
+      "path": "reinforcement_learning/melhores_modelos/treino_cuda_5m/final_model.zip",
+      "source_path": "reinforcement_learning/saida_optuna_atom/treino_cuda_5m/ppo_atom_optuna_final.zip",
+      "size_bytes": 235962,
+      "sha256": "445013a544830161ab3ae7c1246139f7cb1e913bb68a0d0ca7d7885148ac9370"
+    }
+  },
+  "training": {
+    "registered_manually": true,
+    "inferred_from": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_cuda_5m",
+    "device": "cuda",
+    "final_timesteps": 2500000,
+    "eval_freq": 50000,
+    "n_eval_episodes": 5
+  },
+  "ppo_params": {
+    "learning_rate": 0.0008286946154789709,
+    "n_steps": 512,
+    "batch_size": 64,
+    "n_epochs": 10,
+    "gamma": 0.98,
+    "gae_lambda": 0.95,
+    "clip_range": 0.137826935848043,
+    "ent_coef": 0.0,
+    "vf_coef": 0.32937558580716303,
+    "max_grad_norm": 0.5222902926081441
+  },
+  "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+  "best_params": {
+    "best_trial": 40,
+    "best_value_mean_reward": 1064.051822,
+    "optuna_params": {
+      "rollout_batch": "512_64",
+      "learning_rate": 0.0008286946154789709,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    }
+  },
+  "evaluation": {
+    "train_monitor": {
+      "episodes": 13847,
+      "last_reward": 71.862676,
+      "best_episode_reward": 690.590568,
+      "mean_last_10_reward": 42.9123415,
+      "last_episode_length": 140,
+      "elapsed_seconds": 542820.060064
+    },
+    "eval_monitor": {
+      "episodes": 250,
+      "last_reward": 179.390428,
+      "best_episode_reward": 294.698553,
+      "mean_last_10_reward": 126.0173465,
+      "last_episode_length": 160,
+      "elapsed_seconds": 70651.835274
+    },
+    "evaluations_npz": {
+      "path": "reinforcement_learning/saida_optuna_atom/treino_cuda_5m/logs/evaluations.npz",
+      "num_evaluations": 50,
+      "best_mean_reward": 294.698553,
+      "best_timestep": 200000,
+      "last_mean_reward": 179.390428,
+      "last_timestep": 2500000
+    }
+  },
+  "plots": [
+    {
+      "name": "recompensa_treino",
+      "path": "reinforcement_learning/melhores_modelos/treino_cuda_5m/graficos/recompensa_treino.png"
+    },
+    {
+      "name": "convergencia_avaliacao",
+      "path": "reinforcement_learning/melhores_modelos/treino_cuda_5m/graficos/convergencia_avaliacao.png"
+    },
+    {
+      "name": "recompensa_episodios_avaliacao",
+      "path": "reinforcement_learning/melhores_modelos/treino_cuda_5m/graficos/recompensa_episodios_avaliacao.png"
+    }
+  ],
+  "commands": {
+    "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_cuda_5m/logs",
+    "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_cuda_5m/best_model.zip",
+    "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_cuda_5m/final_model.zip"
+  }
+}

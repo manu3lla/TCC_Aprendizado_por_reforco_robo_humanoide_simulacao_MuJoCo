@@ -1,0 +1,116 @@
+{
+  "run_name": "treino_joelho_obrigatorio_v2",
+  "registry_name": "treino_joelho_obrigatorio_v2",
+  "registered_at": "2026-09-14T13:50:52.218076+00:00",
+  "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_joelho_obrigatorio_v2",
+  "log_dir": "reinforcement_learning/saida_optuna_atom/treino_joelho_obrigatorio_v2/logs",
+  "models": {
+    "best": {
+      "path": "reinforcement_learning/melhores_modelos/treino_joelho_obrigatorio_v2/best_model.zip",
+      "source_path": "reinforcement_learning/saida_optuna_atom/treino_joelho_obrigatorio_v2/melhor_modelo/best_model.zip",
+      "size_bytes": 249665,
+      "sha256": "31089ecc7c97204653c128f4b5877547bfe9768852a728b96a024790d7b5c4d3"
+    },
+    "final": {
+      "path": "reinforcement_learning/melhores_modelos/treino_joelho_obrigatorio_v2/final_model.zip",
+      "source_path": "reinforcement_learning/saida_optuna_atom/treino_joelho_obrigatorio_v2/ppo_atom_optuna_final.zip",
+      "size_bytes": 249670,
+      "sha256": "e0c30d65c2c41858a59d6e7f4d879b44f6a35e6da4f58f04dd2d112c4be3f1d9"
+    }
+  },
+  "training": {
+    "device": "cuda",
+    "seed": 42,
+    "final_timesteps": 1000000,
+    "eval_freq": 50000,
+    "n_eval_episodes": 5,
+    "study_name": "ppo_atom_optuna",
+    "save_dir": "reinforcement_learning/saida_optuna_atom",
+    "final_run_name": "treino_joelho_obrigatorio_v2"
+  },
+  "ppo_params": {
+    "learning_rate": 0.0008286946154789709,
+    "n_steps": 512,
+    "batch_size": 64,
+    "n_epochs": 10,
+    "gamma": 0.98,
+    "gae_lambda": 0.95,
+    "clip_range": 0.137826935848043,
+    "ent_coef": 0.0,
+    "vf_coef": 0.32937558580716303,
+    "max_grad_norm": 0.5222902926081441
+  },
+  "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+  "best_params": {
+    "best_trial": 40,
+    "best_value_mean_reward": 1064.051822,
+    "optuna_params": {
+      "rollout_batch": "512_64",
+      "learning_rate": 0.0008286946154789709,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    }
+  },
+  "evaluation": {
+    "train_monitor": {
+      "episodes": 5470,
+      "last_reward": -325.174525,
+      "best_episode_reward": 958.401671,
+      "mean_last_10_reward": 56.1115053,
+      "last_episode_length": 197,
+      "elapsed_seconds": 953.369948
+    },
+    "eval_monitor": {
+      "episodes": 100,
+      "last_reward": -22.718065,
+      "best_episode_reward": 498.564615,
+      "mean_last_10_reward": 100.71866800000001,
+      "last_episode_length": 135,
+      "elapsed_seconds": 952.987183
+    },
+    "evaluations_npz": {
+      "path": "reinforcement_learning/saida_optuna_atom/treino_joelho_obrigatorio_v2/logs/evaluations.npz",
+      "num_evaluations": 20,
+      "best_mean_reward": 498.56461500000006,
+      "best_timestep": 550000,
+      "last_mean_reward": -22.718065,
+      "last_timestep": 1000000
+    }
+  },
+  "plots": [
+    {
+      "name": "recompensa_treino",
+      "path": "reinforcement_learning/melhores_modelos/treino_joelho_obrigatorio_v2/graficos/recompensa_treino.png"
+    },
+    {
+      "name": "convergencia_avaliacao",
+      "path": "reinforcement_learning/melhores_modelos/treino_joelho_obrigatorio_v2/graficos/convergencia_avaliacao.png"
+    },
+    {
+      "name": "recompensa_episodios_avaliacao",
+      "path": "reinforcement_learning/melhores_modelos/treino_joelho_obrigatorio_v2/graficos/recompensa_episodios_avaliacao.png"
+    }
+  ],
+  "commands": {
+    "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_joelho_obrigatorio_v2/logs",
+    "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_joelho_obrigatorio_v2/best_model.zip",
+    "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_joelho_obrigatorio_v2/final_model.zip"
+  }
+}

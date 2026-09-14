@@ -1,0 +1,116 @@
+{
+  "run_name": "treino_perna_a_perna_v1",
+  "registry_name": "treino_perna_a_perna_v1",
+  "registered_at": "2026-09-14T12:54:15.317480+00:00",
+  "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_perna_a_perna_v1",
+  "log_dir": "reinforcement_learning/saida_optuna_atom/treino_perna_a_perna_v1/logs",
+  "models": {
+    "best": {
+      "path": "reinforcement_learning/melhores_modelos/treino_perna_a_perna_v1/best_model.zip",
+      "source_path": "reinforcement_learning/saida_optuna_atom/treino_perna_a_perna_v1/melhor_modelo/best_model.zip",
+      "size_bytes": 249709,
+      "sha256": "44da864b2fed669279dc721c691ba78aaf275a074b2a7582e1c2bf97e57f16c0"
+    },
+    "final": {
+      "path": "reinforcement_learning/melhores_modelos/treino_perna_a_perna_v1/final_model.zip",
+      "source_path": "reinforcement_learning/saida_optuna_atom/treino_perna_a_perna_v1/ppo_atom_optuna_final.zip",
+      "size_bytes": 249669,
+      "sha256": "4d5f777833fe09909a3c5e90fa7214a60db67fe7b2474a1a8e93c7f807c9b068"
+    }
+  },
+  "training": {
+    "device": "cuda",
+    "seed": 42,
+    "final_timesteps": 2000000,
+    "eval_freq": 50000,
+    "n_eval_episodes": 5,
+    "study_name": "ppo_atom_optuna",
+    "save_dir": "reinforcement_learning/saida_optuna_atom",
+    "final_run_name": "treino_perna_a_perna_v1"
+  },
+  "ppo_params": {
+    "learning_rate": 0.0008286946154789709,
+    "n_steps": 512,
+    "batch_size": 64,
+    "n_epochs": 10,
+    "gamma": 0.98,
+    "gae_lambda": 0.95,
+    "clip_range": 0.137826935848043,
+    "ent_coef": 0.0,
+    "vf_coef": 0.32937558580716303,
+    "max_grad_norm": 0.5222902926081441
+  },
+  "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+  "best_params": {
+    "best_trial": 40,
+    "best_value_mean_reward": 1064.051822,
+    "optuna_params": {
+      "rollout_batch": "512_64",
+      "learning_rate": 0.0008286946154789709,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    }
+  },
+  "evaluation": {
+    "train_monitor": {
+      "episodes": 7072,
+      "last_reward": -54.702824,
+      "best_episode_reward": 975.876626,
+      "mean_last_10_reward": -74.5430853,
+      "last_episode_length": 305,
+      "elapsed_seconds": 1982.397745
+    },
+    "eval_monitor": {
+      "episodes": 200,
+      "last_reward": -45.970785,
+      "best_episode_reward": 620.723688,
+      "mean_last_10_reward": -73.621486,
+      "last_episode_length": 236,
+      "elapsed_seconds": 1982.070551
+    },
+    "evaluations_npz": {
+      "path": "reinforcement_learning/saida_optuna_atom/treino_perna_a_perna_v1/logs/evaluations.npz",
+      "num_evaluations": 40,
+      "best_mean_reward": 620.723688,
+      "best_timestep": 700000,
+      "last_mean_reward": -45.970785,
+      "last_timestep": 2000000
+    }
+  },
+  "plots": [
+    {
+      "name": "recompensa_treino",
+      "path": "reinforcement_learning/melhores_modelos/treino_perna_a_perna_v1/graficos/recompensa_treino.png"
+    },
+    {
+      "name": "convergencia_avaliacao",
+      "path": "reinforcement_learning/melhores_modelos/treino_perna_a_perna_v1/graficos/convergencia_avaliacao.png"
+    },
+    {
+      "name": "recompensa_episodios_avaliacao",
+      "path": "reinforcement_learning/melhores_modelos/treino_perna_a_perna_v1/graficos/recompensa_episodios_avaliacao.png"
+    }
+  ],
+  "commands": {
+    "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_perna_a_perna_v1/logs",
+    "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_perna_a_perna_v1/best_model.zip",
+    "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_perna_a_perna_v1/final_model.zip"
+  }
+}

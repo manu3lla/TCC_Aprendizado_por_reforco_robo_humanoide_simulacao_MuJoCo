@@ -15,10 +15,8 @@ except ImportError as exc:
 
 try:
     import optuna
-except ImportError as exc:
-    raise SystemExit(
-        "Optuna nao esta instalado. Instale com: pip install optuna"
-    ) from exc
+except ImportError:
+    optuna = None
 
 try:
     from stable_baselines3 import PPO
@@ -38,6 +36,8 @@ SRC_PATH = PROJECT_ROOT / "op3_model" / "src"
 sys.path.insert(0, str(SRC_PATH))
 
 import atom  # noqa: E402,F401
+
+from model_registry import DEFAULT_REGISTRY_DIR, register_training_run
 
 
 DEFAULT_SAVE_DIR = PROJECT_ROOT / "saida_optuna_atom"
@@ -330,15 +330,32 @@ def train_final_model(args, save_dir, ppo_params):
     )
 
     try:
-        model = PPO(
-            policy="MlpPolicy",
-            env=train_env,
-            verbose=1,
-            device=args.device,
-            seed=args.seed + 99_000,
-            tensorboard_log=str(log_dir),
-            **ppo_params,
-        )
+        continue_from = None
+        if args.continuar_de:
+            continue_from = Path(args.continuar_de).expanduser().resolve()
+            if not continue_from.exists():
+                raise FileNotFoundError(
+                    f"Modelo para continuar treino nao encontrado: {continue_from}"
+                )
+
+            print(f"Continuando treino a partir de: {continue_from}")
+            model = PPO.load(
+                str(continue_from),
+                env=train_env,
+                device=args.device,
+                tensorboard_log=str(log_dir),
+            )
+            model.verbose = 1
+        else:
+            model = PPO(
+                policy="MlpPolicy",
+                env=train_env,
+                verbose=1,
+                device=args.device,
+                seed=args.seed + 99_000,
+                tensorboard_log=str(log_dir),
+                **ppo_params,
+            )
 
         eval_callback = EvalCallback(
             eval_env,
@@ -355,12 +372,41 @@ def train_final_model(args, save_dir, ppo_params):
             callback=eval_callback,
             tb_log_name=args.final_run_name,
             progress_bar=args.progress_bar,
+            reset_num_timesteps=continue_from is None,
         )
 
         final_model_path = final_dir / "ppo_atom_optuna_final"
         model.save(final_model_path)
         print(f"Modelo final salvo em: {final_model_path}.zip")
         print(f"Melhor modelo da avaliacao salvo em: {best_dir / 'best_model.zip'}")
+
+        if not args.sem_registrar_modelo:
+            result = register_training_run(
+                run_name=args.final_run_name,
+                source_run_dir=final_dir,
+                best_model_path=best_dir / "best_model.zip",
+                final_model_path=Path(f"{final_model_path}.zip"),
+                log_dir=log_dir,
+                ppo_params=ppo_params,
+                training_args={
+                    "device": args.device,
+                    "seed": args.seed,
+                    "final_timesteps": args.final_timesteps,
+                    "eval_freq": args.eval_freq,
+                    "n_eval_episodes": args.n_eval_episodes,
+                    "study_name": args.study_name,
+                    "save_dir": save_dir,
+                    "final_run_name": args.final_run_name,
+                    "continuar_de": str(continue_from) if continue_from else None,
+                },
+                registry_dir=args.model_registry_dir,
+                best_params_path=save_dir / "best_params.json",
+            )
+            print(f"Modelo registrado em: {result['entry_dir']}")
+            print(f"Documentacao: {result['readme_path']}")
+            view_command = result["metadata"]["commands"].get("view_best")
+            if view_command:
+                print(f"Ver no MuJoCo: {view_command}")
 
     finally:
         train_env.close()
@@ -390,6 +436,13 @@ def parse_args():
     parser.add_argument("--mostrar-debug-env", action="store_true")
     parser.add_argument("--treinar-melhor", action="store_true")
     parser.add_argument("--somente-treinar-melhor", action="store_true")
+    parser.add_argument("--model-registry-dir", default=str(DEFAULT_REGISTRY_DIR))
+    parser.add_argument("--sem-registrar-modelo", action="store_true")
+    parser.add_argument(
+        "--continuar-de",
+        default=None,
+        help="Caminho de um modelo .zip existente para continuar o treino.",
+    )
     return parser.parse_args()
 
 
@@ -402,6 +455,11 @@ def main():
         best_ppo_params = load_best_ppo_params(save_dir)
         train_final_model(args, save_dir, best_ppo_params)
         return
+
+    if optuna is None:
+        raise SystemExit(
+            "Optuna nao esta instalado. Instale com: pip install optuna"
+        )
 
     storage = args.storage or f"sqlite:///{save_dir / 'optuna.db'}"
     pruner = (
