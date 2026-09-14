@@ -87,7 +87,7 @@ class AtomEnv(gym.Env):
 
         self.frame_skip = 5
         self.dt = float(self.model.opt.timestep * self.frame_skip)
-        self.max_episode_steps = 1000
+        self.max_episode_steps = 2000
 
         self.prev_x = 0.0
         self.current_step = 0
@@ -211,14 +211,14 @@ class AtomEnv(gym.Env):
             phat = pdif / distance
             reward = np.dot(robot_vel, phat) * 2 # estava em 1.1
         else:
-            reward = 0.0
+            reward = 0.0    
 
         # keep alive
         reward += 0.1
 
         # penalidade por queda
         if fallen:
-            reward -= 140.0
+            reward -= 90.0
 
         # ------------------------------
         # Finalização
