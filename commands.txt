@@ -57,3 +57,63 @@ Entrar no ambiente:
 cd tcc-le-rafa
 cd TCC...
 source .venv/bin/activate
+
+
+-----------------------------------
+FACULDADE - atualizar branch do treino gait:
+
+git fetch origin
+git checkout reward_function_gait
+git pull
+source .venv/bin/activate
+-----------------------------------
+
+
+-----------------------------------
+FACULDADE - Computador 1 - treinar v3 frente certa com passo largo seguro:
+
+python reinforcement_learning/otimizar_hpps_optuna.py \
+  --somente-treinar-melhor \
+  --device cuda \
+  --modo-gait-andando \
+  --continuar-de reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/best_model.zip \
+  --final-timesteps 2000000 \
+  --eval-freq 50000 \
+  --n-eval-episodes 5 \
+  --seed 42 \
+  --final-run-name treino_v3_passo_largo_seguro_v1
+-----------------------------------
+
+
+-----------------------------------
+FACULDADE - Computador 2 - treinar v3 frente certa com outra seed:
+
+python reinforcement_learning/otimizar_hpps_optuna.py \
+  --somente-treinar-melhor \
+  --device cuda \
+  --modo-gait-andando \
+  --continuar-de reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/best_model.zip \
+  --final-timesteps 3000000 \
+  --eval-freq 50000 \
+  --n-eval-episodes 5 \
+  --seed 123 \
+  --final-run-name treino_v3_passo_largo_seed123_v1
+-----------------------------------
+
+
+-----------------------------------
+Ver resultado do Computador 1 no meio/final:
+
+python reinforcement_learning/ver_modelo_atom.py \
+  --modo-gait-andando \
+  --modelo reinforcement_learning/saida_optuna_atom/treino_v3_passo_largo_seguro_v1/melhor_modelo/best_model.zip
+-----------------------------------
+
+
+-----------------------------------
+Ver resultado do Computador 2 no meio/final:
+
+python reinforcement_learning/ver_modelo_atom.py \
+  --modo-gait-andando \
+  --modelo reinforcement_learning/saida_optuna_atom/treino_v3_passo_largo_seed123_v1/melhor_modelo/best_model.zip
+-----------------------------------
