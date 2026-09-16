@@ -1,9 +1,9 @@
 # treino_caminhada_passo_largo_v1
 
-- Registrado em: `2026-09-14T21:56:41.696195+00:00`
+- Registrado em: `2026-09-15T09:56:46.757734+00:00`
 - Origem: `reinforcement_learning/saida_optuna_atom/treino_caminhada_passo_largo_v1`
 - Device: `cuda`
-- Timesteps finais: `3000000`
+- Timesteps finais: `30000000`
 - Frequencia de avaliacao: `50000`
 - Episodios por avaliacao: `5`
 
@@ -52,28 +52,28 @@ tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_caminhada_p
 ```json
 {
   "train_monitor": {
-    "episodes": 12831,
-    "last_reward": -655.026741,
+    "episodes": 150853,
+    "last_reward": -4.463444,
     "best_episode_reward": 1977.815708,
-    "mean_last_10_reward": -509.5342697,
-    "last_episode_length": 193,
-    "elapsed_seconds": 4321.449373
+    "mean_last_10_reward": -190.374387,
+    "last_episode_length": 258,
+    "elapsed_seconds": 33019.782387
   },
   "eval_monitor": {
-    "episodes": 300,
-    "last_reward": -418.992803,
-    "best_episode_reward": 256.415618,
-    "mean_last_10_reward": -544.3416475,
-    "last_episode_length": 223,
-    "elapsed_seconds": 4320.94586
+    "episodes": 3000,
+    "last_reward": -489.915475,
+    "best_episode_reward": 510.041296,
+    "mean_last_10_reward": -421.9732695000001,
+    "last_episode_length": 154,
+    "elapsed_seconds": 33019.508892
   },
   "evaluations_npz": {
     "path": "reinforcement_learning/saida_optuna_atom/treino_caminhada_passo_largo_v1/logs/evaluations.npz",
-    "num_evaluations": 60,
-    "best_mean_reward": 256.415618,
-    "best_timestep": 400000,
-    "last_mean_reward": -418.992803,
-    "last_timestep": 3300000
+    "num_evaluations": 600,
+    "best_mean_reward": 510.041296,
+    "best_timestep": 28350000,
+    "last_mean_reward": -489.91547499999996,
+    "last_timestep": 30300000
   }
 }
 ```

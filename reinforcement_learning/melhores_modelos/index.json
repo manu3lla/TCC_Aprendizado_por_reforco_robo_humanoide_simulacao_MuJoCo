@@ -920,27 +920,27 @@
   {
     "run_name": "treino_caminhada_passo_largo_v1",
     "registry_name": "treino_caminhada_passo_largo_v1",
-    "registered_at": "2026-09-14T21:56:41.696195+00:00",
+    "registered_at": "2026-09-15T09:56:46.757734+00:00",
     "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_caminhada_passo_largo_v1",
     "log_dir": "reinforcement_learning/saida_optuna_atom/treino_caminhada_passo_largo_v1/logs",
     "models": {
       "best": {
         "path": "reinforcement_learning/melhores_modelos/treino_caminhada_passo_largo_v1/best_model.zip",
         "source_path": "reinforcement_learning/saida_optuna_atom/treino_caminhada_passo_largo_v1/melhor_modelo/best_model.zip",
-        "size_bytes": 249683,
-        "sha256": "4fa399e4f53660faac71364c20c4c0a95ec3b105a9433cce41dedaf6ac7dd1b5"
+        "size_bytes": 249677,
+        "sha256": "94b540378aa831341aa1e5aae3d020ae4c3d8bc8ba4872cde4e79333144e21ed"
       },
       "final": {
         "path": "reinforcement_learning/melhores_modelos/treino_caminhada_passo_largo_v1/final_model.zip",
         "source_path": "reinforcement_learning/saida_optuna_atom/treino_caminhada_passo_largo_v1/ppo_atom_optuna_final.zip",
-        "size_bytes": 249677,
-        "sha256": "df556734d3ddd8a728166486b712b4441276060f17542b292d5698945c54f0a2"
+        "size_bytes": 249669,
+        "sha256": "4e31d8a29895b15812d3d93901c600d30c1ccd502bca764647ba3f38f400ab61"
       }
     },
     "training": {
       "device": "cuda",
       "seed": 42,
-      "final_timesteps": 3000000,
+      "final_timesteps": 30000000,
       "eval_freq": 50000,
       "n_eval_episodes": 5,
       "study_name": "ppo_atom_optuna",
@@ -990,28 +990,28 @@
     },
     "evaluation": {
       "train_monitor": {
-        "episodes": 12831,
-        "last_reward": -655.026741,
+        "episodes": 150853,
+        "last_reward": -4.463444,
         "best_episode_reward": 1977.815708,
-        "mean_last_10_reward": -509.5342697,
-        "last_episode_length": 193,
-        "elapsed_seconds": 4321.449373
+        "mean_last_10_reward": -190.374387,
+        "last_episode_length": 258,
+        "elapsed_seconds": 33019.782387
       },
       "eval_monitor": {
-        "episodes": 300,
-        "last_reward": -418.992803,
-        "best_episode_reward": 256.415618,
-        "mean_last_10_reward": -544.3416475,
-        "last_episode_length": 223,
-        "elapsed_seconds": 4320.94586
+        "episodes": 3000,
+        "last_reward": -489.915475,
+        "best_episode_reward": 510.041296,
+        "mean_last_10_reward": -421.9732695000001,
+        "last_episode_length": 154,
+        "elapsed_seconds": 33019.508892
       },
       "evaluations_npz": {
         "path": "reinforcement_learning/saida_optuna_atom/treino_caminhada_passo_largo_v1/logs/evaluations.npz",
-        "num_evaluations": 60,
-        "best_mean_reward": 256.415618,
-        "best_timestep": 400000,
-        "last_mean_reward": -418.992803,
-        "last_timestep": 3300000
+        "num_evaluations": 600,
+        "best_mean_reward": 510.041296,
+        "best_timestep": 28350000,
+        "last_mean_reward": -489.91547499999996,
+        "last_timestep": 30300000
       }
     },
     "plots": [
@@ -1032,6 +1032,2530 @@
       "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_caminhada_passo_largo_v1/logs",
       "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_caminhada_passo_largo_v1/best_model.zip",
       "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_caminhada_passo_largo_v1/final_model.zip"
+    }
+  },
+  {
+    "run_name": "treino_passada_humana_agacha_medio_v1",
+    "registry_name": "treino_passada_humana_agacha_medio_v1",
+    "registered_at": "2026-09-15T13:05:04.039020+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_passada_humana_agacha_medio_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_passada_humana_agacha_medio_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_humana_agacha_medio_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passada_humana_agacha_medio_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249763,
+        "sha256": "d0de48e01908ba38b13f65e6937cd4b1396a39b8f2067aca6be53e6363f0cdb7"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_humana_agacha_medio_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passada_humana_agacha_medio_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249740,
+        "sha256": "7ba67f0027f3412bfdd619a268607b0058cb33fcf49b29d1a555278275f5d41b"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 1000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_passada_humana_agacha_medio_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_caminhada_sem_base_v1/melhor_modelo/best_model.zip"
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 2510,
+        "last_reward": -607.512857,
+        "best_episode_reward": 2134.231453,
+        "mean_last_10_reward": -467.99967159999994,
+        "last_episode_length": 948,
+        "elapsed_seconds": 1113.778507
+      },
+      "eval_monitor": {
+        "episodes": 100,
+        "last_reward": -512.000383,
+        "best_episode_reward": 846.184522,
+        "mean_last_10_reward": -339.27397550000006,
+        "last_episode_length": 267,
+        "elapsed_seconds": 1115.023422
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_passada_humana_agacha_medio_v1/logs/evaluations.npz",
+        "num_evaluations": 20,
+        "best_mean_reward": 846.1845219999999,
+        "best_timestep": 950000,
+        "last_mean_reward": -512.000383,
+        "last_timestep": 1300000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_humana_agacha_medio_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_humana_agacha_medio_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_humana_agacha_medio_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_passada_humana_agacha_medio_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passada_humana_agacha_medio_v1/best_model.zip",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passada_humana_agacha_medio_v1/final_model.zip"
+    }
+  },
+  {
+    "run_name": "treino_passada_livre_v1",
+    "registry_name": "treino_passada_livre_v1",
+    "registered_at": "2026-09-15T13:34:01.967545+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249651,
+        "sha256": "1a0a9db6ab0614c8d98827e427eda4974ff12334186aeeb0797ed37ce8018fae"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249674,
+        "sha256": "9ecb8387bba531aeef827bcaafda363f1bd1061bf1a0fdbde2d1d71fbffa9d66"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 500000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_passada_livre_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_caminhada_sem_base_v1/melhor_modelo/best_model.zip"
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 1562,
+        "last_reward": -170.835826,
+        "best_episode_reward": 1189.06356,
+        "mean_last_10_reward": -273.3922414,
+        "last_episode_length": 416,
+        "elapsed_seconds": 566.717793
+      },
+      "eval_monitor": {
+        "episodes": 50,
+        "last_reward": -234.787909,
+        "best_episode_reward": -102.946312,
+        "mean_last_10_reward": -264.183273,
+        "last_episode_length": 181,
+        "elapsed_seconds": 566.35695
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_v1/logs/evaluations.npz",
+        "num_evaluations": 10,
+        "best_mean_reward": -102.946312,
+        "best_timestep": 350000,
+        "last_mean_reward": -234.78790900000004,
+        "last_timestep": 800000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_passada_livre_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passada_livre_v1/best_model.zip",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passada_livre_v1/final_model.zip"
+    }
+  },
+  {
+    "run_name": "treino_passada_livre_progresso_v1",
+    "registry_name": "treino_passada_livre_progresso_v1",
+    "registered_at": "2026-09-15T13:52:10.930726+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_progresso_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_progresso_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_progresso_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_progresso_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249754,
+        "sha256": "f14ff77886c4e516354e8737e8814a6c6e13bf6bbb93c6e941abb2da9bf32073"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_progresso_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_progresso_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249720,
+        "sha256": "ee094e03c374df23d955118e4611322cc8336da829935c5271fc5e3870557c29"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 500000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_passada_livre_progresso_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_caminhada_sem_base_v1/melhor_modelo/best_model.zip"
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 1256,
+        "last_reward": -598.517307,
+        "best_episode_reward": 1590.434248,
+        "mean_last_10_reward": -420.84348550000004,
+        "last_episode_length": 182,
+        "elapsed_seconds": 563.388541
+      },
+      "eval_monitor": {
+        "episodes": 50,
+        "last_reward": -118.962289,
+        "best_episode_reward": 852.346497,
+        "mean_last_10_reward": -151.4769335,
+        "last_episode_length": 217,
+        "elapsed_seconds": 564.197538
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_progresso_v1/logs/evaluations.npz",
+        "num_evaluations": 10,
+        "best_mean_reward": 852.3464970000001,
+        "best_timestep": 550000,
+        "last_mean_reward": -118.96228900000001,
+        "last_timestep": 800000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_progresso_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_progresso_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_progresso_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_passada_livre_progresso_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passada_livre_progresso_v1/best_model.zip",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passada_livre_progresso_v1/final_model.zip"
+    }
+  },
+  {
+    "run_name": "treino_passada_livre_passo_maior_v1",
+    "registry_name": "treino_passada_livre_passo_maior_v1",
+    "registered_at": "2026-09-15T14:08:55.984525+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_passo_maior_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_passo_maior_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_passo_maior_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_passo_maior_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249710,
+        "sha256": "edb8f078d2792e5df4c9537af114be71793e0c1414e9e4c510a8cc5136555cb1"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_passo_maior_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_passo_maior_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249686,
+        "sha256": "18c010e54516be5f1b72973398b2e6342cff1e8b093e8d3c6a10fcbd455d811a"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 500000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_passada_livre_passo_maior_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_caminhada_sem_base_v1/melhor_modelo/best_model.zip"
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 1887,
+        "last_reward": -528.391744,
+        "best_episode_reward": 1338.349572,
+        "mean_last_10_reward": -299.2673368,
+        "last_episode_length": 190,
+        "elapsed_seconds": 551.618274
+      },
+      "eval_monitor": {
+        "episodes": 50,
+        "last_reward": -521.479793,
+        "best_episode_reward": 83.829498,
+        "mean_last_10_reward": -421.92794699999996,
+        "last_episode_length": 171,
+        "elapsed_seconds": 552.116813
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_passada_livre_passo_maior_v1/logs/evaluations.npz",
+        "num_evaluations": 10,
+        "best_mean_reward": 83.829498,
+        "best_timestep": 400000,
+        "last_mean_reward": -521.479793,
+        "last_timestep": 800000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_passo_maior_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_passo_maior_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passada_livre_passo_maior_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_passada_livre_passo_maior_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passada_livre_passo_maior_v1/best_model.zip",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passada_livre_passo_maior_v1/final_model.zip"
+    }
+  },
+  {
+    "run_name": "treino_passo_maior_corpo_sobre_pes_v1",
+    "registry_name": "treino_passo_maior_corpo_sobre_pes_v1",
+    "registered_at": "2026-09-15T15:13:58.364379+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249729,
+        "sha256": "64d8cb83d4e96a0bc954e3bd75892de5f3496dc4881d558133672ec7d8e8cbdf"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249684,
+        "sha256": "347d6a8060090b47dcaefc871721b8e9563fa218927ebcfff11e254b7e54a423"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 1000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_passo_maior_corpo_sobre_pes_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_caminhada_sem_base_v1/melhor_modelo/best_model.zip"
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 2395,
+        "last_reward": -866.365272,
+        "best_episode_reward": 1007.076738,
+        "mean_last_10_reward": -825.3224236,
+        "last_episode_length": 322,
+        "elapsed_seconds": 1189.134415
+      },
+      "eval_monitor": {
+        "episodes": 100,
+        "last_reward": -962.749913,
+        "best_episode_reward": 390.619216,
+        "mean_last_10_reward": -877.4981015,
+        "last_episode_length": 350,
+        "elapsed_seconds": 1188.741341
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_v1/logs/evaluations.npz",
+        "num_evaluations": 20,
+        "best_mean_reward": 390.619216,
+        "best_timestep": 400000,
+        "last_mean_reward": -962.749913,
+        "last_timestep": 1300000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_v1/best_model.zip",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_v1/final_model.zip"
+    }
+  },
+  {
+    "run_name": "treino_passo_maior_corpo_sobre_pes_rapido_v1",
+    "registry_name": "treino_passo_maior_corpo_sobre_pes_rapido_v1",
+    "registered_at": "2026-09-15T16:08:24.074039+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_rapido_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_rapido_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_rapido_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_rapido_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249736,
+        "sha256": "162664167860a0bab75951573339ad19c02314c3e5c3df54f4ac1c6f1fa4c7c7"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_rapido_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_rapido_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249663,
+        "sha256": "3f788ffff74475523089476720634b1557d599a62cac9aef5acc5139b824d2bc"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 1000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_passo_maior_corpo_sobre_pes_rapido_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_caminhada_sem_base_v1/melhor_modelo/best_model.zip"
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 4180,
+        "last_reward": -490.430744,
+        "best_episode_reward": 1605.23595,
+        "mean_last_10_reward": -382.1272851,
+        "last_episode_length": 150,
+        "elapsed_seconds": 1109.791326
+      },
+      "eval_monitor": {
+        "episodes": 100,
+        "last_reward": -569.024436,
+        "best_episode_reward": 610.399387,
+        "mean_last_10_reward": -532.694818,
+        "last_episode_length": 194,
+        "elapsed_seconds": 1109.317022
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_rapido_v1/logs/evaluations.npz",
+        "num_evaluations": 20,
+        "best_mean_reward": 610.399387,
+        "best_timestep": 450000,
+        "last_mean_reward": -569.024436,
+        "last_timestep": 1300000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_rapido_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_rapido_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_rapido_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_rapido_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_rapido_v1/best_model.zip",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_passo_maior_corpo_sobre_pes_rapido_v1/final_model.zip"
+    }
+  },
+  {
+    "run_name": "treino_rapido_reto_target_v1",
+    "registry_name": "treino_rapido_reto_target_v1",
+    "registered_at": "2026-09-15T16:42:57.191219+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249737,
+        "sha256": "640ff4e73185238546c48ab76700d820e3f8f7135aadf84dfbb29c350b7760b1"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249719,
+        "sha256": "3b777df9d269f3ee58b0c9914e53be8328489f3e433f4fcc6ec156bdd2042ca8"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 1000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_rapido_reto_target_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_rapido_v1/melhor_modelo/best_model.zip"
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 3020,
+        "last_reward": -989.603426,
+        "best_episode_reward": 1800.983784,
+        "mean_last_10_reward": -913.2891536999999,
+        "last_episode_length": 254,
+        "elapsed_seconds": 1215.036833
+      },
+      "eval_monitor": {
+        "episodes": 100,
+        "last_reward": -1505.403166,
+        "best_episode_reward": 819.718922,
+        "mean_last_10_reward": -1232.3714100000002,
+        "last_episode_length": 464,
+        "elapsed_seconds": 1214.693132
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1/logs/evaluations.npz",
+        "num_evaluations": 20,
+        "best_mean_reward": 819.718922,
+        "best_timestep": 550000,
+        "last_mean_reward": -1505.403166,
+        "last_timestep": 1450000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/best_model.zip",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/final_model.zip"
+    }
+  },
+  {
+    "run_name": "treino_reto_target_fluido_lift_v1",
+    "registry_name": "treino_reto_target_fluido_lift_v1",
+    "registered_at": "2026-09-15T17:05:29.615816+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_lift_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_lift_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_reto_target_fluido_lift_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_lift_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249714,
+        "sha256": "8accee37e12f90354c15bdf3231366b46520c4b240e622fbd24b7aef4aa617a5"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_reto_target_fluido_lift_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_lift_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249744,
+        "sha256": "4ebdef53d6cff78513db120a3efe97b755561e32b7cbbad348021c10a4cc5e9f"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 1000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_reto_target_fluido_lift_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1/melhor_modelo/best_model.zip"
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 3176,
+        "last_reward": -489.387144,
+        "best_episode_reward": 1400.666858,
+        "mean_last_10_reward": -840.6657776,
+        "last_episode_length": 148,
+        "elapsed_seconds": 1180.969681
+      },
+      "eval_monitor": {
+        "episodes": 100,
+        "last_reward": -698.931521,
+        "best_episode_reward": 91.410082,
+        "mean_last_10_reward": -771.1811845,
+        "last_episode_length": 408,
+        "elapsed_seconds": 1180.491878
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_lift_v1/logs/evaluations.npz",
+        "num_evaluations": 20,
+        "best_mean_reward": 91.410082,
+        "best_timestep": 650000,
+        "last_mean_reward": -698.931521,
+        "last_timestep": 1550000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_reto_target_fluido_lift_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_reto_target_fluido_lift_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_reto_target_fluido_lift_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_lift_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_reto_target_fluido_lift_v1/best_model.zip",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_reto_target_fluido_lift_v1/final_model.zip"
+    }
+  },
+  {
+    "run_name": "treino_reto_target_fluido_um_pe_v1",
+    "registry_name": "treino_reto_target_fluido_um_pe_v1",
+    "registered_at": "2026-09-15T17:39:06.075042+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_um_pe_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_um_pe_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_reto_target_fluido_um_pe_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_um_pe_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249723,
+        "sha256": "e27e79af7a8800dcaffdfba62c4ac95d77d24d749fb64347e947adbb2e29978a"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_reto_target_fluido_um_pe_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_um_pe_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249652,
+        "sha256": "abece70b95b9be959452480c163721625938d2c834adc376a5d0c43c20ce974f"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 1000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_reto_target_fluido_um_pe_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_lift_v1/melhor_modelo/best_model.zip"
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 4805,
+        "last_reward": -532.1254,
+        "best_episode_reward": 742.819695,
+        "mean_last_10_reward": -586.721738,
+        "last_episode_length": 107,
+        "elapsed_seconds": 1190.450938
+      },
+      "eval_monitor": {
+        "episodes": 100,
+        "last_reward": -620.347991,
+        "best_episode_reward": -230.332315,
+        "mean_last_10_reward": -754.1278165,
+        "last_episode_length": 118,
+        "elapsed_seconds": 1189.828713
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_um_pe_v1/logs/evaluations.npz",
+        "num_evaluations": 20,
+        "best_mean_reward": -230.33231500000002,
+        "best_timestep": 900000,
+        "last_mean_reward": -620.347991,
+        "last_timestep": 1650000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_reto_target_fluido_um_pe_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_reto_target_fluido_um_pe_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_reto_target_fluido_um_pe_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_um_pe_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_reto_target_fluido_um_pe_v1/best_model.zip",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_reto_target_fluido_um_pe_v1/final_model.zip"
+    }
+  },
+  {
+    "run_name": "treino_estavel_humanoide_calmo_v1",
+    "registry_name": "treino_estavel_humanoide_calmo_v1",
+    "registered_at": "2026-09-15T17:57:57.308640+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_estavel_humanoide_calmo_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_estavel_humanoide_calmo_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_estavel_humanoide_calmo_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_estavel_humanoide_calmo_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249755,
+        "sha256": "2e5d09a9a8fd6daed1faa648a3bac26ea3488d79c531f97005c1a7dd19b01e86"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_estavel_humanoide_calmo_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_estavel_humanoide_calmo_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249711,
+        "sha256": "e85884f6c8d57e5937469c3653d72ace9d4f2dfa8095de4c46e3ce5c1af7cc7b"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 500000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_estavel_humanoide_calmo_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_lift_v1/melhor_modelo/best_model.zip"
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 2713,
+        "last_reward": -713.64573,
+        "best_episode_reward": 753.71546,
+        "mean_last_10_reward": -652.652619,
+        "last_episode_length": 170,
+        "elapsed_seconds": 572.512948
+      },
+      "eval_monitor": {
+        "episodes": 50,
+        "last_reward": -611.747931,
+        "best_episode_reward": -340.77687,
+        "mean_last_10_reward": -508.2156575,
+        "last_episode_length": 193,
+        "elapsed_seconds": 573.225719
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_estavel_humanoide_calmo_v1/logs/evaluations.npz",
+        "num_evaluations": 10,
+        "best_mean_reward": -340.77687,
+        "best_timestep": 950000,
+        "last_mean_reward": -611.747931,
+        "last_timestep": 1150000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_estavel_humanoide_calmo_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_estavel_humanoide_calmo_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_estavel_humanoide_calmo_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_estavel_humanoide_calmo_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_estavel_humanoide_calmo_v1/best_model.zip",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_estavel_humanoide_calmo_v1/final_model.zip"
+    }
+  },
+  {
+    "run_name": "treino_gait_inicial_leve_v1",
+    "registry_name": "treino_gait_inicial_leve_v1",
+    "registered_at": "2026-09-15T18:25:29.339930+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_inicial_leve_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_inicial_leve_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_inicial_leve_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_inicial_leve_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249692,
+        "sha256": "94d4a03e73fb54166e7b3c4d280673749c89639072e2cae22b289f1e46af36a1"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_inicial_leve_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_inicial_leve_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249717,
+        "sha256": "26f2c1249fae7d7fb0b1c9a5ff63c76b283b59ee857e2a0587665f0c11608ce8"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 500000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_inicial_leve_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_reto_target_fluido_lift_v1/melhor_modelo/best_model.zip",
+      "usar_gait_inicial": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 1994,
+        "last_reward": -337.361673,
+        "best_episode_reward": 745.961476,
+        "mean_last_10_reward": -599.4276764,
+        "last_episode_length": 117,
+        "elapsed_seconds": 571.214501
+      },
+      "eval_monitor": {
+        "episodes": 50,
+        "last_reward": -694.880632,
+        "best_episode_reward": -159.927892,
+        "mean_last_10_reward": -493.38120749999996,
+        "last_episode_length": 215,
+        "elapsed_seconds": 570.85261
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_inicial_leve_v1/logs/evaluations.npz",
+        "num_evaluations": 10,
+        "best_mean_reward": -159.927892,
+        "best_timestep": 900000,
+        "last_mean_reward": -694.880632,
+        "last_timestep": 1150000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_inicial_leve_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_inicial_leve_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_inicial_leve_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_inicial_leve_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_inicial_leve_v1/best_model.zip --usar-gait-inicial",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_inicial_leve_v1/final_model.zip --usar-gait-inicial"
+    }
+  },
+  {
+    "run_name": "treino_gait_parado_v1",
+    "registry_name": "treino_gait_parado_v1",
+    "registered_at": "2026-09-16T01:17:52.392888+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249720,
+        "sha256": "5a897b88d85e8db01810ffa2e610b1d8b3158a2de820a7a259e6f8557d261426"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249770,
+        "sha256": "4f453a0a8da6efe8cc6ee0a3115cedd18b0f1afa6662befe81dd886c37fabe31"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 10000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_parado_v1",
+      "continuar_de": null,
+      "usar_gait_inicial": true,
+      "modo_gait_parado": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 19321,
+        "last_reward": 6062.487965,
+        "best_episode_reward": 8279.757041,
+        "mean_last_10_reward": 5570.7176325,
+        "last_episode_length": 1000,
+        "elapsed_seconds": 12236.765524
+      },
+      "eval_monitor": {
+        "episodes": 1000,
+        "last_reward": 2651.934954,
+        "best_episode_reward": 7658.298248,
+        "mean_last_10_reward": 4541.4484175,
+        "last_episode_length": 580,
+        "elapsed_seconds": 12239.400533
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1/logs/evaluations.npz",
+        "num_evaluations": 200,
+        "best_mean_reward": 7658.298248000001,
+        "best_timestep": 500000,
+        "last_mean_reward": 2651.934954,
+        "last_timestep": 10000000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_parado_v1/best_model.zip --usar-gait-inicial --modo-gait-parado",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_parado_v1/final_model.zip --usar-gait-inicial --modo-gait-parado"
+    }
+  },
+  {
+    "run_name": "treino_gait_parado_v1",
+    "registry_name": "treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR",
+    "registered_at": "2026-09-16T01:17:52.392888+00:00",
+    "protected_copy": true,
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/melhor_modelo/best_model.zip",
+        "size_bytes": 249720,
+        "sha256": "5a897b88d85e8db01810ffa2e610b1d8b3158a2de820a7a259e6f8557d261426"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/ppo_atom_optuna_final.zip",
+        "size_bytes": 249770,
+        "sha256": "4f453a0a8da6efe8cc6ee0a3115cedd18b0f1afa6662befe81dd886c37fabe31"
+      }
+    },
+    "env_snapshot": {
+      "env_file": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/env_snapshot/env_usado_no_treino.py",
+        "sha256": "df1154ffa870fe80f0fd4a1bb147d63851613c09220fd6c34eb6e11a8a2c74d7"
+      },
+      "reward_file": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/env_snapshot/FUNCAO_RECOMPENSA_EXATA_USADA.md",
+        "sha256": "b4bc25d3e9276b6d50e37d5fc6eaf044b58fcdf86e3a82569b9cc8a700e2c819"
+      },
+      "mujoco_scene": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/env_snapshot/model/scene.xml",
+        "sha256": "0a970c57de8a487e4ea0a84b0723403e38c5759ce03632c3c307554458ed7229"
+      },
+      "mujoco_robot": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/env_snapshot/model/robot.xml",
+        "sha256": "cc59e6446bc589e2954e2a9d82ad5c1c704dc8fccc3a1249fc2a88199444c29e"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 10000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_parado_v1",
+      "continuar_de": null,
+      "usar_gait_inicial": true,
+      "modo_gait_parado": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 19321,
+        "last_reward": 6062.487965,
+        "best_episode_reward": 8279.757041,
+        "mean_last_10_reward": 5570.7176325,
+        "last_episode_length": 1000,
+        "elapsed_seconds": 12236.765524
+      },
+      "eval_monitor": {
+        "episodes": 1000,
+        "last_reward": 2651.934954,
+        "best_episode_reward": 7658.298248,
+        "mean_last_10_reward": 4541.4484175,
+        "last_episode_length": 580,
+        "elapsed_seconds": 12239.400533
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/logs/evaluations.npz",
+        "num_evaluations": 200,
+        "best_mean_reward": 7658.298248000001,
+        "best_timestep": 500000,
+        "last_mean_reward": 2651.934954,
+        "last_timestep": 10000000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/best_model.zip --usar-gait-inicial --modo-gait-parado",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/final_model.zip --usar-gait-inicial --modo-gait-parado"
+    }
+  },
+  {
+    "run_name": "treino_gait_andando_v3_frente_certa",
+    "registry_name": "treino_gait_andando_v3_frente_certa",
+    "registered_at": "2026-09-16T02:32:27.978589+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa/melhor_modelo/best_model.zip",
+        "size_bytes": 249740,
+        "sha256": "77938badac8205f47ce10c23a3cc92f8119482b51d8e1c214de2faf2696359d7"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa/ppo_atom_optuna_final.zip",
+        "size_bytes": 249703,
+        "sha256": "c1a838f4d5568e0ae763fadb37e5ec2a6793938f7e38fca21ea097f7ef46d117"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 2500000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_andando_v3_frente_certa",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/melhor_modelo/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 7672,
+        "last_reward": 1340.331197,
+        "best_episode_reward": 8705.131828,
+        "mean_last_10_reward": 1307.5591379000002,
+        "last_episode_length": 552,
+        "elapsed_seconds": 2991.239798
+      },
+      "eval_monitor": {
+        "episodes": 250,
+        "last_reward": 616.167193,
+        "best_episode_reward": 6666.861145,
+        "mean_last_10_reward": 265.960333,
+        "last_episode_length": 145,
+        "elapsed_seconds": 2991.781786
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa/logs/evaluations.npz",
+        "num_evaluations": 50,
+        "best_mean_reward": 6666.861145,
+        "best_timestep": 650000,
+        "last_mean_reward": 616.167193,
+        "last_timestep": 3000000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa/best_model.zip --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa/final_model.zip --usar-gait-inicial --modo-gait-andando"
+    }
+  },
+  {
+    "run_name": "treino_gait_andando_v3_frente_certa",
+    "registry_name": "treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR",
+    "registered_at": "2026-09-16T02:32:27.978589+00:00",
+    "protected_copy": true,
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/melhor_modelo/best_model.zip",
+        "size_bytes": 249740,
+        "sha256": "77938badac8205f47ce10c23a3cc92f8119482b51d8e1c214de2faf2696359d7"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/ppo_atom_optuna_final.zip",
+        "size_bytes": 249703,
+        "sha256": "c1a838f4d5568e0ae763fadb37e5ec2a6793938f7e38fca21ea097f7ef46d117"
+      }
+    },
+    "env_snapshot": {
+      "env_file": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/env_snapshot/env_usado_no_treino.py",
+        "sha256": "46b0da83cb09a2a4bf579fa29baa52a0cbfc5ee39c74a40fcbffbefd13e5c5ab"
+      },
+      "reward_file": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/env_snapshot/FUNCAO_RECOMPENSA_EXATA_USADA.md",
+        "sha256": "99190acd26162fc5e2c9c26f3808c917783dec35495440916ebcc6d09d380f99"
+      },
+      "mujoco_scene": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/env_snapshot/model/scene.xml",
+        "sha256": "0a970c57de8a487e4ea0a84b0723403e38c5759ce03632c3c307554458ed7229"
+      },
+      "mujoco_robot": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/env_snapshot/model/robot.xml",
+        "sha256": "cc59e6446bc589e2954e2a9d82ad5c1c704dc8fccc3a1249fc2a88199444c29e"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 2500000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_andando_v3_frente_certa",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1_PROTEGIDO_NAO_APAGAR/melhor_modelo/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 7672,
+        "last_reward": 1340.331197,
+        "best_episode_reward": 8705.131828,
+        "mean_last_10_reward": 1307.5591379000002,
+        "last_episode_length": 552,
+        "elapsed_seconds": 2991.239798
+      },
+      "eval_monitor": {
+        "episodes": 250,
+        "last_reward": 616.167193,
+        "best_episode_reward": 6666.861145,
+        "mean_last_10_reward": 265.960333,
+        "last_episode_length": 145,
+        "elapsed_seconds": 2991.781786
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/logs/evaluations.npz",
+        "num_evaluations": 50,
+        "best_mean_reward": 6666.861145,
+        "best_timestep": 650000,
+        "last_mean_reward": 616.167193,
+        "last_timestep": 3000000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/best_model.zip --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/final_model.zip --usar-gait-inicial --modo-gait-andando"
+    }
+  },
+  {
+    "run_name": "treino_gait_andando_target_rapido_v1",
+    "registry_name": "treino_gait_andando_target_rapido_v1",
+    "registered_at": "2026-09-16T11:58:42.422381+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_target_rapido_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_target_rapido_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_target_rapido_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_target_rapido_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249774,
+        "sha256": "26d22409c2bb2b45cc3d6181dc71d2f77a5655993bbccf22cb0738bdad32a10e"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_target_rapido_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_target_rapido_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249738,
+        "sha256": "7ebe079c9e0ccc8805baf906218524497da5b8bbb8ea6a59cfa05df60fae73d3"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 1500000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_andando_target_rapido_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/melhor_modelo/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 3508,
+        "last_reward": 1026.763264,
+        "best_episode_reward": 16380.398289,
+        "mean_last_10_reward": 804.4257193,
+        "last_episode_length": 839,
+        "elapsed_seconds": 2138.932122
+      },
+      "eval_monitor": {
+        "episodes": 150,
+        "last_reward": 837.840322,
+        "best_episode_reward": 10669.447544,
+        "mean_last_10_reward": -47.15283449999998,
+        "last_episode_length": 221,
+        "elapsed_seconds": 2140.235873
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_target_rapido_v1/logs/evaluations.npz",
+        "num_evaluations": 30,
+        "best_mean_reward": 10669.447544,
+        "best_timestep": 1000000,
+        "last_mean_reward": 837.840322,
+        "last_timestep": 2150000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_target_rapido_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_target_rapido_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_target_rapido_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_andando_target_rapido_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_andando_target_rapido_v1/best_model.zip --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_andando_target_rapido_v1/final_model.zip --usar-gait-inicial --modo-gait-andando"
+    }
+  },
+  {
+    "run_name": "treino_gait_andando_reto_rapido_v1",
+    "registry_name": "treino_gait_andando_reto_rapido_v1",
+    "registered_at": "2026-09-16T12:39:52.285108+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249772,
+        "sha256": "3fdd17e21814e847b7e3fce28ab45f401eff0a724d40bd1696e01118d96b4593"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249708,
+        "sha256": "eaa7e1191486eed6181df4cc051f7df3a162d5e0d2499a2ac827fe932daa592d"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 1500000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_andando_reto_rapido_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/melhor_modelo/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 3189,
+        "last_reward": 546.495092,
+        "best_episode_reward": 18884.027661,
+        "mean_last_10_reward": 2729.1738057,
+        "last_episode_length": 391,
+        "elapsed_seconds": 2288.528892
+      },
+      "eval_monitor": {
+        "episodes": 150,
+        "last_reward": 837.019611,
+        "best_episode_reward": 14340.486572,
+        "mean_last_10_reward": 2294.7223344999998,
+        "last_episode_length": 393,
+        "elapsed_seconds": 2290.180736
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_v1/logs/evaluations.npz",
+        "num_evaluations": 30,
+        "best_mean_reward": 14340.486572,
+        "best_timestep": 1050000,
+        "last_mean_reward": 837.019611,
+        "last_timestep": 2150000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_v1/best_model.zip --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_v1/final_model.zip --usar-gait-inicial --modo-gait-andando"
+    }
+  },
+  {
+    "run_name": "treino_gait_andando_reto_rapido_target_estavel_v1",
+    "registry_name": "treino_gait_andando_reto_rapido_target_estavel_v1",
+    "registered_at": "2026-09-16T12:57:11.500676+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_target_estavel_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_target_estavel_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_target_estavel_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_target_estavel_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249797,
+        "sha256": "f7cefaf4f35f313ba4cb03b937d4b960192e256a70dd61ea91e6396379296332"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_target_estavel_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_target_estavel_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249697,
+        "sha256": "384c6ce736dc3d210541d18bb4acc7be916c2cfccb6b6b9ea16661de017d74cd"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 1000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_andando_reto_rapido_target_estavel_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_v1/melhor_modelo/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 2508,
+        "last_reward": 916.734239,
+        "best_episode_reward": 17543.765023,
+        "mean_last_10_reward": 451.78547149999997,
+        "last_episode_length": 213,
+        "elapsed_seconds": 1379.825015
+      },
+      "eval_monitor": {
+        "episodes": 100,
+        "last_reward": 464.797015,
+        "best_episode_reward": 12610.426022,
+        "mean_last_10_reward": 611.4137995,
+        "last_episode_length": 110,
+        "elapsed_seconds": 1379.287009
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_target_estavel_v1/logs/evaluations.npz",
+        "num_evaluations": 20,
+        "best_mean_reward": 12610.426022,
+        "best_timestep": 1100000,
+        "last_mean_reward": 464.797015,
+        "last_timestep": 2050000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_target_estavel_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_target_estavel_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_target_estavel_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_andando_reto_rapido_target_estavel_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_target_estavel_v1/best_model.zip --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_andando_reto_rapido_target_estavel_v1/final_model.zip --usar-gait-inicial --modo-gait-andando"
+    }
+  },
+  {
+    "run_name": "treino_gait_copia_target_v1",
+    "registry_name": "treino_gait_copia_target_v1",
+    "registered_at": "2026-09-16T13:30:10.121158+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_copia_target_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_copia_target_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_copia_target_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_copia_target_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249752,
+        "sha256": "c271bd66e6a87dfae8ae81acbfb94d9914953535f9c1bea804163168f3052ae8"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_copia_target_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_copia_target_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249725,
+        "sha256": "ab05f3b3b714b44db6ea44fb865ec58eed71f52443bd4a74a7a2b5c91494a1d5"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 1000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_copia_target_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/melhor_modelo/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 2643,
+        "last_reward": 2184.86607,
+        "best_episode_reward": 16181.13679,
+        "mean_last_10_reward": 933.6135836,
+        "last_episode_length": 325,
+        "elapsed_seconds": 1231.98156
+      },
+      "eval_monitor": {
+        "episodes": 100,
+        "last_reward": 1846.95367,
+        "best_episode_reward": 8841.104305,
+        "mean_last_10_reward": 2079.583047,
+        "last_episode_length": 287,
+        "elapsed_seconds": 1233.450521
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_copia_target_v1/logs/evaluations.npz",
+        "num_evaluations": 20,
+        "best_mean_reward": 8841.104305,
+        "best_timestep": 700000,
+        "last_mean_reward": 1846.95367,
+        "last_timestep": 1650000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_copia_target_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_copia_target_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_copia_target_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_copia_target_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_copia_target_v1/best_model.zip --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_copia_target_v1/final_model.zip --usar-gait-inicial --modo-gait-andando"
+    }
+  },
+  {
+    "run_name": "treino_gait_copia_mais_rapido_v1",
+    "registry_name": "treino_gait_copia_mais_rapido_v1",
+    "registered_at": "2026-09-16T13:58:02.663466+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_copia_mais_rapido_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_copia_mais_rapido_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_copia_mais_rapido_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_copia_mais_rapido_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249761,
+        "sha256": "d95da3510e0bd6f3caa41e433ba721ebb71cc07f7e9134ee497c186e5cad96e7"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_copia_mais_rapido_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_copia_mais_rapido_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249682,
+        "sha256": "7a2c9476f5d8c90f73e02581b4284ba265f7cda4495f00dfe131ef1146b1fe00"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 1000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_copia_mais_rapido_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/melhor_modelo/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 2707,
+        "last_reward": 1059.490874,
+        "best_episode_reward": 19993.019279,
+        "mean_last_10_reward": 1304.4553267,
+        "last_episode_length": 171,
+        "elapsed_seconds": 1227.850467
+      },
+      "eval_monitor": {
+        "episodes": 100,
+        "last_reward": 1342.736508,
+        "best_episode_reward": 17159.753417,
+        "mean_last_10_reward": 984.5653645,
+        "last_episode_length": 181,
+        "elapsed_seconds": 1227.375491
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_copia_mais_rapido_v1/logs/evaluations.npz",
+        "num_evaluations": 20,
+        "best_mean_reward": 17159.753417,
+        "best_timestep": 850000,
+        "last_mean_reward": 1342.736508,
+        "last_timestep": 1650000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_copia_mais_rapido_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_copia_mais_rapido_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_copia_mais_rapido_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_copia_mais_rapido_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_copia_mais_rapido_v1/best_model.zip --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_copia_mais_rapido_v1/final_model.zip --usar-gait-inicial --modo-gait-andando"
+    }
+  },
+  {
+    "run_name": "treino_gait_lento_passo_largo_v1",
+    "registry_name": "treino_gait_lento_passo_largo_v1",
+    "registered_at": "2026-09-16T19:46:54.853569+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_lento_passo_largo_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_lento_passo_largo_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_lento_passo_largo_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_lento_passo_largo_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 249744,
+        "sha256": "6d134e4d7d71b38578992e044b1064d09d7c5db888b5f8e3e3710cf52e67ebd1"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_lento_passo_largo_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_lento_passo_largo_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 249778,
+        "sha256": "bb429c2ad63c13032250367eabe0a5d20a86103ec3647007fd4286f41f504038"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 10000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_lento_passo_largo_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/melhor_modelo/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 27255,
+        "last_reward": -595.533484,
+        "best_episode_reward": 16490.389189,
+        "mean_last_10_reward": 3759.8716249,
+        "last_episode_length": 343,
+        "elapsed_seconds": 12315.45706
+      },
+      "eval_monitor": {
+        "episodes": 1000,
+        "last_reward": -1114.806484,
+        "best_episode_reward": 15437.696938,
+        "mean_last_10_reward": 319.5586035,
+        "last_episode_length": 128,
+        "elapsed_seconds": 12317.612985
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_lento_passo_largo_v1/logs/evaluations.npz",
+        "num_evaluations": 200,
+        "best_mean_reward": 15437.696938,
+        "best_timestep": 6750000,
+        "last_mean_reward": -1114.806484,
+        "last_timestep": 10650000
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_lento_passo_largo_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_lento_passo_largo_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_lento_passo_largo_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_lento_passo_largo_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_lento_passo_largo_v1/best_model.zip --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_lento_passo_largo_v1/final_model.zip --usar-gait-inicial --modo-gait-andando"
     }
   }
 ]

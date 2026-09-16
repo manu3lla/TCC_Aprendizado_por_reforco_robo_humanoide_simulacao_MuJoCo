@@ -127,13 +127,27 @@ def parse_rollout_batch(value):
     return int(n_steps), int(batch_size)
 
 
-def make_env(seed, monitor_prefix=None, quiet=True):
+def make_env(
+    seed,
+    monitor_prefix=None,
+    quiet=True,
+    use_reference_gait=False,
+    gait_stand_mode=False,
+    gait_walk_mode=False,
+):
+    env_kwargs = {
+        "render_mode": None,
+        "use_reference_gait": use_reference_gait,
+        "gait_stand_mode": gait_stand_mode,
+        "gait_walk_mode": gait_walk_mode,
+    }
+
     if quiet:
         with open(os.devnull, "w", encoding="utf-8") as devnull:
             with contextlib.redirect_stdout(devnull):
-                env = gym.make("Atom-v1", render_mode=None)
+                env = gym.make("Atom-v1", **env_kwargs)
     else:
-        env = gym.make("Atom-v1", render_mode=None)
+        env = gym.make("Atom-v1", **env_kwargs)
 
     if quiet:
         env = QuietEnvWrapper(env)
@@ -221,11 +235,17 @@ def objective(trial, args, save_dir):
         seed=seed,
         monitor_prefix=log_dir / "train",
         quiet=not args.mostrar_debug_env,
+        use_reference_gait=args.usar_gait_inicial,
+        gait_stand_mode=args.modo_gait_parado,
+        gait_walk_mode=args.modo_gait_andando,
     )
     eval_env = make_env(
         seed=seed + 10_000,
         monitor_prefix=log_dir / "eval",
         quiet=not args.mostrar_debug_env,
+        use_reference_gait=args.usar_gait_inicial,
+        gait_stand_mode=args.modo_gait_parado,
+        gait_walk_mode=args.modo_gait_andando,
     )
 
     try:
@@ -322,11 +342,17 @@ def train_final_model(args, save_dir, ppo_params):
         seed=args.seed + 99_000,
         monitor_prefix=log_dir / "train",
         quiet=not args.mostrar_debug_env,
+        use_reference_gait=args.usar_gait_inicial,
+        gait_stand_mode=args.modo_gait_parado,
+        gait_walk_mode=args.modo_gait_andando,
     )
     eval_env = make_env(
         seed=args.seed + 100_000,
         monitor_prefix=log_dir / "eval",
         quiet=not args.mostrar_debug_env,
+        use_reference_gait=args.usar_gait_inicial,
+        gait_stand_mode=args.modo_gait_parado,
+        gait_walk_mode=args.modo_gait_andando,
     )
 
     try:
@@ -398,6 +424,9 @@ def train_final_model(args, save_dir, ppo_params):
                     "save_dir": save_dir,
                     "final_run_name": args.final_run_name,
                     "continuar_de": str(continue_from) if continue_from else None,
+                    "usar_gait_inicial": args.usar_gait_inicial,
+                    "modo_gait_parado": args.modo_gait_parado,
+                    "modo_gait_andando": args.modo_gait_andando,
                 },
                 registry_dir=args.model_registry_dir,
                 best_params_path=save_dir / "best_params.json",
@@ -434,6 +463,21 @@ def parse_args():
     parser.add_argument("--sem-pruning", action="store_true")
     parser.add_argument("--progress-bar", action="store_true")
     parser.add_argument("--mostrar-debug-env", action="store_true")
+    parser.add_argument(
+        "--usar-gait-inicial",
+        action="store_true",
+        help="Usa uma marcha base leve e deixa o PPO aprender correcoes residuais.",
+    )
+    parser.add_argument(
+        "--modo-gait-parado",
+        action="store_true",
+        help="Treina primeiro a imitacao do gait parado, sem recompensa de alvo.",
+    )
+    parser.add_argument(
+        "--modo-gait-andando",
+        action="store_true",
+        help="Treina a marcha andando para frente mantendo a imitacao do gait.",
+    )
     parser.add_argument("--treinar-melhor", action="store_true")
     parser.add_argument("--somente-treinar-melhor", action="store_true")
     parser.add_argument("--model-registry-dir", default=str(DEFAULT_REGISTRY_DIR))
@@ -448,6 +492,15 @@ def parse_args():
 
 def main():
     args = parse_args()
+    if args.modo_gait_parado and args.modo_gait_andando:
+        raise SystemExit(
+            "Use apenas um modo por treino: --modo-gait-parado ou --modo-gait-andando."
+        )
+    if args.modo_gait_parado:
+        args.usar_gait_inicial = True
+    if args.modo_gait_andando:
+        args.usar_gait_inicial = True
+
     save_dir = Path(args.save_dir).resolve()
     save_dir.mkdir(parents=True, exist_ok=True)
 

@@ -1,0 +1,119 @@
+{
+  "run_name": "treino_gait_parado_v1",
+  "registry_name": "treino_gait_parado_v1",
+  "registered_at": "2026-09-16T01:17:52.392888+00:00",
+  "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1",
+  "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1/logs",
+  "models": {
+    "best": {
+      "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1/best_model.zip",
+      "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1/melhor_modelo/best_model.zip",
+      "size_bytes": 249720,
+      "sha256": "5a897b88d85e8db01810ffa2e610b1d8b3158a2de820a7a259e6f8557d261426"
+    },
+    "final": {
+      "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1/final_model.zip",
+      "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1/ppo_atom_optuna_final.zip",
+      "size_bytes": 249770,
+      "sha256": "4f453a0a8da6efe8cc6ee0a3115cedd18b0f1afa6662befe81dd886c37fabe31"
+    }
+  },
+  "training": {
+    "device": "cuda",
+    "seed": 42,
+    "final_timesteps": 10000000,
+    "eval_freq": 50000,
+    "n_eval_episodes": 5,
+    "study_name": "ppo_atom_optuna",
+    "save_dir": "reinforcement_learning/saida_optuna_atom",
+    "final_run_name": "treino_gait_parado_v1",
+    "continuar_de": null,
+    "usar_gait_inicial": true,
+    "modo_gait_parado": true
+  },
+  "ppo_params": {
+    "learning_rate": 0.0008286946154789709,
+    "n_steps": 512,
+    "batch_size": 64,
+    "n_epochs": 10,
+    "gamma": 0.98,
+    "gae_lambda": 0.95,
+    "clip_range": 0.137826935848043,
+    "ent_coef": 0.0,
+    "vf_coef": 0.32937558580716303,
+    "max_grad_norm": 0.5222902926081441
+  },
+  "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+  "best_params": {
+    "best_trial": 40,
+    "best_value_mean_reward": 1064.051822,
+    "optuna_params": {
+      "rollout_batch": "512_64",
+      "learning_rate": 0.0008286946154789709,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    }
+  },
+  "evaluation": {
+    "train_monitor": {
+      "episodes": 19321,
+      "last_reward": 6062.487965,
+      "best_episode_reward": 8279.757041,
+      "mean_last_10_reward": 5570.7176325,
+      "last_episode_length": 1000,
+      "elapsed_seconds": 12236.765524
+    },
+    "eval_monitor": {
+      "episodes": 1000,
+      "last_reward": 2651.934954,
+      "best_episode_reward": 7658.298248,
+      "mean_last_10_reward": 4541.4484175,
+      "last_episode_length": 580,
+      "elapsed_seconds": 12239.400533
+    },
+    "evaluations_npz": {
+      "path": "reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1/logs/evaluations.npz",
+      "num_evaluations": 200,
+      "best_mean_reward": 7658.298248000001,
+      "best_timestep": 500000,
+      "last_mean_reward": 2651.934954,
+      "last_timestep": 10000000
+    }
+  },
+  "plots": [
+    {
+      "name": "recompensa_treino",
+      "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1/graficos/recompensa_treino.png"
+    },
+    {
+      "name": "convergencia_avaliacao",
+      "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1/graficos/convergencia_avaliacao.png"
+    },
+    {
+      "name": "recompensa_episodios_avaliacao",
+      "path": "reinforcement_learning/melhores_modelos/treino_gait_parado_v1/graficos/recompensa_episodios_avaliacao.png"
+    }
+  ],
+  "commands": {
+    "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_parado_v1/logs",
+    "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_parado_v1/best_model.zip --usar-gait-inicial --modo-gait-parado",
+    "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_parado_v1/final_model.zip --usar-gait-inicial --modo-gait-parado"
+  }
+}

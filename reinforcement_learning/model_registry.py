@@ -4,6 +4,7 @@ import json
 import os
 import re
 import shutil
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -11,6 +12,8 @@ from pathlib import Path
 RL_ROOT = Path(__file__).resolve().parent
 REPO_ROOT = RL_ROOT.parent
 DEFAULT_REGISTRY_DIR = RL_ROOT / "melhores_modelos"
+ENV_SOURCE_PATH = RL_ROOT / "op3_model" / "src" / "atom" / "env.py"
+MODEL_SOURCE_DIR = RL_ROOT / "op3_model" / "src" / "model"
 
 
 def slugify(value):
@@ -77,6 +80,198 @@ def copy_model(src, dst):
         "size_bytes": dst.stat().st_size,
         "sha256": sha256sum(dst),
     }
+
+
+def copy_snapshot_file(src, dst):
+    src = Path(src)
+    dst = Path(dst)
+    if not src.exists():
+        return None
+
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dst)
+    return {
+        "path": to_repo_path(dst),
+        "source_path": to_repo_path(src),
+        "size_bytes": dst.stat().st_size,
+        "sha256": sha256sum(dst),
+    }
+
+
+def collect_mujoco_model_files(model_dir, root_xml="scene.xml"):
+    model_dir = Path(model_dir)
+    files = set()
+    visited_xml = set()
+
+    def visit_xml(relative_xml):
+        relative_xml = Path(relative_xml)
+        if relative_xml in visited_xml:
+            return
+        visited_xml.add(relative_xml)
+
+        xml_path = model_dir / relative_xml
+        if not xml_path.exists():
+            return
+
+        files.add(relative_xml)
+        root = ET.parse(xml_path).getroot()
+        compiler = root.find("compiler")
+        meshdir = Path(compiler.attrib.get("meshdir", "")) if compiler is not None else Path()
+
+        for element in root.iter():
+            file_attr = element.attrib.get("file")
+            if not file_attr:
+                continue
+
+            if element.tag == "include":
+                visit_xml(relative_xml.parent / file_attr)
+            elif element.tag == "mesh":
+                files.add(relative_xml.parent / meshdir / file_attr)
+            else:
+                files.add(relative_xml.parent / file_attr)
+
+    visit_xml(root_xml)
+    return sorted(files, key=lambda item: item.as_posix())
+
+
+def copy_mujoco_model_snapshot(snapshot_dir):
+    snapshot_model_dir = Path(snapshot_dir) / "model"
+    copied_files = []
+
+    for relative_path in collect_mujoco_model_files(MODEL_SOURCE_DIR):
+        src = MODEL_SOURCE_DIR / relative_path
+        if not src.exists():
+            continue
+        copied = copy_snapshot_file(src, snapshot_model_dir / relative_path)
+        if copied:
+            copied["relative_path"] = relative_path.as_posix()
+            copied_files.append(copied)
+
+    return copied_files
+
+
+def write_reward_snapshot(env_source_path, output_path):
+    env_source_path = Path(env_source_path)
+    output_path = Path(output_path)
+    if not env_source_path.exists():
+        return None
+
+    source = env_source_path.read_text(encoding="utf-8")
+    reward_weights = ""
+    step_method = ""
+
+    weights_start = source.find("        self.reward_weights = {")
+    weights_end = source.find("    def _body_id", weights_start)
+    if weights_start >= 0 and weights_end > weights_start:
+        reward_weights = source[weights_start:weights_end].rstrip()
+
+    step_start = source.find("    def step(self, action):")
+    step_end = source.find("    def render(self):", step_start)
+    if step_start >= 0 and step_end > step_start:
+        step_method = source[step_start:step_end].rstrip()
+
+    lines = [
+        "# Funcao de recompensa exata usada",
+        "",
+        "Este arquivo foi gerado automaticamente a partir do `env.py` salvo no snapshot.",
+        "",
+        "## Pesos e modos de recompensa",
+        "",
+        "```python",
+        reward_weights or "# Bloco self.reward_weights nao encontrado.",
+        "```",
+        "",
+        "## Metodo step",
+        "",
+        "```python",
+        step_method or "# Metodo step nao encontrado.",
+        "```",
+        "",
+    ]
+    output_path.write_text("\n".join(lines), encoding="utf-8")
+    return {
+        "path": to_repo_path(output_path),
+        "sha256": sha256sum(output_path),
+    }
+
+
+def write_env_snapshot_readme(snapshot_dir, env_record, model_records, reward_record):
+    snapshot_dir = Path(snapshot_dir)
+    lines = [
+        "# Snapshot do ambiente usado",
+        "",
+        "Este diretorio guarda o ambiente usado para treinar e visualizar este modelo.",
+        "",
+        "Arquivos principais:",
+        "",
+        "- `env_usado_no_treino.py`: copia documentada do ambiente.",
+        "- `atom/env.py`: copia carregavel pelo visualizador com caminhos relativos corretos.",
+        "- `model/`: arquivos MuJoCo referenciados por `scene.xml` e `robot.xml`.",
+        "- `FUNCAO_RECOMPENSA_EXATA_USADA.md`: recorte da recompensa usada.",
+        "",
+        "Hashes SHA-256:",
+        "",
+        "```text",
+    ]
+    if env_record:
+        lines.append(f"{env_record['sha256']}  env_usado_no_treino.py")
+    if reward_record:
+        lines.append(f"{reward_record['sha256']}  FUNCAO_RECOMPENSA_EXATA_USADA.md")
+    for record in model_records:
+        lines.append(f"{record['sha256']}  model/{record['relative_path']}")
+    lines += [
+        "```",
+        "",
+    ]
+    readme_path = snapshot_dir / "README.md"
+    readme_path.write_text("\n".join(lines), encoding="utf-8")
+    return {
+        "path": to_repo_path(readme_path),
+        "sha256": sha256sum(readme_path),
+    }
+
+
+def create_env_snapshot(entry_dir):
+    snapshot_dir = Path(entry_dir) / "env_snapshot"
+    atom_dir = snapshot_dir / "atom"
+    atom_dir.mkdir(parents=True, exist_ok=True)
+
+    env_record = copy_snapshot_file(ENV_SOURCE_PATH, snapshot_dir / "env_usado_no_treino.py")
+    loadable_env_record = copy_snapshot_file(ENV_SOURCE_PATH, atom_dir / "env.py")
+    init_path = atom_dir / "__init__.py"
+    init_path.write_text("from .env import AtomEnv\n", encoding="utf-8")
+
+    model_records = copy_mujoco_model_snapshot(snapshot_dir)
+    reward_record = write_reward_snapshot(
+        ENV_SOURCE_PATH,
+        snapshot_dir / "FUNCAO_RECOMPENSA_EXATA_USADA.md",
+    )
+    readme_record = write_env_snapshot_readme(
+        snapshot_dir,
+        env_record,
+        model_records,
+        reward_record,
+    )
+
+    manifest = {
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "snapshot_dir": to_repo_path(snapshot_dir),
+        "env": env_record,
+        "loadable_env": loadable_env_record,
+        "model_files": model_records,
+        "reward": reward_record,
+        "readme": readme_record,
+    }
+    manifest_path = snapshot_dir / "manifest.json"
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    manifest["manifest"] = {
+        "path": to_repo_path(manifest_path),
+        "sha256": sha256sum(manifest_path),
+    }
+    return manifest
 
 
 def read_monitor_summary(path):
@@ -328,13 +523,29 @@ def generate_plots(entry_dir, log_dir):
     ]
 
 
-def command_for_model(model_path, max_steps=None, sleep=None):
+def command_for_model(
+    model_path,
+    max_steps=None,
+    sleep=None,
+    use_reference_gait=False,
+    gait_stand_mode=False,
+    gait_walk_mode=False,
+    use_env_snapshot=False,
+):
     command = [
         "python",
         "reinforcement_learning/ver_modelo_atom.py",
         "--modelo",
         to_repo_path(model_path),
     ]
+    if use_env_snapshot:
+        command.append("--usar-env-snapshot")
+    if use_reference_gait:
+        command.append("--usar-gait-inicial")
+    if gait_stand_mode:
+        command.append("--modo-gait-parado")
+    if gait_walk_mode:
+        command.append("--modo-gait-andando")
     if max_steps is not None:
         command += ["--max-steps", str(max_steps)]
     if sleep is not None:
@@ -360,6 +571,9 @@ def write_readme(entry_dir, metadata):
         f"- Timesteps finais: `{metadata['training'].get('final_timesteps')}`",
         f"- Frequencia de avaliacao: `{metadata['training'].get('eval_freq')}`",
         f"- Episodios por avaliacao: `{metadata['training'].get('n_eval_episodes')}`",
+        f"- Gait inicial: `{metadata['training'].get('usar_gait_inicial', False)}`",
+        f"- Modo gait parado: `{metadata['training'].get('modo_gait_parado', False)}`",
+        f"- Modo gait andando: `{metadata['training'].get('modo_gait_andando', False)}`",
         "",
         "## Modelos",
         "",
@@ -369,6 +583,18 @@ def write_readme(entry_dir, metadata):
         lines.append(f"- Melhor avaliacao: `{best_model['path']}`")
     if final_model:
         lines.append(f"- Modelo final: `{final_model['path']}`")
+
+    env_snapshot = metadata.get("env_snapshot") or {}
+    if env_snapshot:
+        lines += [
+            "",
+            "## Snapshot do ambiente",
+            "",
+            f"- Ambiente carregavel: `{env_snapshot.get('loadable_env', {}).get('path')}`",
+            f"- Ambiente documentado: `{env_snapshot.get('env', {}).get('path')}`",
+            f"- Funcao de recompensa: `{env_snapshot.get('reward', {}).get('path')}`",
+            f"- Manifesto: `{env_snapshot.get('manifest', {}).get('path')}`",
+        ]
 
     plots = metadata.get("plots") or []
     if plots:
@@ -522,6 +748,7 @@ def register_training_run(
     best_model = copy_model(best_model_path, entry_dir / "best_model.zip")
     final_model = copy_model(final_model_path, entry_dir / "final_model.zip")
     best_params = load_json(best_params_path) if best_params_path else None
+    env_snapshot = create_env_snapshot(entry_dir)
 
     metadata = {
         "run_name": run_name,
@@ -540,14 +767,30 @@ def register_training_run(
         else None,
         "best_params": best_params,
         "evaluation": read_eval_summary(log_dir),
+        "env_snapshot": env_snapshot,
     }
     metadata["plots"] = generate_plots(entry_dir, log_dir)
 
+    use_reference_gait = bool(metadata["training"].get("usar_gait_inicial"))
+    gait_stand_mode = bool(metadata["training"].get("modo_gait_parado"))
+    gait_walk_mode = bool(metadata["training"].get("modo_gait_andando"))
     commands = {"tensorboard": tensorboard_command(log_dir)}
     if best_model:
-        commands["view_best"] = command_for_model(from_repo_path(best_model["path"]))
+        commands["view_best"] = command_for_model(
+            from_repo_path(best_model["path"]),
+            use_reference_gait=use_reference_gait,
+            gait_stand_mode=gait_stand_mode,
+            gait_walk_mode=gait_walk_mode,
+            use_env_snapshot=bool(env_snapshot),
+        )
     if final_model:
-        commands["view_final"] = command_for_model(from_repo_path(final_model["path"]))
+        commands["view_final"] = command_for_model(
+            from_repo_path(final_model["path"]),
+            use_reference_gait=use_reference_gait,
+            gait_stand_mode=gait_stand_mode,
+            gait_walk_mode=gait_walk_mode,
+            use_env_snapshot=bool(env_snapshot),
+        )
     metadata["commands"] = commands
 
     metadata_path = entry_dir / "metadata.json"

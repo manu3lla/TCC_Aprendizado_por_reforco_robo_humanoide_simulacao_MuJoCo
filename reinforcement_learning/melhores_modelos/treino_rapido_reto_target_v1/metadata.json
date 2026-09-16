@@ -1,0 +1,117 @@
+{
+  "run_name": "treino_rapido_reto_target_v1",
+  "registry_name": "treino_rapido_reto_target_v1",
+  "registered_at": "2026-09-15T16:42:57.191219+00:00",
+  "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1",
+  "log_dir": "reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1/logs",
+  "models": {
+    "best": {
+      "path": "reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/best_model.zip",
+      "source_path": "reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1/melhor_modelo/best_model.zip",
+      "size_bytes": 249737,
+      "sha256": "640ff4e73185238546c48ab76700d820e3f8f7135aadf84dfbb29c350b7760b1"
+    },
+    "final": {
+      "path": "reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/final_model.zip",
+      "source_path": "reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1/ppo_atom_optuna_final.zip",
+      "size_bytes": 249719,
+      "sha256": "3b777df9d269f3ee58b0c9914e53be8328489f3e433f4fcc6ec156bdd2042ca8"
+    }
+  },
+  "training": {
+    "device": "cuda",
+    "seed": 42,
+    "final_timesteps": 1000000,
+    "eval_freq": 50000,
+    "n_eval_episodes": 5,
+    "study_name": "ppo_atom_optuna",
+    "save_dir": "reinforcement_learning/saida_optuna_atom",
+    "final_run_name": "treino_rapido_reto_target_v1",
+    "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_passo_maior_corpo_sobre_pes_rapido_v1/melhor_modelo/best_model.zip"
+  },
+  "ppo_params": {
+    "learning_rate": 0.0008286946154789709,
+    "n_steps": 512,
+    "batch_size": 64,
+    "n_epochs": 10,
+    "gamma": 0.98,
+    "gae_lambda": 0.95,
+    "clip_range": 0.137826935848043,
+    "ent_coef": 0.0,
+    "vf_coef": 0.32937558580716303,
+    "max_grad_norm": 0.5222902926081441
+  },
+  "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+  "best_params": {
+    "best_trial": 40,
+    "best_value_mean_reward": 1064.051822,
+    "optuna_params": {
+      "rollout_batch": "512_64",
+      "learning_rate": 0.0008286946154789709,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    }
+  },
+  "evaluation": {
+    "train_monitor": {
+      "episodes": 3020,
+      "last_reward": -989.603426,
+      "best_episode_reward": 1800.983784,
+      "mean_last_10_reward": -913.2891536999999,
+      "last_episode_length": 254,
+      "elapsed_seconds": 1215.036833
+    },
+    "eval_monitor": {
+      "episodes": 100,
+      "last_reward": -1505.403166,
+      "best_episode_reward": 819.718922,
+      "mean_last_10_reward": -1232.3714100000002,
+      "last_episode_length": 464,
+      "elapsed_seconds": 1214.693132
+    },
+    "evaluations_npz": {
+      "path": "reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1/logs/evaluations.npz",
+      "num_evaluations": 20,
+      "best_mean_reward": 819.718922,
+      "best_timestep": 550000,
+      "last_mean_reward": -1505.403166,
+      "last_timestep": 1450000
+    }
+  },
+  "plots": [
+    {
+      "name": "recompensa_treino",
+      "path": "reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/graficos/recompensa_treino.png"
+    },
+    {
+      "name": "convergencia_avaliacao",
+      "path": "reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/graficos/convergencia_avaliacao.png"
+    },
+    {
+      "name": "recompensa_episodios_avaliacao",
+      "path": "reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/graficos/recompensa_episodios_avaliacao.png"
+    }
+  ],
+  "commands": {
+    "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_rapido_reto_target_v1/logs",
+    "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/best_model.zip",
+    "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_rapido_reto_target_v1/final_model.zip"
+  }
+}
