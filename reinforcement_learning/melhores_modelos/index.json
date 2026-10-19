@@ -3557,5 +3557,3068 @@
       "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_lento_passo_largo_v1/best_model.zip --usar-gait-inicial --modo-gait-andando",
       "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_lento_passo_largo_v1/final_model.zip --usar-gait-inicial --modo-gait-andando"
     }
+  },
+  {
+    "run_name": "treino_gait_v3_rapido_v1",
+    "registry_name": "treino_gait_v3_rapido_v1",
+    "registered_at": "2026-10-10T22:47:59.384296+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 250477,
+        "sha256": "16b6e8f236b30e0d780cc9164af6a006f432905e94453858a333050b7bad2bf2"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 250366,
+        "sha256": "6cab0fe47592e8b908a888775c0fa45e7d87dc4ed4d177c86e70ba6cb5f696f3"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 2000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_v3_rapido_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 4794,
+        "last_reward": 1241.609284,
+        "best_episode_reward": 10144.043584,
+        "mean_last_10_reward": 1990.152893,
+        "last_episode_length": 266,
+        "elapsed_seconds": 3187.689116
+      },
+      "eval_monitor": {
+        "episodes": 200,
+        "last_reward": 6581.579214,
+        "best_episode_reward": 9267.07445,
+        "mean_last_10_reward": 3926.2423415000003,
+        "last_episode_length": 1000,
+        "elapsed_seconds": 3192.90608
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1/logs/evaluations.npz",
+        "num_evaluations": 40,
+        "best_mean_reward": 9267.07445,
+        "best_timestep": 1600000,
+        "last_mean_reward": 6581.579214,
+        "last_timestep": 2650000
+      }
+    },
+    "env_snapshot": {
+      "created_at": "2026-10-10T22:47:59.383906+00:00",
+      "snapshot_dir": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot",
+      "env": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/env_usado_no_treino.py",
+        "source_path": "reinforcement_learning/op3_model/src/atom/env.py",
+        "size_bytes": 61014,
+        "sha256": "bd9def8ee9f1b8767212bfa35d183b4f32008bf2d7cc480439222a63ad86bb7b"
+      },
+      "loadable_env": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/atom/env.py",
+        "source_path": "reinforcement_learning/op3_model/src/atom/env.py",
+        "size_bytes": 61014,
+        "sha256": "bd9def8ee9f1b8767212bfa35d183b4f32008bf2d7cc480439222a63ad86bb7b"
+      },
+      "model_files": [
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_1_peito_frontal_impressao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_1_peito_frontal_impressao.stl",
+          "size_bytes": 158184,
+          "sha256": "932b55ce2c0089bbb22267a82f9081970ce3c7343973d7c7faf88afed9405876",
+          "relative_path": "assets/atom_1_peito_frontal_impressao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_amortecedor_frente_corrigido.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_frente_corrigido.stl",
+          "size_bytes": 134084,
+          "sha256": "3a4220ae9ca1616b1a8b0a9329d112658a34bec2d85d22025ab1fd80d2f4904a",
+          "relative_path": "assets/atom_amortecedor_frente_corrigido.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_amortecedor_tras_lados_invertidos.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_tras_lados_invertidos.stl",
+          "size_bytes": 145084,
+          "sha256": "d574d5d69f4211acbad6322dece27507a0476bb358a26b43d514f1023dea34dd",
+          "relative_path": "assets/atom_amortecedor_tras_lados_invertidos.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_amortecedor_tras_lados_invertidos__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_tras_lados_invertidos__2.stl",
+          "size_bytes": 145084,
+          "sha256": "8d598bc6c1b023e65540d1f4dc45c26081b6ab07eb67fbab36ce3ac81936fc31",
+          "relative_path": "assets/atom_amortecedor_tras_lados_invertidos__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_braco.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_braco.stl",
+          "size_bytes": 118884,
+          "sha256": "a4b7d3f40914d626114d4f690b2e298f067ee3af7344f05d2ec48e60f8bef8a2",
+          "relative_path": "assets/atom_braco.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_camera.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera.stl",
+          "size_bytes": 684384,
+          "sha256": "52e05be16eddd9f8ffb8fa28cdaae49864009cadd18811eb02d58b61851ccdf7",
+          "relative_path": "assets/atom_camera.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_camera__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera__2.stl",
+          "size_bytes": 633984,
+          "sha256": "ed9fad28439b8b2a9993a193ed720e420913ddb0d336c556d259506ee452873b",
+          "relative_path": "assets/atom_camera__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_camera__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera__3.stl",
+          "size_bytes": 118284,
+          "sha256": "76aecf66c22c8bc352bb258eb5a7c1a1d434919b31d473682ee094d782776523",
+          "relative_path": "assets/atom_camera__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_chapa_motores_ombro.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_motores_ombro.stl",
+          "size_bytes": 338784,
+          "sha256": "b2cd70fea264523900d9b49ff5faea359fd8b6768c26a3c90a296a050fe4221c",
+          "relative_path": "assets/atom_chapa_motores_ombro.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_chapa_ombro_cima_fibra.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_ombro_cima_fibra.stl",
+          "size_bytes": 220084,
+          "sha256": "f69375417a2a5fc2c0821199de5b8eeb268542c087e0862b60cb7aa185380070",
+          "relative_path": "assets/atom_chapa_ombro_cima_fibra.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_chapa_peito_baixo.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_peito_baixo.stl",
+          "size_bytes": 348584,
+          "sha256": "6a34d4f9501d3971e2f67df9fc9588b9db5aba940bcec652e64cc8286ffc0abb",
+          "relative_path": "assets/atom_chapa_peito_baixo.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_chapa_peito_traseira_fibra.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_peito_traseira_fibra.stl",
+          "size_bytes": 176484,
+          "sha256": "c90d45f66a6bfaa5a42bf92fa2d6f27715f7336ae69e54be356dbf156e569413",
+          "relative_path": "assets/atom_chapa_peito_traseira_fibra.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_conector_motores_dir_simulacao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_motores_dir_simulacao.stl",
+          "size_bytes": 177484,
+          "sha256": "df054769b4805e56a85eac0a0dd60a134f87f0e4c53dd7e91a9591f04522e496",
+          "relative_path": "assets/atom_conector_motores_dir_simulacao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_conector_motores_esq_simulacao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_motores_esq_simulacao.stl",
+          "size_bytes": 167584,
+          "sha256": "a53ce4fede3d25adebdcc036bebb4ad7aa9df5e215c8937486550a46dd518421",
+          "relative_path": "assets/atom_conector_motores_esq_simulacao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_conector_rolamento.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_rolamento.stl",
+          "size_bytes": 153884,
+          "sha256": "a3bf0014a98c7d6a1863f1bab086053e2291a41b2a746ac73dd79ff291eab40e",
+          "relative_path": "assets/atom_conector_rolamento.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_conector_rolamento__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_rolamento__2.stl",
+          "size_bytes": 153884,
+          "sha256": "a3bf0014a98c7d6a1863f1bab086053e2291a41b2a746ac73dd79ff291eab40e",
+          "relative_path": "assets/atom_conector_rolamento__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_coxa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_coxa.stl",
+          "size_bytes": 388084,
+          "sha256": "781a1227f48348bb736ee47bb7e9a44b29d48bf7797dd3fea930478e0adcde2b",
+          "relative_path": "assets/atom_coxa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_cravo_cilindrico.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_cravo_cilindrico.stl",
+          "size_bytes": 57684,
+          "sha256": "e3ad304b28d76ff91dda272f3e8e644a83390ab5aa3f460ad295bbc9a278e87c",
+          "relative_path": "assets/atom_cravo_cilindrico.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_junta.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta.stl",
+          "size_bytes": 130984,
+          "sha256": "40d9cb219fafda38d4281a835d0b872af77a9234ce203c80e285d07835fc7dd4",
+          "relative_path": "assets/atom_junta.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_junta__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta__2.stl",
+          "size_bytes": 130984,
+          "sha256": "40d9cb219fafda38d4281a835d0b872af77a9234ce203c80e285d07835fc7dd4",
+          "relative_path": "assets/atom_junta__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_junta_inferior_coxa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta_inferior_coxa.stl",
+          "size_bytes": 230284,
+          "sha256": "c422a74dc8c7834239269dac17021dd91d1ec5797b833f0c4e98c7c2d3fa8f95",
+          "relative_path": "assets/atom_junta_inferior_coxa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_junta_inferior_pe.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta_inferior_pe.stl",
+          "size_bytes": 146084,
+          "sha256": "aea7a3535c09496d9e8d8e6236337967ef569a6c39a91a802ab8b94b452befee",
+          "relative_path": "assets/atom_junta_inferior_pe.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_mao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_mao.stl",
+          "size_bytes": 164184,
+          "sha256": "3328b51cd28016c0a111b9bf190de329bc301c5a6dd5523b04980e599a2f7625",
+          "relative_path": "assets/atom_mao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_mao_espacador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_mao_espacador.stl",
+          "size_bytes": 14484,
+          "sha256": "2ec359053d2ead838113e45df41b8cc825ddcf2498cf8a41ee50f97e0cefe1a3",
+          "relative_path": "assets/atom_mao_espacador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_ombro.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_ombro.stl",
+          "size_bytes": 424484,
+          "sha256": "d4560f3a90b95ccb83d68933ba15bc0ff43d34a42083bfa5d6b0016a45a2e690",
+          "relative_path": "assets/atom_ombro.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_ombro_chapa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_ombro_chapa.stl",
+          "size_bytes": 59084,
+          "sha256": "de77e45356442403501fe809ffabbe9b66ff5229c45a2b918dcb920ede58e78c",
+          "relative_path": "assets/atom_ombro_chapa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_panturrilha.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_panturrilha.stl",
+          "size_bytes": 366284,
+          "sha256": "a0cad268804c4046ebdaabcbbf969dbfa00ee46e75370e87434fefcabf442306",
+          "relative_path": "assets/atom_panturrilha.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_pe.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_pe.stl",
+          "size_bytes": 187484,
+          "sha256": "6ef5c3b7af10b79cca5cfbf7ee914ba91d7aaa38b3351a685dc6ba415a622e7a",
+          "relative_path": "assets/atom_pe.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_peito_lateral.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_peito_lateral.stl",
+          "size_bytes": 346084,
+          "sha256": "7f3ccec4e95d4e930eb71eb70554aa8a0a49b61da6f48022a31d0c6f255a0efd",
+          "relative_path": "assets/atom_peito_lateral.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_peito_traseira_impressao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_peito_traseira_impressao.stl",
+          "size_bytes": 113084,
+          "sha256": "c249e78af5621fbf521e631fab260d22b46d540c0eff6b87d3816e1b52862fad",
+          "relative_path": "assets/atom_peito_traseira_impressao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_pescoco.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_pescoco.stl",
+          "size_bytes": 306884,
+          "sha256": "8abc42bbdf03022e57f99d5b00edd2d4bfa18f4a213263a54dbc36435ba16259",
+          "relative_path": "assets/atom_pescoco.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_porta_bateria.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_porta_bateria.stl",
+          "size_bytes": 93184,
+          "sha256": "07de60c75ff8d3cb3a16fa244891ff2cc704732c2919da3f243e8ba9b9ad7314",
+          "relative_path": "assets/atom_porta_bateria.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_puxador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_puxador.stl",
+          "size_bytes": 14484,
+          "sha256": "9519e43ffbe3f61cef5486d2bc6f367239ff5071c07f294521b29feb7cee8818",
+          "relative_path": "assets/atom_puxador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/atom_quadril_espacador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_quadril_espacador.stl",
+          "size_bytes": 60684,
+          "sha256": "546717f73a56b350d11fc049d4b93cfba0949111f05c2321f2f4235500cf3aab",
+          "relative_path": "assets/atom_quadril_espacador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/grass2.png",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/grass2.png",
+          "size_bytes": 4871381,
+          "sha256": "c8cc3f9786503217a5d252ce66e8b2d39cf317b582befcccf3b92836177fa28d",
+          "relative_path": "assets/grass2.png"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/atom_pescoco_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/atom_pescoco_collision.stl",
+          "size_bytes": 306884,
+          "sha256": "0874b348faa3c50a7794551cb3d8c398a9f0a591856a87acea971d46c12dad7e",
+          "relative_path": "assets/merged/atom_pescoco_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/calf_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/calf_2_collision.stl",
+          "size_bytes": 732484,
+          "sha256": "f6a6005b81b57baf8527a5fe3d7067620c1b04eb149f6f403b559d921a0910f0",
+          "relative_path": "assets/merged/calf_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/calf_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/calf_collision.stl",
+          "size_bytes": 732484,
+          "sha256": "f6a6005b81b57baf8527a5fe3d7067620c1b04eb149f6f403b559d921a0910f0",
+          "relative_path": "assets/merged/calf_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/chest_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/chest_collision.stl",
+          "size_bytes": 3145784,
+          "sha256": "ec9a997e3359af11c119ff7d78535111da4616ba97636401a9d159011a0feb4e",
+          "relative_path": "assets/merged/chest_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/groin_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/groin_2_collision.stl",
+          "size_bytes": 492084,
+          "sha256": "4ead95066281280271af7303c1d62cfacd046dfadc3224f8aca5e6eda6959a7a",
+          "relative_path": "assets/merged/groin_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/groin_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/groin_collision.stl",
+          "size_bytes": 492084,
+          "sha256": "0ad4a6c78a6f82d2d93f42f2f352e461e77b5e4441426a489c8acc83c04d9552",
+          "relative_path": "assets/merged/groin_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/hand_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/hand_2_collision.stl",
+          "size_bytes": 342684,
+          "sha256": "bec83bba2f0ad2fc116cf5bceaa9410233d84af06cac384cc50f6229cb78f2e1",
+          "relative_path": "assets/merged/hand_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/hand_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/hand_collision.stl",
+          "size_bytes": 342684,
+          "sha256": "9d5e1bfd56ebeba0260d7c0615badaef55e9fcabd30804879384fd9e93dd7e42",
+          "relative_path": "assets/merged/hand_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/head_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/head_collision.stl",
+          "size_bytes": 2864184,
+          "sha256": "99cdb8f9d0fa381aa1bfa60db6d732a6d42c7873f1bc05f25e76a3b2aeb8a15e",
+          "relative_path": "assets/merged/head_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/left_ankle_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_ankle_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "734de3eadefe66e2b9e8c67803bf021443b97b2ae080e5471d8a637f358e3ca7",
+          "relative_path": "assets/merged/left_ankle_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/left_arm_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_arm_collision.stl",
+          "size_bytes": 3110284,
+          "sha256": "8badef5f3539fb9e2dc5766d985e2efabe1014100a612d59f8957bdc2489848a",
+          "relative_path": "assets/merged/left_arm_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/left_foot_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_foot_collision.stl",
+          "size_bytes": 825684,
+          "sha256": "732694028a030cae32f7cd6630a960cc6e5c8ba111a4c0d5bd44586efcf1fcf5",
+          "relative_path": "assets/merged/left_foot_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/left_glutes_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_glutes_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "3a7b82f55fb7e0d813fc74a558d7f0aff72352aed94e21b8a1da7c6be2317ff0",
+          "relative_path": "assets/merged/left_glutes_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/right_ankle_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_ankle_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "bec0e27633b51a048476cc5382c272ea8b1b198281c54c347691b28e8a98a2e8",
+          "relative_path": "assets/merged/right_ankle_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/right_arm_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_arm_collision.stl",
+          "size_bytes": 3110284,
+          "sha256": "bab5367d099653f4ea703b7f618db1ee85d9b732c1f2159f6098c2e694a6e6b5",
+          "relative_path": "assets/merged/right_arm_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/right_foot_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_foot_collision.stl",
+          "size_bytes": 825684,
+          "sha256": "40c281eb398a34f8b822955688e742de3bc2e1be1ff5cd0dc9aa832c0ac94af2",
+          "relative_path": "assets/merged/right_foot_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/right_glutes_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_glutes_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "67dcc0752d4307e4b1de60b1056450e20ff15d68886bf19552e068ece6bd8ab6",
+          "relative_path": "assets/merged/right_glutes_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/shoulder_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/shoulder_2_collision.stl",
+          "size_bytes": 483484,
+          "sha256": "a03764d21c0db8400e0d29b31bc535e7a4e1e591c1943e48347d6a18528f2c25",
+          "relative_path": "assets/merged/shoulder_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/shoulder_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/shoulder_collision.stl",
+          "size_bytes": 483484,
+          "sha256": "0f095e023972d6e390fdd4d36ff0de8dbce45af9023533f464d2fec24eed7258",
+          "relative_path": "assets/merged/shoulder_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/thigh_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/thigh_2_collision.stl",
+          "size_bytes": 1883784,
+          "sha256": "bfdeae0eb7e41b863555a9adcce756522210b2a48a95ab516500d298831d2d70",
+          "relative_path": "assets/merged/thigh_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/merged/thigh_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/thigh_collision.stl",
+          "size_bytes": 1883784,
+          "sha256": "ada2ff2808d23cd042a658362fcee3851082747fe0249b9786b109e227caf3f2",
+          "relative_path": "assets/merged/thigh_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/part_1.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1.stl",
+          "size_bytes": 15084,
+          "sha256": "780bff177eeca11396ea74e31d5f1eaf66fa3481a8bcc56e33c549b627501246",
+          "relative_path": "assets/part_1.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/part_1__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1__2.stl",
+          "size_bytes": 15084,
+          "sha256": "7de6ba54dc04ec57be7470aad68a947d53509e1b4ebf0867ad830c5c9209ca96",
+          "relative_path": "assets/part_1__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/part_1__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1__3.stl",
+          "size_bytes": 211084,
+          "sha256": "0a207f6e0196197a7930ad8fa97eb7ec056b83bc0406444a3e23e150c731057d",
+          "relative_path": "assets/part_1__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/xm430.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm430.stl",
+          "size_bytes": 1216784,
+          "sha256": "070a941b6e4ce23f1886ca9f264132803430450405eb9c600a524ecf5f07dc10",
+          "relative_path": "assets/xm430.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/xm540.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540.stl",
+          "size_bytes": 1495784,
+          "sha256": "d271a77394cf33d0be4601f1b56252aec16b2e969413c84a3b05ceb98e7cbf1f",
+          "relative_path": "assets/xm540.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/xm540__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__2.stl",
+          "size_bytes": 1266084,
+          "sha256": "da612827183441fbf931e1daef57b123d1d6278608db408184ede5badaad935c",
+          "relative_path": "assets/xm540__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/xm540__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__3.stl",
+          "size_bytes": 1495784,
+          "sha256": "2970581fd2fae1e152fc6e0e8461ed13fe23e61f5d64c1e6aa637cd01251f172",
+          "relative_path": "assets/xm540__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/assets/xm540__4.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__4.stl",
+          "size_bytes": 1495784,
+          "sha256": "2970581fd2fae1e152fc6e0e8461ed13fe23e61f5d64c1e6aa637cd01251f172",
+          "relative_path": "assets/xm540__4.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/robot.xml",
+          "source_path": "reinforcement_learning/op3_model/src/model/robot.xml",
+          "size_bytes": 45827,
+          "sha256": "cc59e6446bc589e2954e2a9d82ad5c1c704dc8fccc3a1249fc2a88199444c29e",
+          "relative_path": "robot.xml"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/model/scene.xml",
+          "source_path": "reinforcement_learning/op3_model/src/model/scene.xml",
+          "size_bytes": 903,
+          "sha256": "0a970c57de8a487e4ea0a84b0723403e38c5759ce03632c3c307554458ed7229",
+          "relative_path": "scene.xml"
+        }
+      ],
+      "reward": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/FUNCAO_RECOMPENSA_EXATA_USADA.md",
+        "sha256": "d01f710e064b2a13be993e9b2d0087f349ea3f729fc642946d46a3292f0e6966"
+      },
+      "readme": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/README.md",
+        "sha256": "19aef92aafd269f883802a70d6f45dbbd2c6f8fcc80c1793c5a13c8ee336ec34"
+      },
+      "manifest": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/env_snapshot/manifest.json",
+        "sha256": "d5381e3938342ac4b35b74e3de017962b1b11982bab9d9fe1e9b6a7830016ca3"
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/best_model.zip --usar-env-snapshot --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1/final_model.zip --usar-env-snapshot --usar-gait-inicial --modo-gait-andando"
+    }
+  },
+  {
+    "run_name": "treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR",
+    "registry_name": "treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR",
+    "registered_at": "2026-10-10T22:47:59.384296+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR/melhor_modelo/best_model.zip",
+        "size_bytes": 250477,
+        "sha256": "16b6e8f236b30e0d780cc9164af6a006f432905e94453858a333050b7bad2bf2"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR/ppo_atom_optuna_final.zip",
+        "size_bytes": 250366,
+        "sha256": "6cab0fe47592e8b908a888775c0fa45e7d87dc4ed4d177c86e70ba6cb5f696f3"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 2000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/melhores_modelos/treino_gait_andando_v3_frente_certa_PROTEGIDO_NAO_APAGAR/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 4794,
+        "last_reward": 1241.609284,
+        "best_episode_reward": 10144.043584,
+        "mean_last_10_reward": 1990.152893,
+        "last_episode_length": 266,
+        "elapsed_seconds": 3187.689116
+      },
+      "eval_monitor": {
+        "episodes": 200,
+        "last_reward": 6581.579214,
+        "best_episode_reward": 9267.07445,
+        "mean_last_10_reward": 3926.2423415000003,
+        "last_episode_length": 1000,
+        "elapsed_seconds": 3192.90608
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR/logs/evaluations.npz",
+        "num_evaluations": 40,
+        "best_mean_reward": 9267.07445,
+        "best_timestep": 1600000,
+        "last_mean_reward": 6581.579214,
+        "last_timestep": 2650000
+      }
+    },
+    "env_snapshot": {
+      "created_at": "2026-10-10T22:47:59.383906+00:00",
+      "snapshot_dir": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot",
+      "env": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/env_usado_no_treino.py",
+        "source_path": "reinforcement_learning/op3_model/src/atom/env.py",
+        "size_bytes": 61014,
+        "sha256": "bd9def8ee9f1b8767212bfa35d183b4f32008bf2d7cc480439222a63ad86bb7b"
+      },
+      "loadable_env": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/atom/env.py",
+        "source_path": "reinforcement_learning/op3_model/src/atom/env.py",
+        "size_bytes": 61014,
+        "sha256": "bd9def8ee9f1b8767212bfa35d183b4f32008bf2d7cc480439222a63ad86bb7b"
+      },
+      "model_files": [
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_1_peito_frontal_impressao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_1_peito_frontal_impressao.stl",
+          "size_bytes": 158184,
+          "sha256": "932b55ce2c0089bbb22267a82f9081970ce3c7343973d7c7faf88afed9405876",
+          "relative_path": "assets/atom_1_peito_frontal_impressao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_amortecedor_frente_corrigido.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_frente_corrigido.stl",
+          "size_bytes": 134084,
+          "sha256": "3a4220ae9ca1616b1a8b0a9329d112658a34bec2d85d22025ab1fd80d2f4904a",
+          "relative_path": "assets/atom_amortecedor_frente_corrigido.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_amortecedor_tras_lados_invertidos.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_tras_lados_invertidos.stl",
+          "size_bytes": 145084,
+          "sha256": "d574d5d69f4211acbad6322dece27507a0476bb358a26b43d514f1023dea34dd",
+          "relative_path": "assets/atom_amortecedor_tras_lados_invertidos.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_amortecedor_tras_lados_invertidos__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_tras_lados_invertidos__2.stl",
+          "size_bytes": 145084,
+          "sha256": "8d598bc6c1b023e65540d1f4dc45c26081b6ab07eb67fbab36ce3ac81936fc31",
+          "relative_path": "assets/atom_amortecedor_tras_lados_invertidos__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_braco.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_braco.stl",
+          "size_bytes": 118884,
+          "sha256": "a4b7d3f40914d626114d4f690b2e298f067ee3af7344f05d2ec48e60f8bef8a2",
+          "relative_path": "assets/atom_braco.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_camera.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera.stl",
+          "size_bytes": 684384,
+          "sha256": "52e05be16eddd9f8ffb8fa28cdaae49864009cadd18811eb02d58b61851ccdf7",
+          "relative_path": "assets/atom_camera.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_camera__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera__2.stl",
+          "size_bytes": 633984,
+          "sha256": "ed9fad28439b8b2a9993a193ed720e420913ddb0d336c556d259506ee452873b",
+          "relative_path": "assets/atom_camera__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_camera__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera__3.stl",
+          "size_bytes": 118284,
+          "sha256": "76aecf66c22c8bc352bb258eb5a7c1a1d434919b31d473682ee094d782776523",
+          "relative_path": "assets/atom_camera__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_chapa_motores_ombro.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_motores_ombro.stl",
+          "size_bytes": 338784,
+          "sha256": "b2cd70fea264523900d9b49ff5faea359fd8b6768c26a3c90a296a050fe4221c",
+          "relative_path": "assets/atom_chapa_motores_ombro.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_chapa_ombro_cima_fibra.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_ombro_cima_fibra.stl",
+          "size_bytes": 220084,
+          "sha256": "f69375417a2a5fc2c0821199de5b8eeb268542c087e0862b60cb7aa185380070",
+          "relative_path": "assets/atom_chapa_ombro_cima_fibra.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_chapa_peito_baixo.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_peito_baixo.stl",
+          "size_bytes": 348584,
+          "sha256": "6a34d4f9501d3971e2f67df9fc9588b9db5aba940bcec652e64cc8286ffc0abb",
+          "relative_path": "assets/atom_chapa_peito_baixo.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_chapa_peito_traseira_fibra.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_peito_traseira_fibra.stl",
+          "size_bytes": 176484,
+          "sha256": "c90d45f66a6bfaa5a42bf92fa2d6f27715f7336ae69e54be356dbf156e569413",
+          "relative_path": "assets/atom_chapa_peito_traseira_fibra.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_conector_motores_dir_simulacao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_motores_dir_simulacao.stl",
+          "size_bytes": 177484,
+          "sha256": "df054769b4805e56a85eac0a0dd60a134f87f0e4c53dd7e91a9591f04522e496",
+          "relative_path": "assets/atom_conector_motores_dir_simulacao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_conector_motores_esq_simulacao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_motores_esq_simulacao.stl",
+          "size_bytes": 167584,
+          "sha256": "a53ce4fede3d25adebdcc036bebb4ad7aa9df5e215c8937486550a46dd518421",
+          "relative_path": "assets/atom_conector_motores_esq_simulacao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_conector_rolamento.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_rolamento.stl",
+          "size_bytes": 153884,
+          "sha256": "a3bf0014a98c7d6a1863f1bab086053e2291a41b2a746ac73dd79ff291eab40e",
+          "relative_path": "assets/atom_conector_rolamento.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_conector_rolamento__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_rolamento__2.stl",
+          "size_bytes": 153884,
+          "sha256": "a3bf0014a98c7d6a1863f1bab086053e2291a41b2a746ac73dd79ff291eab40e",
+          "relative_path": "assets/atom_conector_rolamento__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_coxa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_coxa.stl",
+          "size_bytes": 388084,
+          "sha256": "781a1227f48348bb736ee47bb7e9a44b29d48bf7797dd3fea930478e0adcde2b",
+          "relative_path": "assets/atom_coxa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_cravo_cilindrico.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_cravo_cilindrico.stl",
+          "size_bytes": 57684,
+          "sha256": "e3ad304b28d76ff91dda272f3e8e644a83390ab5aa3f460ad295bbc9a278e87c",
+          "relative_path": "assets/atom_cravo_cilindrico.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_junta.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta.stl",
+          "size_bytes": 130984,
+          "sha256": "40d9cb219fafda38d4281a835d0b872af77a9234ce203c80e285d07835fc7dd4",
+          "relative_path": "assets/atom_junta.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_junta__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta__2.stl",
+          "size_bytes": 130984,
+          "sha256": "40d9cb219fafda38d4281a835d0b872af77a9234ce203c80e285d07835fc7dd4",
+          "relative_path": "assets/atom_junta__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_junta_inferior_coxa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta_inferior_coxa.stl",
+          "size_bytes": 230284,
+          "sha256": "c422a74dc8c7834239269dac17021dd91d1ec5797b833f0c4e98c7c2d3fa8f95",
+          "relative_path": "assets/atom_junta_inferior_coxa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_junta_inferior_pe.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta_inferior_pe.stl",
+          "size_bytes": 146084,
+          "sha256": "aea7a3535c09496d9e8d8e6236337967ef569a6c39a91a802ab8b94b452befee",
+          "relative_path": "assets/atom_junta_inferior_pe.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_mao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_mao.stl",
+          "size_bytes": 164184,
+          "sha256": "3328b51cd28016c0a111b9bf190de329bc301c5a6dd5523b04980e599a2f7625",
+          "relative_path": "assets/atom_mao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_mao_espacador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_mao_espacador.stl",
+          "size_bytes": 14484,
+          "sha256": "2ec359053d2ead838113e45df41b8cc825ddcf2498cf8a41ee50f97e0cefe1a3",
+          "relative_path": "assets/atom_mao_espacador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_ombro.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_ombro.stl",
+          "size_bytes": 424484,
+          "sha256": "d4560f3a90b95ccb83d68933ba15bc0ff43d34a42083bfa5d6b0016a45a2e690",
+          "relative_path": "assets/atom_ombro.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_ombro_chapa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_ombro_chapa.stl",
+          "size_bytes": 59084,
+          "sha256": "de77e45356442403501fe809ffabbe9b66ff5229c45a2b918dcb920ede58e78c",
+          "relative_path": "assets/atom_ombro_chapa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_panturrilha.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_panturrilha.stl",
+          "size_bytes": 366284,
+          "sha256": "a0cad268804c4046ebdaabcbbf969dbfa00ee46e75370e87434fefcabf442306",
+          "relative_path": "assets/atom_panturrilha.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_pe.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_pe.stl",
+          "size_bytes": 187484,
+          "sha256": "6ef5c3b7af10b79cca5cfbf7ee914ba91d7aaa38b3351a685dc6ba415a622e7a",
+          "relative_path": "assets/atom_pe.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_peito_lateral.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_peito_lateral.stl",
+          "size_bytes": 346084,
+          "sha256": "7f3ccec4e95d4e930eb71eb70554aa8a0a49b61da6f48022a31d0c6f255a0efd",
+          "relative_path": "assets/atom_peito_lateral.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_peito_traseira_impressao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_peito_traseira_impressao.stl",
+          "size_bytes": 113084,
+          "sha256": "c249e78af5621fbf521e631fab260d22b46d540c0eff6b87d3816e1b52862fad",
+          "relative_path": "assets/atom_peito_traseira_impressao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_pescoco.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_pescoco.stl",
+          "size_bytes": 306884,
+          "sha256": "8abc42bbdf03022e57f99d5b00edd2d4bfa18f4a213263a54dbc36435ba16259",
+          "relative_path": "assets/atom_pescoco.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_porta_bateria.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_porta_bateria.stl",
+          "size_bytes": 93184,
+          "sha256": "07de60c75ff8d3cb3a16fa244891ff2cc704732c2919da3f243e8ba9b9ad7314",
+          "relative_path": "assets/atom_porta_bateria.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_puxador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_puxador.stl",
+          "size_bytes": 14484,
+          "sha256": "9519e43ffbe3f61cef5486d2bc6f367239ff5071c07f294521b29feb7cee8818",
+          "relative_path": "assets/atom_puxador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/atom_quadril_espacador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_quadril_espacador.stl",
+          "size_bytes": 60684,
+          "sha256": "546717f73a56b350d11fc049d4b93cfba0949111f05c2321f2f4235500cf3aab",
+          "relative_path": "assets/atom_quadril_espacador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/grass2.png",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/grass2.png",
+          "size_bytes": 4871381,
+          "sha256": "c8cc3f9786503217a5d252ce66e8b2d39cf317b582befcccf3b92836177fa28d",
+          "relative_path": "assets/grass2.png"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/atom_pescoco_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/atom_pescoco_collision.stl",
+          "size_bytes": 306884,
+          "sha256": "0874b348faa3c50a7794551cb3d8c398a9f0a591856a87acea971d46c12dad7e",
+          "relative_path": "assets/merged/atom_pescoco_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/calf_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/calf_2_collision.stl",
+          "size_bytes": 732484,
+          "sha256": "f6a6005b81b57baf8527a5fe3d7067620c1b04eb149f6f403b559d921a0910f0",
+          "relative_path": "assets/merged/calf_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/calf_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/calf_collision.stl",
+          "size_bytes": 732484,
+          "sha256": "f6a6005b81b57baf8527a5fe3d7067620c1b04eb149f6f403b559d921a0910f0",
+          "relative_path": "assets/merged/calf_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/chest_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/chest_collision.stl",
+          "size_bytes": 3145784,
+          "sha256": "ec9a997e3359af11c119ff7d78535111da4616ba97636401a9d159011a0feb4e",
+          "relative_path": "assets/merged/chest_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/groin_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/groin_2_collision.stl",
+          "size_bytes": 492084,
+          "sha256": "4ead95066281280271af7303c1d62cfacd046dfadc3224f8aca5e6eda6959a7a",
+          "relative_path": "assets/merged/groin_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/groin_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/groin_collision.stl",
+          "size_bytes": 492084,
+          "sha256": "0ad4a6c78a6f82d2d93f42f2f352e461e77b5e4441426a489c8acc83c04d9552",
+          "relative_path": "assets/merged/groin_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/hand_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/hand_2_collision.stl",
+          "size_bytes": 342684,
+          "sha256": "bec83bba2f0ad2fc116cf5bceaa9410233d84af06cac384cc50f6229cb78f2e1",
+          "relative_path": "assets/merged/hand_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/hand_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/hand_collision.stl",
+          "size_bytes": 342684,
+          "sha256": "9d5e1bfd56ebeba0260d7c0615badaef55e9fcabd30804879384fd9e93dd7e42",
+          "relative_path": "assets/merged/hand_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/head_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/head_collision.stl",
+          "size_bytes": 2864184,
+          "sha256": "99cdb8f9d0fa381aa1bfa60db6d732a6d42c7873f1bc05f25e76a3b2aeb8a15e",
+          "relative_path": "assets/merged/head_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/left_ankle_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_ankle_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "734de3eadefe66e2b9e8c67803bf021443b97b2ae080e5471d8a637f358e3ca7",
+          "relative_path": "assets/merged/left_ankle_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/left_arm_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_arm_collision.stl",
+          "size_bytes": 3110284,
+          "sha256": "8badef5f3539fb9e2dc5766d985e2efabe1014100a612d59f8957bdc2489848a",
+          "relative_path": "assets/merged/left_arm_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/left_foot_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_foot_collision.stl",
+          "size_bytes": 825684,
+          "sha256": "732694028a030cae32f7cd6630a960cc6e5c8ba111a4c0d5bd44586efcf1fcf5",
+          "relative_path": "assets/merged/left_foot_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/left_glutes_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_glutes_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "3a7b82f55fb7e0d813fc74a558d7f0aff72352aed94e21b8a1da7c6be2317ff0",
+          "relative_path": "assets/merged/left_glutes_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/right_ankle_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_ankle_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "bec0e27633b51a048476cc5382c272ea8b1b198281c54c347691b28e8a98a2e8",
+          "relative_path": "assets/merged/right_ankle_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/right_arm_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_arm_collision.stl",
+          "size_bytes": 3110284,
+          "sha256": "bab5367d099653f4ea703b7f618db1ee85d9b732c1f2159f6098c2e694a6e6b5",
+          "relative_path": "assets/merged/right_arm_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/right_foot_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_foot_collision.stl",
+          "size_bytes": 825684,
+          "sha256": "40c281eb398a34f8b822955688e742de3bc2e1be1ff5cd0dc9aa832c0ac94af2",
+          "relative_path": "assets/merged/right_foot_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/right_glutes_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_glutes_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "67dcc0752d4307e4b1de60b1056450e20ff15d68886bf19552e068ece6bd8ab6",
+          "relative_path": "assets/merged/right_glutes_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/shoulder_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/shoulder_2_collision.stl",
+          "size_bytes": 483484,
+          "sha256": "a03764d21c0db8400e0d29b31bc535e7a4e1e591c1943e48347d6a18528f2c25",
+          "relative_path": "assets/merged/shoulder_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/shoulder_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/shoulder_collision.stl",
+          "size_bytes": 483484,
+          "sha256": "0f095e023972d6e390fdd4d36ff0de8dbce45af9023533f464d2fec24eed7258",
+          "relative_path": "assets/merged/shoulder_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/thigh_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/thigh_2_collision.stl",
+          "size_bytes": 1883784,
+          "sha256": "bfdeae0eb7e41b863555a9adcce756522210b2a48a95ab516500d298831d2d70",
+          "relative_path": "assets/merged/thigh_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/merged/thigh_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/thigh_collision.stl",
+          "size_bytes": 1883784,
+          "sha256": "ada2ff2808d23cd042a658362fcee3851082747fe0249b9786b109e227caf3f2",
+          "relative_path": "assets/merged/thigh_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/part_1.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1.stl",
+          "size_bytes": 15084,
+          "sha256": "780bff177eeca11396ea74e31d5f1eaf66fa3481a8bcc56e33c549b627501246",
+          "relative_path": "assets/part_1.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/part_1__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1__2.stl",
+          "size_bytes": 15084,
+          "sha256": "7de6ba54dc04ec57be7470aad68a947d53509e1b4ebf0867ad830c5c9209ca96",
+          "relative_path": "assets/part_1__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/part_1__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1__3.stl",
+          "size_bytes": 211084,
+          "sha256": "0a207f6e0196197a7930ad8fa97eb7ec056b83bc0406444a3e23e150c731057d",
+          "relative_path": "assets/part_1__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/xm430.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm430.stl",
+          "size_bytes": 1216784,
+          "sha256": "070a941b6e4ce23f1886ca9f264132803430450405eb9c600a524ecf5f07dc10",
+          "relative_path": "assets/xm430.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/xm540.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540.stl",
+          "size_bytes": 1495784,
+          "sha256": "d271a77394cf33d0be4601f1b56252aec16b2e969413c84a3b05ceb98e7cbf1f",
+          "relative_path": "assets/xm540.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/xm540__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__2.stl",
+          "size_bytes": 1266084,
+          "sha256": "da612827183441fbf931e1daef57b123d1d6278608db408184ede5badaad935c",
+          "relative_path": "assets/xm540__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/xm540__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__3.stl",
+          "size_bytes": 1495784,
+          "sha256": "2970581fd2fae1e152fc6e0e8461ed13fe23e61f5d64c1e6aa637cd01251f172",
+          "relative_path": "assets/xm540__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/assets/xm540__4.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__4.stl",
+          "size_bytes": 1495784,
+          "sha256": "2970581fd2fae1e152fc6e0e8461ed13fe23e61f5d64c1e6aa637cd01251f172",
+          "relative_path": "assets/xm540__4.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/robot.xml",
+          "source_path": "reinforcement_learning/op3_model/src/model/robot.xml",
+          "size_bytes": 45827,
+          "sha256": "cc59e6446bc589e2954e2a9d82ad5c1c704dc8fccc3a1249fc2a88199444c29e",
+          "relative_path": "robot.xml"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/model/scene.xml",
+          "source_path": "reinforcement_learning/op3_model/src/model/scene.xml",
+          "size_bytes": 903,
+          "sha256": "0a970c57de8a487e4ea0a84b0723403e38c5759ce03632c3c307554458ed7229",
+          "relative_path": "scene.xml"
+        }
+      ],
+      "reward": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/FUNCAO_RECOMPENSA_EXATA_USADA.md",
+        "sha256": "d01f710e064b2a13be993e9b2d0087f349ea3f729fc642946d46a3292f0e6966"
+      },
+      "readme": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/README.md",
+        "sha256": "19aef92aafd269f883802a70d6f45dbbd2c6f8fcc80c1793c5a13c8ee336ec34"
+      },
+      "manifest": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/env_snapshot/manifest.json",
+        "sha256": "d5381e3938342ac4b35b74e3de017962b1b11982bab9d9fe1e9b6a7830016ca3"
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/best_model.zip --usar-env-snapshot --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR_PROTEGIDO_NAO_APAGAR/final_model.zip --usar-env-snapshot --usar-gait-inicial --modo-gait-andando"
+    },
+    "protected_copy": true,
+    "protected_at": "2026-10-10T23:29:14.079418+00:00",
+    "protected_from": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1"
+  },
+  {
+    "run_name": "treino_gait_v3_rapido_30m_v1",
+    "registry_name": "treino_gait_v3_rapido_30m_v1",
+    "registered_at": "2026-10-11T12:09:28.378616+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_30m_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_30m_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_30m_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 250438,
+        "sha256": "7748233b511b74a4d53b2fca38e46a73a29fef6913a733a985ef94366995ad4a"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_30m_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 250397,
+        "sha256": "13cf2c57e5686e226ae88fc852557400cc1650ee33727dfda5bc5178ede77c4e"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 30000000,
+      "eval_freq": 150000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_v3_rapido_30m_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 110714,
+        "last_reward": 4927.271085,
+        "best_episode_reward": 9698.279264,
+        "mean_last_10_reward": 1536.4598965,
+        "last_episode_length": 789,
+        "elapsed_seconds": 45490.534896
+      },
+      "eval_monitor": {
+        "episodes": 1000,
+        "last_reward": 576.415584,
+        "best_episode_reward": 7853.626629,
+        "mean_last_10_reward": 965.8302899999999,
+        "last_episode_length": 124,
+        "elapsed_seconds": 45490.973378
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_30m_v1/logs/evaluations.npz",
+        "num_evaluations": 200,
+        "best_mean_reward": 7853.626629,
+        "best_timestep": 27100000,
+        "last_mean_reward": 576.415584,
+        "last_timestep": 31600000
+      }
+    },
+    "env_snapshot": {
+      "created_at": "2026-10-11T12:09:28.378197+00:00",
+      "snapshot_dir": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot",
+      "env": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/env_usado_no_treino.py",
+        "source_path": "reinforcement_learning/op3_model/src/atom/env.py",
+        "size_bytes": 61014,
+        "sha256": "bd9def8ee9f1b8767212bfa35d183b4f32008bf2d7cc480439222a63ad86bb7b"
+      },
+      "loadable_env": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/atom/env.py",
+        "source_path": "reinforcement_learning/op3_model/src/atom/env.py",
+        "size_bytes": 61014,
+        "sha256": "bd9def8ee9f1b8767212bfa35d183b4f32008bf2d7cc480439222a63ad86bb7b"
+      },
+      "model_files": [
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_1_peito_frontal_impressao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_1_peito_frontal_impressao.stl",
+          "size_bytes": 158184,
+          "sha256": "932b55ce2c0089bbb22267a82f9081970ce3c7343973d7c7faf88afed9405876",
+          "relative_path": "assets/atom_1_peito_frontal_impressao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_amortecedor_frente_corrigido.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_frente_corrigido.stl",
+          "size_bytes": 134084,
+          "sha256": "3a4220ae9ca1616b1a8b0a9329d112658a34bec2d85d22025ab1fd80d2f4904a",
+          "relative_path": "assets/atom_amortecedor_frente_corrigido.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_amortecedor_tras_lados_invertidos.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_tras_lados_invertidos.stl",
+          "size_bytes": 145084,
+          "sha256": "d574d5d69f4211acbad6322dece27507a0476bb358a26b43d514f1023dea34dd",
+          "relative_path": "assets/atom_amortecedor_tras_lados_invertidos.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_amortecedor_tras_lados_invertidos__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_tras_lados_invertidos__2.stl",
+          "size_bytes": 145084,
+          "sha256": "8d598bc6c1b023e65540d1f4dc45c26081b6ab07eb67fbab36ce3ac81936fc31",
+          "relative_path": "assets/atom_amortecedor_tras_lados_invertidos__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_braco.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_braco.stl",
+          "size_bytes": 118884,
+          "sha256": "a4b7d3f40914d626114d4f690b2e298f067ee3af7344f05d2ec48e60f8bef8a2",
+          "relative_path": "assets/atom_braco.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_camera.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera.stl",
+          "size_bytes": 684384,
+          "sha256": "52e05be16eddd9f8ffb8fa28cdaae49864009cadd18811eb02d58b61851ccdf7",
+          "relative_path": "assets/atom_camera.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_camera__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera__2.stl",
+          "size_bytes": 633984,
+          "sha256": "ed9fad28439b8b2a9993a193ed720e420913ddb0d336c556d259506ee452873b",
+          "relative_path": "assets/atom_camera__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_camera__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera__3.stl",
+          "size_bytes": 118284,
+          "sha256": "76aecf66c22c8bc352bb258eb5a7c1a1d434919b31d473682ee094d782776523",
+          "relative_path": "assets/atom_camera__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_chapa_motores_ombro.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_motores_ombro.stl",
+          "size_bytes": 338784,
+          "sha256": "b2cd70fea264523900d9b49ff5faea359fd8b6768c26a3c90a296a050fe4221c",
+          "relative_path": "assets/atom_chapa_motores_ombro.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_chapa_ombro_cima_fibra.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_ombro_cima_fibra.stl",
+          "size_bytes": 220084,
+          "sha256": "f69375417a2a5fc2c0821199de5b8eeb268542c087e0862b60cb7aa185380070",
+          "relative_path": "assets/atom_chapa_ombro_cima_fibra.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_chapa_peito_baixo.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_peito_baixo.stl",
+          "size_bytes": 348584,
+          "sha256": "6a34d4f9501d3971e2f67df9fc9588b9db5aba940bcec652e64cc8286ffc0abb",
+          "relative_path": "assets/atom_chapa_peito_baixo.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_chapa_peito_traseira_fibra.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_peito_traseira_fibra.stl",
+          "size_bytes": 176484,
+          "sha256": "c90d45f66a6bfaa5a42bf92fa2d6f27715f7336ae69e54be356dbf156e569413",
+          "relative_path": "assets/atom_chapa_peito_traseira_fibra.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_conector_motores_dir_simulacao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_motores_dir_simulacao.stl",
+          "size_bytes": 177484,
+          "sha256": "df054769b4805e56a85eac0a0dd60a134f87f0e4c53dd7e91a9591f04522e496",
+          "relative_path": "assets/atom_conector_motores_dir_simulacao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_conector_motores_esq_simulacao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_motores_esq_simulacao.stl",
+          "size_bytes": 167584,
+          "sha256": "a53ce4fede3d25adebdcc036bebb4ad7aa9df5e215c8937486550a46dd518421",
+          "relative_path": "assets/atom_conector_motores_esq_simulacao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_conector_rolamento.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_rolamento.stl",
+          "size_bytes": 153884,
+          "sha256": "a3bf0014a98c7d6a1863f1bab086053e2291a41b2a746ac73dd79ff291eab40e",
+          "relative_path": "assets/atom_conector_rolamento.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_conector_rolamento__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_rolamento__2.stl",
+          "size_bytes": 153884,
+          "sha256": "a3bf0014a98c7d6a1863f1bab086053e2291a41b2a746ac73dd79ff291eab40e",
+          "relative_path": "assets/atom_conector_rolamento__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_coxa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_coxa.stl",
+          "size_bytes": 388084,
+          "sha256": "781a1227f48348bb736ee47bb7e9a44b29d48bf7797dd3fea930478e0adcde2b",
+          "relative_path": "assets/atom_coxa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_cravo_cilindrico.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_cravo_cilindrico.stl",
+          "size_bytes": 57684,
+          "sha256": "e3ad304b28d76ff91dda272f3e8e644a83390ab5aa3f460ad295bbc9a278e87c",
+          "relative_path": "assets/atom_cravo_cilindrico.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_junta.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta.stl",
+          "size_bytes": 130984,
+          "sha256": "40d9cb219fafda38d4281a835d0b872af77a9234ce203c80e285d07835fc7dd4",
+          "relative_path": "assets/atom_junta.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_junta__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta__2.stl",
+          "size_bytes": 130984,
+          "sha256": "40d9cb219fafda38d4281a835d0b872af77a9234ce203c80e285d07835fc7dd4",
+          "relative_path": "assets/atom_junta__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_junta_inferior_coxa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta_inferior_coxa.stl",
+          "size_bytes": 230284,
+          "sha256": "c422a74dc8c7834239269dac17021dd91d1ec5797b833f0c4e98c7c2d3fa8f95",
+          "relative_path": "assets/atom_junta_inferior_coxa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_junta_inferior_pe.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta_inferior_pe.stl",
+          "size_bytes": 146084,
+          "sha256": "aea7a3535c09496d9e8d8e6236337967ef569a6c39a91a802ab8b94b452befee",
+          "relative_path": "assets/atom_junta_inferior_pe.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_mao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_mao.stl",
+          "size_bytes": 164184,
+          "sha256": "3328b51cd28016c0a111b9bf190de329bc301c5a6dd5523b04980e599a2f7625",
+          "relative_path": "assets/atom_mao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_mao_espacador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_mao_espacador.stl",
+          "size_bytes": 14484,
+          "sha256": "2ec359053d2ead838113e45df41b8cc825ddcf2498cf8a41ee50f97e0cefe1a3",
+          "relative_path": "assets/atom_mao_espacador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_ombro.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_ombro.stl",
+          "size_bytes": 424484,
+          "sha256": "d4560f3a90b95ccb83d68933ba15bc0ff43d34a42083bfa5d6b0016a45a2e690",
+          "relative_path": "assets/atom_ombro.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_ombro_chapa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_ombro_chapa.stl",
+          "size_bytes": 59084,
+          "sha256": "de77e45356442403501fe809ffabbe9b66ff5229c45a2b918dcb920ede58e78c",
+          "relative_path": "assets/atom_ombro_chapa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_panturrilha.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_panturrilha.stl",
+          "size_bytes": 366284,
+          "sha256": "a0cad268804c4046ebdaabcbbf969dbfa00ee46e75370e87434fefcabf442306",
+          "relative_path": "assets/atom_panturrilha.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_pe.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_pe.stl",
+          "size_bytes": 187484,
+          "sha256": "6ef5c3b7af10b79cca5cfbf7ee914ba91d7aaa38b3351a685dc6ba415a622e7a",
+          "relative_path": "assets/atom_pe.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_peito_lateral.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_peito_lateral.stl",
+          "size_bytes": 346084,
+          "sha256": "7f3ccec4e95d4e930eb71eb70554aa8a0a49b61da6f48022a31d0c6f255a0efd",
+          "relative_path": "assets/atom_peito_lateral.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_peito_traseira_impressao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_peito_traseira_impressao.stl",
+          "size_bytes": 113084,
+          "sha256": "c249e78af5621fbf521e631fab260d22b46d540c0eff6b87d3816e1b52862fad",
+          "relative_path": "assets/atom_peito_traseira_impressao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_pescoco.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_pescoco.stl",
+          "size_bytes": 306884,
+          "sha256": "8abc42bbdf03022e57f99d5b00edd2d4bfa18f4a213263a54dbc36435ba16259",
+          "relative_path": "assets/atom_pescoco.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_porta_bateria.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_porta_bateria.stl",
+          "size_bytes": 93184,
+          "sha256": "07de60c75ff8d3cb3a16fa244891ff2cc704732c2919da3f243e8ba9b9ad7314",
+          "relative_path": "assets/atom_porta_bateria.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_puxador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_puxador.stl",
+          "size_bytes": 14484,
+          "sha256": "9519e43ffbe3f61cef5486d2bc6f367239ff5071c07f294521b29feb7cee8818",
+          "relative_path": "assets/atom_puxador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/atom_quadril_espacador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_quadril_espacador.stl",
+          "size_bytes": 60684,
+          "sha256": "546717f73a56b350d11fc049d4b93cfba0949111f05c2321f2f4235500cf3aab",
+          "relative_path": "assets/atom_quadril_espacador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/grass2.png",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/grass2.png",
+          "size_bytes": 4871381,
+          "sha256": "c8cc3f9786503217a5d252ce66e8b2d39cf317b582befcccf3b92836177fa28d",
+          "relative_path": "assets/grass2.png"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/atom_pescoco_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/atom_pescoco_collision.stl",
+          "size_bytes": 306884,
+          "sha256": "0874b348faa3c50a7794551cb3d8c398a9f0a591856a87acea971d46c12dad7e",
+          "relative_path": "assets/merged/atom_pescoco_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/calf_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/calf_2_collision.stl",
+          "size_bytes": 732484,
+          "sha256": "f6a6005b81b57baf8527a5fe3d7067620c1b04eb149f6f403b559d921a0910f0",
+          "relative_path": "assets/merged/calf_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/calf_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/calf_collision.stl",
+          "size_bytes": 732484,
+          "sha256": "f6a6005b81b57baf8527a5fe3d7067620c1b04eb149f6f403b559d921a0910f0",
+          "relative_path": "assets/merged/calf_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/chest_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/chest_collision.stl",
+          "size_bytes": 3145784,
+          "sha256": "ec9a997e3359af11c119ff7d78535111da4616ba97636401a9d159011a0feb4e",
+          "relative_path": "assets/merged/chest_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/groin_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/groin_2_collision.stl",
+          "size_bytes": 492084,
+          "sha256": "4ead95066281280271af7303c1d62cfacd046dfadc3224f8aca5e6eda6959a7a",
+          "relative_path": "assets/merged/groin_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/groin_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/groin_collision.stl",
+          "size_bytes": 492084,
+          "sha256": "0ad4a6c78a6f82d2d93f42f2f352e461e77b5e4441426a489c8acc83c04d9552",
+          "relative_path": "assets/merged/groin_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/hand_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/hand_2_collision.stl",
+          "size_bytes": 342684,
+          "sha256": "bec83bba2f0ad2fc116cf5bceaa9410233d84af06cac384cc50f6229cb78f2e1",
+          "relative_path": "assets/merged/hand_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/hand_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/hand_collision.stl",
+          "size_bytes": 342684,
+          "sha256": "9d5e1bfd56ebeba0260d7c0615badaef55e9fcabd30804879384fd9e93dd7e42",
+          "relative_path": "assets/merged/hand_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/head_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/head_collision.stl",
+          "size_bytes": 2864184,
+          "sha256": "99cdb8f9d0fa381aa1bfa60db6d732a6d42c7873f1bc05f25e76a3b2aeb8a15e",
+          "relative_path": "assets/merged/head_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/left_ankle_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_ankle_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "734de3eadefe66e2b9e8c67803bf021443b97b2ae080e5471d8a637f358e3ca7",
+          "relative_path": "assets/merged/left_ankle_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/left_arm_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_arm_collision.stl",
+          "size_bytes": 3110284,
+          "sha256": "8badef5f3539fb9e2dc5766d985e2efabe1014100a612d59f8957bdc2489848a",
+          "relative_path": "assets/merged/left_arm_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/left_foot_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_foot_collision.stl",
+          "size_bytes": 825684,
+          "sha256": "732694028a030cae32f7cd6630a960cc6e5c8ba111a4c0d5bd44586efcf1fcf5",
+          "relative_path": "assets/merged/left_foot_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/left_glutes_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_glutes_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "3a7b82f55fb7e0d813fc74a558d7f0aff72352aed94e21b8a1da7c6be2317ff0",
+          "relative_path": "assets/merged/left_glutes_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/right_ankle_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_ankle_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "bec0e27633b51a048476cc5382c272ea8b1b198281c54c347691b28e8a98a2e8",
+          "relative_path": "assets/merged/right_ankle_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/right_arm_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_arm_collision.stl",
+          "size_bytes": 3110284,
+          "sha256": "bab5367d099653f4ea703b7f618db1ee85d9b732c1f2159f6098c2e694a6e6b5",
+          "relative_path": "assets/merged/right_arm_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/right_foot_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_foot_collision.stl",
+          "size_bytes": 825684,
+          "sha256": "40c281eb398a34f8b822955688e742de3bc2e1be1ff5cd0dc9aa832c0ac94af2",
+          "relative_path": "assets/merged/right_foot_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/right_glutes_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_glutes_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "67dcc0752d4307e4b1de60b1056450e20ff15d68886bf19552e068ece6bd8ab6",
+          "relative_path": "assets/merged/right_glutes_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/shoulder_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/shoulder_2_collision.stl",
+          "size_bytes": 483484,
+          "sha256": "a03764d21c0db8400e0d29b31bc535e7a4e1e591c1943e48347d6a18528f2c25",
+          "relative_path": "assets/merged/shoulder_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/shoulder_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/shoulder_collision.stl",
+          "size_bytes": 483484,
+          "sha256": "0f095e023972d6e390fdd4d36ff0de8dbce45af9023533f464d2fec24eed7258",
+          "relative_path": "assets/merged/shoulder_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/thigh_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/thigh_2_collision.stl",
+          "size_bytes": 1883784,
+          "sha256": "bfdeae0eb7e41b863555a9adcce756522210b2a48a95ab516500d298831d2d70",
+          "relative_path": "assets/merged/thigh_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/merged/thigh_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/thigh_collision.stl",
+          "size_bytes": 1883784,
+          "sha256": "ada2ff2808d23cd042a658362fcee3851082747fe0249b9786b109e227caf3f2",
+          "relative_path": "assets/merged/thigh_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/part_1.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1.stl",
+          "size_bytes": 15084,
+          "sha256": "780bff177eeca11396ea74e31d5f1eaf66fa3481a8bcc56e33c549b627501246",
+          "relative_path": "assets/part_1.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/part_1__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1__2.stl",
+          "size_bytes": 15084,
+          "sha256": "7de6ba54dc04ec57be7470aad68a947d53509e1b4ebf0867ad830c5c9209ca96",
+          "relative_path": "assets/part_1__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/part_1__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1__3.stl",
+          "size_bytes": 211084,
+          "sha256": "0a207f6e0196197a7930ad8fa97eb7ec056b83bc0406444a3e23e150c731057d",
+          "relative_path": "assets/part_1__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/xm430.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm430.stl",
+          "size_bytes": 1216784,
+          "sha256": "070a941b6e4ce23f1886ca9f264132803430450405eb9c600a524ecf5f07dc10",
+          "relative_path": "assets/xm430.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/xm540.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540.stl",
+          "size_bytes": 1495784,
+          "sha256": "d271a77394cf33d0be4601f1b56252aec16b2e969413c84a3b05ceb98e7cbf1f",
+          "relative_path": "assets/xm540.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/xm540__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__2.stl",
+          "size_bytes": 1266084,
+          "sha256": "da612827183441fbf931e1daef57b123d1d6278608db408184ede5badaad935c",
+          "relative_path": "assets/xm540__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/xm540__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__3.stl",
+          "size_bytes": 1495784,
+          "sha256": "2970581fd2fae1e152fc6e0e8461ed13fe23e61f5d64c1e6aa637cd01251f172",
+          "relative_path": "assets/xm540__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/assets/xm540__4.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__4.stl",
+          "size_bytes": 1495784,
+          "sha256": "2970581fd2fae1e152fc6e0e8461ed13fe23e61f5d64c1e6aa637cd01251f172",
+          "relative_path": "assets/xm540__4.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/robot.xml",
+          "source_path": "reinforcement_learning/op3_model/src/model/robot.xml",
+          "size_bytes": 45827,
+          "sha256": "cc59e6446bc589e2954e2a9d82ad5c1c704dc8fccc3a1249fc2a88199444c29e",
+          "relative_path": "robot.xml"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/model/scene.xml",
+          "source_path": "reinforcement_learning/op3_model/src/model/scene.xml",
+          "size_bytes": 903,
+          "sha256": "0a970c57de8a487e4ea0a84b0723403e38c5759ce03632c3c307554458ed7229",
+          "relative_path": "scene.xml"
+        }
+      ],
+      "reward": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/FUNCAO_RECOMPENSA_EXATA_USADA.md",
+        "sha256": "d01f710e064b2a13be993e9b2d0087f349ea3f729fc642946d46a3292f0e6966"
+      },
+      "readme": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/README.md",
+        "sha256": "19aef92aafd269f883802a70d6f45dbbd2c6f8fcc80c1793c5a13c8ee336ec34"
+      },
+      "manifest": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/env_snapshot/manifest.json",
+        "sha256": "2428c91fe9c7e644189a2c62ca953d754610b9122acc5476ca46391ca35126e8"
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_30m_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/best_model.zip --usar-env-snapshot --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_30m_v1/final_model.zip --usar-env-snapshot --usar-gait-inicial --modo-gait-andando"
+    }
+  },
+  {
+    "run_name": "treino_gait_v3_rapido_fluido_30m_v2",
+    "registry_name": "treino_gait_v3_rapido_fluido_30m_v2",
+    "registered_at": "2026-10-12T00:49:21.450049+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_fluido_30m_v2",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_fluido_30m_v2/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_fluido_30m_v2/melhor_modelo/best_model.zip",
+        "size_bytes": 250480,
+        "sha256": "a874f0cdc3ff7a4258c4b35dffc4165aea53efb878a451fd810efd509121825e"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_fluido_30m_v2/ppo_atom_optuna_final.zip",
+        "size_bytes": 250432,
+        "sha256": "e33fdc453149b5cbfc768252e93f2473e773c9d0fbaf6c0c9aca1c618f7b5e4a"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 30000000,
+      "eval_freq": 150000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_v3_rapido_fluido_30m_v2",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 111765,
+        "last_reward": 2064.658333,
+        "best_episode_reward": 10873.004741,
+        "mean_last_10_reward": 1298.3182875999998,
+        "last_episode_length": 374,
+        "elapsed_seconds": 45415.527386
+      },
+      "eval_monitor": {
+        "episodes": 1000,
+        "last_reward": 949.777234,
+        "best_episode_reward": 9074.276222,
+        "mean_last_10_reward": 963.3626385,
+        "last_episode_length": 194,
+        "elapsed_seconds": 45416.393637
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_fluido_30m_v2/logs/evaluations.npz",
+        "num_evaluations": 200,
+        "best_mean_reward": 9074.276222,
+        "best_timestep": 11650000,
+        "last_mean_reward": 949.7772339999999,
+        "last_timestep": 31600000
+      }
+    },
+    "env_snapshot": {
+      "created_at": "2026-10-12T00:49:21.449655+00:00",
+      "snapshot_dir": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot",
+      "env": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/env_usado_no_treino.py",
+        "source_path": "reinforcement_learning/op3_model/src/atom/env.py",
+        "size_bytes": 61145,
+        "sha256": "59310a01e2230ec01c76b940e628d65072f92b11db3b5a75dabaae2fe773099b"
+      },
+      "loadable_env": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/atom/env.py",
+        "source_path": "reinforcement_learning/op3_model/src/atom/env.py",
+        "size_bytes": 61145,
+        "sha256": "59310a01e2230ec01c76b940e628d65072f92b11db3b5a75dabaae2fe773099b"
+      },
+      "model_files": [
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_1_peito_frontal_impressao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_1_peito_frontal_impressao.stl",
+          "size_bytes": 158184,
+          "sha256": "932b55ce2c0089bbb22267a82f9081970ce3c7343973d7c7faf88afed9405876",
+          "relative_path": "assets/atom_1_peito_frontal_impressao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_amortecedor_frente_corrigido.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_frente_corrigido.stl",
+          "size_bytes": 134084,
+          "sha256": "3a4220ae9ca1616b1a8b0a9329d112658a34bec2d85d22025ab1fd80d2f4904a",
+          "relative_path": "assets/atom_amortecedor_frente_corrigido.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_amortecedor_tras_lados_invertidos.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_tras_lados_invertidos.stl",
+          "size_bytes": 145084,
+          "sha256": "d574d5d69f4211acbad6322dece27507a0476bb358a26b43d514f1023dea34dd",
+          "relative_path": "assets/atom_amortecedor_tras_lados_invertidos.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_amortecedor_tras_lados_invertidos__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_tras_lados_invertidos__2.stl",
+          "size_bytes": 145084,
+          "sha256": "8d598bc6c1b023e65540d1f4dc45c26081b6ab07eb67fbab36ce3ac81936fc31",
+          "relative_path": "assets/atom_amortecedor_tras_lados_invertidos__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_braco.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_braco.stl",
+          "size_bytes": 118884,
+          "sha256": "a4b7d3f40914d626114d4f690b2e298f067ee3af7344f05d2ec48e60f8bef8a2",
+          "relative_path": "assets/atom_braco.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_camera.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera.stl",
+          "size_bytes": 684384,
+          "sha256": "52e05be16eddd9f8ffb8fa28cdaae49864009cadd18811eb02d58b61851ccdf7",
+          "relative_path": "assets/atom_camera.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_camera__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera__2.stl",
+          "size_bytes": 633984,
+          "sha256": "ed9fad28439b8b2a9993a193ed720e420913ddb0d336c556d259506ee452873b",
+          "relative_path": "assets/atom_camera__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_camera__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera__3.stl",
+          "size_bytes": 118284,
+          "sha256": "76aecf66c22c8bc352bb258eb5a7c1a1d434919b31d473682ee094d782776523",
+          "relative_path": "assets/atom_camera__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_chapa_motores_ombro.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_motores_ombro.stl",
+          "size_bytes": 338784,
+          "sha256": "b2cd70fea264523900d9b49ff5faea359fd8b6768c26a3c90a296a050fe4221c",
+          "relative_path": "assets/atom_chapa_motores_ombro.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_chapa_ombro_cima_fibra.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_ombro_cima_fibra.stl",
+          "size_bytes": 220084,
+          "sha256": "f69375417a2a5fc2c0821199de5b8eeb268542c087e0862b60cb7aa185380070",
+          "relative_path": "assets/atom_chapa_ombro_cima_fibra.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_chapa_peito_baixo.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_peito_baixo.stl",
+          "size_bytes": 348584,
+          "sha256": "6a34d4f9501d3971e2f67df9fc9588b9db5aba940bcec652e64cc8286ffc0abb",
+          "relative_path": "assets/atom_chapa_peito_baixo.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_chapa_peito_traseira_fibra.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_peito_traseira_fibra.stl",
+          "size_bytes": 176484,
+          "sha256": "c90d45f66a6bfaa5a42bf92fa2d6f27715f7336ae69e54be356dbf156e569413",
+          "relative_path": "assets/atom_chapa_peito_traseira_fibra.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_conector_motores_dir_simulacao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_motores_dir_simulacao.stl",
+          "size_bytes": 177484,
+          "sha256": "df054769b4805e56a85eac0a0dd60a134f87f0e4c53dd7e91a9591f04522e496",
+          "relative_path": "assets/atom_conector_motores_dir_simulacao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_conector_motores_esq_simulacao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_motores_esq_simulacao.stl",
+          "size_bytes": 167584,
+          "sha256": "a53ce4fede3d25adebdcc036bebb4ad7aa9df5e215c8937486550a46dd518421",
+          "relative_path": "assets/atom_conector_motores_esq_simulacao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_conector_rolamento.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_rolamento.stl",
+          "size_bytes": 153884,
+          "sha256": "a3bf0014a98c7d6a1863f1bab086053e2291a41b2a746ac73dd79ff291eab40e",
+          "relative_path": "assets/atom_conector_rolamento.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_conector_rolamento__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_rolamento__2.stl",
+          "size_bytes": 153884,
+          "sha256": "a3bf0014a98c7d6a1863f1bab086053e2291a41b2a746ac73dd79ff291eab40e",
+          "relative_path": "assets/atom_conector_rolamento__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_coxa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_coxa.stl",
+          "size_bytes": 388084,
+          "sha256": "781a1227f48348bb736ee47bb7e9a44b29d48bf7797dd3fea930478e0adcde2b",
+          "relative_path": "assets/atom_coxa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_cravo_cilindrico.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_cravo_cilindrico.stl",
+          "size_bytes": 57684,
+          "sha256": "e3ad304b28d76ff91dda272f3e8e644a83390ab5aa3f460ad295bbc9a278e87c",
+          "relative_path": "assets/atom_cravo_cilindrico.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_junta.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta.stl",
+          "size_bytes": 130984,
+          "sha256": "40d9cb219fafda38d4281a835d0b872af77a9234ce203c80e285d07835fc7dd4",
+          "relative_path": "assets/atom_junta.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_junta__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta__2.stl",
+          "size_bytes": 130984,
+          "sha256": "40d9cb219fafda38d4281a835d0b872af77a9234ce203c80e285d07835fc7dd4",
+          "relative_path": "assets/atom_junta__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_junta_inferior_coxa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta_inferior_coxa.stl",
+          "size_bytes": 230284,
+          "sha256": "c422a74dc8c7834239269dac17021dd91d1ec5797b833f0c4e98c7c2d3fa8f95",
+          "relative_path": "assets/atom_junta_inferior_coxa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_junta_inferior_pe.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta_inferior_pe.stl",
+          "size_bytes": 146084,
+          "sha256": "aea7a3535c09496d9e8d8e6236337967ef569a6c39a91a802ab8b94b452befee",
+          "relative_path": "assets/atom_junta_inferior_pe.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_mao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_mao.stl",
+          "size_bytes": 164184,
+          "sha256": "3328b51cd28016c0a111b9bf190de329bc301c5a6dd5523b04980e599a2f7625",
+          "relative_path": "assets/atom_mao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_mao_espacador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_mao_espacador.stl",
+          "size_bytes": 14484,
+          "sha256": "2ec359053d2ead838113e45df41b8cc825ddcf2498cf8a41ee50f97e0cefe1a3",
+          "relative_path": "assets/atom_mao_espacador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_ombro.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_ombro.stl",
+          "size_bytes": 424484,
+          "sha256": "d4560f3a90b95ccb83d68933ba15bc0ff43d34a42083bfa5d6b0016a45a2e690",
+          "relative_path": "assets/atom_ombro.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_ombro_chapa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_ombro_chapa.stl",
+          "size_bytes": 59084,
+          "sha256": "de77e45356442403501fe809ffabbe9b66ff5229c45a2b918dcb920ede58e78c",
+          "relative_path": "assets/atom_ombro_chapa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_panturrilha.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_panturrilha.stl",
+          "size_bytes": 366284,
+          "sha256": "a0cad268804c4046ebdaabcbbf969dbfa00ee46e75370e87434fefcabf442306",
+          "relative_path": "assets/atom_panturrilha.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_pe.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_pe.stl",
+          "size_bytes": 187484,
+          "sha256": "6ef5c3b7af10b79cca5cfbf7ee914ba91d7aaa38b3351a685dc6ba415a622e7a",
+          "relative_path": "assets/atom_pe.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_peito_lateral.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_peito_lateral.stl",
+          "size_bytes": 346084,
+          "sha256": "7f3ccec4e95d4e930eb71eb70554aa8a0a49b61da6f48022a31d0c6f255a0efd",
+          "relative_path": "assets/atom_peito_lateral.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_peito_traseira_impressao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_peito_traseira_impressao.stl",
+          "size_bytes": 113084,
+          "sha256": "c249e78af5621fbf521e631fab260d22b46d540c0eff6b87d3816e1b52862fad",
+          "relative_path": "assets/atom_peito_traseira_impressao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_pescoco.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_pescoco.stl",
+          "size_bytes": 306884,
+          "sha256": "8abc42bbdf03022e57f99d5b00edd2d4bfa18f4a213263a54dbc36435ba16259",
+          "relative_path": "assets/atom_pescoco.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_porta_bateria.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_porta_bateria.stl",
+          "size_bytes": 93184,
+          "sha256": "07de60c75ff8d3cb3a16fa244891ff2cc704732c2919da3f243e8ba9b9ad7314",
+          "relative_path": "assets/atom_porta_bateria.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_puxador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_puxador.stl",
+          "size_bytes": 14484,
+          "sha256": "9519e43ffbe3f61cef5486d2bc6f367239ff5071c07f294521b29feb7cee8818",
+          "relative_path": "assets/atom_puxador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/atom_quadril_espacador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_quadril_espacador.stl",
+          "size_bytes": 60684,
+          "sha256": "546717f73a56b350d11fc049d4b93cfba0949111f05c2321f2f4235500cf3aab",
+          "relative_path": "assets/atom_quadril_espacador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/grass2.png",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/grass2.png",
+          "size_bytes": 4871381,
+          "sha256": "c8cc3f9786503217a5d252ce66e8b2d39cf317b582befcccf3b92836177fa28d",
+          "relative_path": "assets/grass2.png"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/atom_pescoco_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/atom_pescoco_collision.stl",
+          "size_bytes": 306884,
+          "sha256": "0874b348faa3c50a7794551cb3d8c398a9f0a591856a87acea971d46c12dad7e",
+          "relative_path": "assets/merged/atom_pescoco_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/calf_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/calf_2_collision.stl",
+          "size_bytes": 732484,
+          "sha256": "f6a6005b81b57baf8527a5fe3d7067620c1b04eb149f6f403b559d921a0910f0",
+          "relative_path": "assets/merged/calf_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/calf_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/calf_collision.stl",
+          "size_bytes": 732484,
+          "sha256": "f6a6005b81b57baf8527a5fe3d7067620c1b04eb149f6f403b559d921a0910f0",
+          "relative_path": "assets/merged/calf_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/chest_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/chest_collision.stl",
+          "size_bytes": 3145784,
+          "sha256": "ec9a997e3359af11c119ff7d78535111da4616ba97636401a9d159011a0feb4e",
+          "relative_path": "assets/merged/chest_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/groin_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/groin_2_collision.stl",
+          "size_bytes": 492084,
+          "sha256": "4ead95066281280271af7303c1d62cfacd046dfadc3224f8aca5e6eda6959a7a",
+          "relative_path": "assets/merged/groin_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/groin_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/groin_collision.stl",
+          "size_bytes": 492084,
+          "sha256": "0ad4a6c78a6f82d2d93f42f2f352e461e77b5e4441426a489c8acc83c04d9552",
+          "relative_path": "assets/merged/groin_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/hand_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/hand_2_collision.stl",
+          "size_bytes": 342684,
+          "sha256": "bec83bba2f0ad2fc116cf5bceaa9410233d84af06cac384cc50f6229cb78f2e1",
+          "relative_path": "assets/merged/hand_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/hand_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/hand_collision.stl",
+          "size_bytes": 342684,
+          "sha256": "9d5e1bfd56ebeba0260d7c0615badaef55e9fcabd30804879384fd9e93dd7e42",
+          "relative_path": "assets/merged/hand_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/head_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/head_collision.stl",
+          "size_bytes": 2864184,
+          "sha256": "99cdb8f9d0fa381aa1bfa60db6d732a6d42c7873f1bc05f25e76a3b2aeb8a15e",
+          "relative_path": "assets/merged/head_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/left_ankle_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_ankle_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "734de3eadefe66e2b9e8c67803bf021443b97b2ae080e5471d8a637f358e3ca7",
+          "relative_path": "assets/merged/left_ankle_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/left_arm_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_arm_collision.stl",
+          "size_bytes": 3110284,
+          "sha256": "8badef5f3539fb9e2dc5766d985e2efabe1014100a612d59f8957bdc2489848a",
+          "relative_path": "assets/merged/left_arm_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/left_foot_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_foot_collision.stl",
+          "size_bytes": 825684,
+          "sha256": "732694028a030cae32f7cd6630a960cc6e5c8ba111a4c0d5bd44586efcf1fcf5",
+          "relative_path": "assets/merged/left_foot_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/left_glutes_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_glutes_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "3a7b82f55fb7e0d813fc74a558d7f0aff72352aed94e21b8a1da7c6be2317ff0",
+          "relative_path": "assets/merged/left_glutes_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/right_ankle_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_ankle_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "bec0e27633b51a048476cc5382c272ea8b1b198281c54c347691b28e8a98a2e8",
+          "relative_path": "assets/merged/right_ankle_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/right_arm_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_arm_collision.stl",
+          "size_bytes": 3110284,
+          "sha256": "bab5367d099653f4ea703b7f618db1ee85d9b732c1f2159f6098c2e694a6e6b5",
+          "relative_path": "assets/merged/right_arm_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/right_foot_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_foot_collision.stl",
+          "size_bytes": 825684,
+          "sha256": "40c281eb398a34f8b822955688e742de3bc2e1be1ff5cd0dc9aa832c0ac94af2",
+          "relative_path": "assets/merged/right_foot_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/right_glutes_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_glutes_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "67dcc0752d4307e4b1de60b1056450e20ff15d68886bf19552e068ece6bd8ab6",
+          "relative_path": "assets/merged/right_glutes_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/shoulder_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/shoulder_2_collision.stl",
+          "size_bytes": 483484,
+          "sha256": "a03764d21c0db8400e0d29b31bc535e7a4e1e591c1943e48347d6a18528f2c25",
+          "relative_path": "assets/merged/shoulder_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/shoulder_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/shoulder_collision.stl",
+          "size_bytes": 483484,
+          "sha256": "0f095e023972d6e390fdd4d36ff0de8dbce45af9023533f464d2fec24eed7258",
+          "relative_path": "assets/merged/shoulder_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/thigh_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/thigh_2_collision.stl",
+          "size_bytes": 1883784,
+          "sha256": "bfdeae0eb7e41b863555a9adcce756522210b2a48a95ab516500d298831d2d70",
+          "relative_path": "assets/merged/thigh_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/merged/thigh_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/thigh_collision.stl",
+          "size_bytes": 1883784,
+          "sha256": "ada2ff2808d23cd042a658362fcee3851082747fe0249b9786b109e227caf3f2",
+          "relative_path": "assets/merged/thigh_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/part_1.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1.stl",
+          "size_bytes": 15084,
+          "sha256": "780bff177eeca11396ea74e31d5f1eaf66fa3481a8bcc56e33c549b627501246",
+          "relative_path": "assets/part_1.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/part_1__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1__2.stl",
+          "size_bytes": 15084,
+          "sha256": "7de6ba54dc04ec57be7470aad68a947d53509e1b4ebf0867ad830c5c9209ca96",
+          "relative_path": "assets/part_1__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/part_1__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1__3.stl",
+          "size_bytes": 211084,
+          "sha256": "0a207f6e0196197a7930ad8fa97eb7ec056b83bc0406444a3e23e150c731057d",
+          "relative_path": "assets/part_1__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/xm430.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm430.stl",
+          "size_bytes": 1216784,
+          "sha256": "070a941b6e4ce23f1886ca9f264132803430450405eb9c600a524ecf5f07dc10",
+          "relative_path": "assets/xm430.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/xm540.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540.stl",
+          "size_bytes": 1495784,
+          "sha256": "d271a77394cf33d0be4601f1b56252aec16b2e969413c84a3b05ceb98e7cbf1f",
+          "relative_path": "assets/xm540.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/xm540__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__2.stl",
+          "size_bytes": 1266084,
+          "sha256": "da612827183441fbf931e1daef57b123d1d6278608db408184ede5badaad935c",
+          "relative_path": "assets/xm540__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/xm540__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__3.stl",
+          "size_bytes": 1495784,
+          "sha256": "2970581fd2fae1e152fc6e0e8461ed13fe23e61f5d64c1e6aa637cd01251f172",
+          "relative_path": "assets/xm540__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/assets/xm540__4.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__4.stl",
+          "size_bytes": 1495784,
+          "sha256": "2970581fd2fae1e152fc6e0e8461ed13fe23e61f5d64c1e6aa637cd01251f172",
+          "relative_path": "assets/xm540__4.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/robot.xml",
+          "source_path": "reinforcement_learning/op3_model/src/model/robot.xml",
+          "size_bytes": 45827,
+          "sha256": "cc59e6446bc589e2954e2a9d82ad5c1c704dc8fccc3a1249fc2a88199444c29e",
+          "relative_path": "robot.xml"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/model/scene.xml",
+          "source_path": "reinforcement_learning/op3_model/src/model/scene.xml",
+          "size_bytes": 903,
+          "sha256": "0a970c57de8a487e4ea0a84b0723403e38c5759ce03632c3c307554458ed7229",
+          "relative_path": "scene.xml"
+        }
+      ],
+      "reward": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/FUNCAO_RECOMPENSA_EXATA_USADA.md",
+        "sha256": "a47b7905f2a7e40e110e7a287618e4af072b22d6ed7a8e15b66fb5f8667f373b"
+      },
+      "readme": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/README.md",
+        "sha256": "af95d36efc425bb9008534ed722a515fd7aa20c90aedfaffeaaaf3f07e5da758"
+      },
+      "manifest": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/env_snapshot/manifest.json",
+        "sha256": "72e89955aa6745037b89fe98513889a84b77a60bf90f0234d8493a439b15fbfe"
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_v3_rapido_fluido_30m_v2/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/best_model.zip --usar-env-snapshot --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_fluido_30m_v2/final_model.zip --usar-env-snapshot --usar-gait-inicial --modo-gait-andando"
+    }
+  },
+  {
+    "run_name": "treino_gait_v3_mais_rapido_reto_estavel_v1",
+    "registry_name": "treino_gait_v3_mais_rapido_reto_estavel_v1",
+    "registered_at": "2026-10-14T00:37:55.596029+00:00",
+    "source_run_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_mais_rapido_reto_estavel_v1",
+    "log_dir": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_mais_rapido_reto_estavel_v1/logs",
+    "models": {
+      "best": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/best_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_mais_rapido_reto_estavel_v1/melhor_modelo/best_model.zip",
+        "size_bytes": 250452,
+        "sha256": "e180dc26e60305f092d514ae088b66cc9063bdea2652a6847cd1c4931dd0730b"
+      },
+      "final": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/final_model.zip",
+        "source_path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_mais_rapido_reto_estavel_v1/ppo_atom_optuna_final.zip",
+        "size_bytes": 250447,
+        "sha256": "c57ed3e5a28c55783ddb3ad184d77958dcc14e802f0a32a99548d4fcaaa4680d"
+      }
+    },
+    "training": {
+      "device": "cuda",
+      "seed": 42,
+      "final_timesteps": 3000000,
+      "eval_freq": 50000,
+      "n_eval_episodes": 5,
+      "study_name": "ppo_atom_optuna",
+      "save_dir": "reinforcement_learning/saida_optuna_atom",
+      "final_run_name": "treino_gait_v3_mais_rapido_reto_estavel_v1",
+      "continuar_de": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/melhores_modelos/treino_gait_v3_rapido_v1_PROTEGIDO_NAO_APAGAR/best_model.zip",
+      "usar_gait_inicial": true,
+      "modo_gait_parado": false,
+      "modo_gait_andando": true
+    },
+    "ppo_params": {
+      "learning_rate": 0.0008286946154789709,
+      "n_steps": 512,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.98,
+      "gae_lambda": 0.95,
+      "clip_range": 0.137826935848043,
+      "ent_coef": 0.0,
+      "vf_coef": 0.32937558580716303,
+      "max_grad_norm": 0.5222902926081441
+    },
+    "best_params_file": "reinforcement_learning/saida_optuna_atom/best_params.json",
+    "best_params": {
+      "best_trial": 40,
+      "best_value_mean_reward": 1064.051822,
+      "optuna_params": {
+        "rollout_batch": "512_64",
+        "learning_rate": 0.0008286946154789709,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      },
+      "ppo_params": {
+        "learning_rate": 0.0008286946154789709,
+        "n_steps": 512,
+        "batch_size": 64,
+        "n_epochs": 10,
+        "gamma": 0.98,
+        "gae_lambda": 0.95,
+        "clip_range": 0.137826935848043,
+        "ent_coef": 0.0,
+        "vf_coef": 0.32937558580716303,
+        "max_grad_norm": 0.5222902926081441
+      }
+    },
+    "evaluation": {
+      "train_monitor": {
+        "episodes": 12055,
+        "last_reward": 880.366098,
+        "best_episode_reward": 9912.595273,
+        "mean_last_10_reward": 1352.7357354,
+        "last_episode_length": 194,
+        "elapsed_seconds": 6384.862523
+      },
+      "eval_monitor": {
+        "episodes": 300,
+        "last_reward": 950.43463,
+        "best_episode_reward": 8667.845076,
+        "mean_last_10_reward": 1168.6971545000001,
+        "last_episode_length": 204,
+        "elapsed_seconds": 6384.042699
+      },
+      "evaluations_npz": {
+        "path": "reinforcement_learning/saida_optuna_atom/treino_gait_v3_mais_rapido_reto_estavel_v1/logs/evaluations.npz",
+        "num_evaluations": 60,
+        "best_mean_reward": 8667.845076,
+        "best_timestep": 1650000,
+        "last_mean_reward": 950.43463,
+        "last_timestep": 4600000
+      }
+    },
+    "env_snapshot": {
+      "created_at": "2026-10-14T00:37:55.595565+00:00",
+      "snapshot_dir": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot",
+      "env": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/env_usado_no_treino.py",
+        "source_path": "reinforcement_learning/op3_model/src/atom/env.py",
+        "size_bytes": 61390,
+        "sha256": "90959f7b408250b499f3c7367193ae7c0ad760f1343d31f5450e4475cad7197e"
+      },
+      "loadable_env": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/atom/env.py",
+        "source_path": "reinforcement_learning/op3_model/src/atom/env.py",
+        "size_bytes": 61390,
+        "sha256": "90959f7b408250b499f3c7367193ae7c0ad760f1343d31f5450e4475cad7197e"
+      },
+      "model_files": [
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_1_peito_frontal_impressao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_1_peito_frontal_impressao.stl",
+          "size_bytes": 158184,
+          "sha256": "932b55ce2c0089bbb22267a82f9081970ce3c7343973d7c7faf88afed9405876",
+          "relative_path": "assets/atom_1_peito_frontal_impressao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_amortecedor_frente_corrigido.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_frente_corrigido.stl",
+          "size_bytes": 134084,
+          "sha256": "3a4220ae9ca1616b1a8b0a9329d112658a34bec2d85d22025ab1fd80d2f4904a",
+          "relative_path": "assets/atom_amortecedor_frente_corrigido.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_amortecedor_tras_lados_invertidos.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_tras_lados_invertidos.stl",
+          "size_bytes": 145084,
+          "sha256": "d574d5d69f4211acbad6322dece27507a0476bb358a26b43d514f1023dea34dd",
+          "relative_path": "assets/atom_amortecedor_tras_lados_invertidos.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_amortecedor_tras_lados_invertidos__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_amortecedor_tras_lados_invertidos__2.stl",
+          "size_bytes": 145084,
+          "sha256": "8d598bc6c1b023e65540d1f4dc45c26081b6ab07eb67fbab36ce3ac81936fc31",
+          "relative_path": "assets/atom_amortecedor_tras_lados_invertidos__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_braco.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_braco.stl",
+          "size_bytes": 118884,
+          "sha256": "a4b7d3f40914d626114d4f690b2e298f067ee3af7344f05d2ec48e60f8bef8a2",
+          "relative_path": "assets/atom_braco.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_camera.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera.stl",
+          "size_bytes": 684384,
+          "sha256": "52e05be16eddd9f8ffb8fa28cdaae49864009cadd18811eb02d58b61851ccdf7",
+          "relative_path": "assets/atom_camera.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_camera__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera__2.stl",
+          "size_bytes": 633984,
+          "sha256": "ed9fad28439b8b2a9993a193ed720e420913ddb0d336c556d259506ee452873b",
+          "relative_path": "assets/atom_camera__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_camera__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_camera__3.stl",
+          "size_bytes": 118284,
+          "sha256": "76aecf66c22c8bc352bb258eb5a7c1a1d434919b31d473682ee094d782776523",
+          "relative_path": "assets/atom_camera__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_chapa_motores_ombro.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_motores_ombro.stl",
+          "size_bytes": 338784,
+          "sha256": "b2cd70fea264523900d9b49ff5faea359fd8b6768c26a3c90a296a050fe4221c",
+          "relative_path": "assets/atom_chapa_motores_ombro.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_chapa_ombro_cima_fibra.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_ombro_cima_fibra.stl",
+          "size_bytes": 220084,
+          "sha256": "f69375417a2a5fc2c0821199de5b8eeb268542c087e0862b60cb7aa185380070",
+          "relative_path": "assets/atom_chapa_ombro_cima_fibra.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_chapa_peito_baixo.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_peito_baixo.stl",
+          "size_bytes": 348584,
+          "sha256": "6a34d4f9501d3971e2f67df9fc9588b9db5aba940bcec652e64cc8286ffc0abb",
+          "relative_path": "assets/atom_chapa_peito_baixo.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_chapa_peito_traseira_fibra.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_chapa_peito_traseira_fibra.stl",
+          "size_bytes": 176484,
+          "sha256": "c90d45f66a6bfaa5a42bf92fa2d6f27715f7336ae69e54be356dbf156e569413",
+          "relative_path": "assets/atom_chapa_peito_traseira_fibra.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_conector_motores_dir_simulacao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_motores_dir_simulacao.stl",
+          "size_bytes": 177484,
+          "sha256": "df054769b4805e56a85eac0a0dd60a134f87f0e4c53dd7e91a9591f04522e496",
+          "relative_path": "assets/atom_conector_motores_dir_simulacao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_conector_motores_esq_simulacao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_motores_esq_simulacao.stl",
+          "size_bytes": 167584,
+          "sha256": "a53ce4fede3d25adebdcc036bebb4ad7aa9df5e215c8937486550a46dd518421",
+          "relative_path": "assets/atom_conector_motores_esq_simulacao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_conector_rolamento.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_rolamento.stl",
+          "size_bytes": 153884,
+          "sha256": "a3bf0014a98c7d6a1863f1bab086053e2291a41b2a746ac73dd79ff291eab40e",
+          "relative_path": "assets/atom_conector_rolamento.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_conector_rolamento__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_conector_rolamento__2.stl",
+          "size_bytes": 153884,
+          "sha256": "a3bf0014a98c7d6a1863f1bab086053e2291a41b2a746ac73dd79ff291eab40e",
+          "relative_path": "assets/atom_conector_rolamento__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_coxa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_coxa.stl",
+          "size_bytes": 388084,
+          "sha256": "781a1227f48348bb736ee47bb7e9a44b29d48bf7797dd3fea930478e0adcde2b",
+          "relative_path": "assets/atom_coxa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_cravo_cilindrico.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_cravo_cilindrico.stl",
+          "size_bytes": 57684,
+          "sha256": "e3ad304b28d76ff91dda272f3e8e644a83390ab5aa3f460ad295bbc9a278e87c",
+          "relative_path": "assets/atom_cravo_cilindrico.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_junta.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta.stl",
+          "size_bytes": 130984,
+          "sha256": "40d9cb219fafda38d4281a835d0b872af77a9234ce203c80e285d07835fc7dd4",
+          "relative_path": "assets/atom_junta.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_junta__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta__2.stl",
+          "size_bytes": 130984,
+          "sha256": "40d9cb219fafda38d4281a835d0b872af77a9234ce203c80e285d07835fc7dd4",
+          "relative_path": "assets/atom_junta__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_junta_inferior_coxa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta_inferior_coxa.stl",
+          "size_bytes": 230284,
+          "sha256": "c422a74dc8c7834239269dac17021dd91d1ec5797b833f0c4e98c7c2d3fa8f95",
+          "relative_path": "assets/atom_junta_inferior_coxa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_junta_inferior_pe.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_junta_inferior_pe.stl",
+          "size_bytes": 146084,
+          "sha256": "aea7a3535c09496d9e8d8e6236337967ef569a6c39a91a802ab8b94b452befee",
+          "relative_path": "assets/atom_junta_inferior_pe.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_mao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_mao.stl",
+          "size_bytes": 164184,
+          "sha256": "3328b51cd28016c0a111b9bf190de329bc301c5a6dd5523b04980e599a2f7625",
+          "relative_path": "assets/atom_mao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_mao_espacador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_mao_espacador.stl",
+          "size_bytes": 14484,
+          "sha256": "2ec359053d2ead838113e45df41b8cc825ddcf2498cf8a41ee50f97e0cefe1a3",
+          "relative_path": "assets/atom_mao_espacador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_ombro.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_ombro.stl",
+          "size_bytes": 424484,
+          "sha256": "d4560f3a90b95ccb83d68933ba15bc0ff43d34a42083bfa5d6b0016a45a2e690",
+          "relative_path": "assets/atom_ombro.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_ombro_chapa.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_ombro_chapa.stl",
+          "size_bytes": 59084,
+          "sha256": "de77e45356442403501fe809ffabbe9b66ff5229c45a2b918dcb920ede58e78c",
+          "relative_path": "assets/atom_ombro_chapa.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_panturrilha.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_panturrilha.stl",
+          "size_bytes": 366284,
+          "sha256": "a0cad268804c4046ebdaabcbbf969dbfa00ee46e75370e87434fefcabf442306",
+          "relative_path": "assets/atom_panturrilha.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_pe.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_pe.stl",
+          "size_bytes": 187484,
+          "sha256": "6ef5c3b7af10b79cca5cfbf7ee914ba91d7aaa38b3351a685dc6ba415a622e7a",
+          "relative_path": "assets/atom_pe.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_peito_lateral.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_peito_lateral.stl",
+          "size_bytes": 346084,
+          "sha256": "7f3ccec4e95d4e930eb71eb70554aa8a0a49b61da6f48022a31d0c6f255a0efd",
+          "relative_path": "assets/atom_peito_lateral.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_peito_traseira_impressao.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_peito_traseira_impressao.stl",
+          "size_bytes": 113084,
+          "sha256": "c249e78af5621fbf521e631fab260d22b46d540c0eff6b87d3816e1b52862fad",
+          "relative_path": "assets/atom_peito_traseira_impressao.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_pescoco.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_pescoco.stl",
+          "size_bytes": 306884,
+          "sha256": "8abc42bbdf03022e57f99d5b00edd2d4bfa18f4a213263a54dbc36435ba16259",
+          "relative_path": "assets/atom_pescoco.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_porta_bateria.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_porta_bateria.stl",
+          "size_bytes": 93184,
+          "sha256": "07de60c75ff8d3cb3a16fa244891ff2cc704732c2919da3f243e8ba9b9ad7314",
+          "relative_path": "assets/atom_porta_bateria.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_puxador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_puxador.stl",
+          "size_bytes": 14484,
+          "sha256": "9519e43ffbe3f61cef5486d2bc6f367239ff5071c07f294521b29feb7cee8818",
+          "relative_path": "assets/atom_puxador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/atom_quadril_espacador.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/atom_quadril_espacador.stl",
+          "size_bytes": 60684,
+          "sha256": "546717f73a56b350d11fc049d4b93cfba0949111f05c2321f2f4235500cf3aab",
+          "relative_path": "assets/atom_quadril_espacador.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/grass2.png",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/grass2.png",
+          "size_bytes": 4871381,
+          "sha256": "c8cc3f9786503217a5d252ce66e8b2d39cf317b582befcccf3b92836177fa28d",
+          "relative_path": "assets/grass2.png"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/atom_pescoco_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/atom_pescoco_collision.stl",
+          "size_bytes": 306884,
+          "sha256": "0874b348faa3c50a7794551cb3d8c398a9f0a591856a87acea971d46c12dad7e",
+          "relative_path": "assets/merged/atom_pescoco_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/calf_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/calf_2_collision.stl",
+          "size_bytes": 732484,
+          "sha256": "f6a6005b81b57baf8527a5fe3d7067620c1b04eb149f6f403b559d921a0910f0",
+          "relative_path": "assets/merged/calf_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/calf_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/calf_collision.stl",
+          "size_bytes": 732484,
+          "sha256": "f6a6005b81b57baf8527a5fe3d7067620c1b04eb149f6f403b559d921a0910f0",
+          "relative_path": "assets/merged/calf_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/chest_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/chest_collision.stl",
+          "size_bytes": 3145784,
+          "sha256": "ec9a997e3359af11c119ff7d78535111da4616ba97636401a9d159011a0feb4e",
+          "relative_path": "assets/merged/chest_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/groin_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/groin_2_collision.stl",
+          "size_bytes": 492084,
+          "sha256": "4ead95066281280271af7303c1d62cfacd046dfadc3224f8aca5e6eda6959a7a",
+          "relative_path": "assets/merged/groin_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/groin_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/groin_collision.stl",
+          "size_bytes": 492084,
+          "sha256": "0ad4a6c78a6f82d2d93f42f2f352e461e77b5e4441426a489c8acc83c04d9552",
+          "relative_path": "assets/merged/groin_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/hand_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/hand_2_collision.stl",
+          "size_bytes": 342684,
+          "sha256": "bec83bba2f0ad2fc116cf5bceaa9410233d84af06cac384cc50f6229cb78f2e1",
+          "relative_path": "assets/merged/hand_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/hand_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/hand_collision.stl",
+          "size_bytes": 342684,
+          "sha256": "9d5e1bfd56ebeba0260d7c0615badaef55e9fcabd30804879384fd9e93dd7e42",
+          "relative_path": "assets/merged/hand_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/head_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/head_collision.stl",
+          "size_bytes": 2864184,
+          "sha256": "99cdb8f9d0fa381aa1bfa60db6d732a6d42c7873f1bc05f25e76a3b2aeb8a15e",
+          "relative_path": "assets/merged/head_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/left_ankle_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_ankle_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "734de3eadefe66e2b9e8c67803bf021443b97b2ae080e5471d8a637f358e3ca7",
+          "relative_path": "assets/merged/left_ankle_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/left_arm_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_arm_collision.stl",
+          "size_bytes": 3110284,
+          "sha256": "8badef5f3539fb9e2dc5766d985e2efabe1014100a612d59f8957bdc2489848a",
+          "relative_path": "assets/merged/left_arm_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/left_foot_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_foot_collision.stl",
+          "size_bytes": 825684,
+          "sha256": "732694028a030cae32f7cd6630a960cc6e5c8ba111a4c0d5bd44586efcf1fcf5",
+          "relative_path": "assets/merged/left_foot_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/left_glutes_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/left_glutes_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "3a7b82f55fb7e0d813fc74a558d7f0aff72352aed94e21b8a1da7c6be2317ff0",
+          "relative_path": "assets/merged/left_glutes_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/right_ankle_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_ankle_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "bec0e27633b51a048476cc5382c272ea8b1b198281c54c347691b28e8a98a2e8",
+          "relative_path": "assets/merged/right_ankle_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/right_arm_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_arm_collision.stl",
+          "size_bytes": 3110284,
+          "sha256": "bab5367d099653f4ea703b7f618db1ee85d9b732c1f2159f6098c2e694a6e6b5",
+          "relative_path": "assets/merged/right_arm_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/right_foot_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_foot_collision.stl",
+          "size_bytes": 825684,
+          "sha256": "40c281eb398a34f8b822955688e742de3bc2e1be1ff5cd0dc9aa832c0ac94af2",
+          "relative_path": "assets/merged/right_foot_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/right_glutes_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/right_glutes_collision.stl",
+          "size_bytes": 3145684,
+          "sha256": "67dcc0752d4307e4b1de60b1056450e20ff15d68886bf19552e068ece6bd8ab6",
+          "relative_path": "assets/merged/right_glutes_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/shoulder_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/shoulder_2_collision.stl",
+          "size_bytes": 483484,
+          "sha256": "a03764d21c0db8400e0d29b31bc535e7a4e1e591c1943e48347d6a18528f2c25",
+          "relative_path": "assets/merged/shoulder_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/shoulder_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/shoulder_collision.stl",
+          "size_bytes": 483484,
+          "sha256": "0f095e023972d6e390fdd4d36ff0de8dbce45af9023533f464d2fec24eed7258",
+          "relative_path": "assets/merged/shoulder_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/thigh_2_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/thigh_2_collision.stl",
+          "size_bytes": 1883784,
+          "sha256": "bfdeae0eb7e41b863555a9adcce756522210b2a48a95ab516500d298831d2d70",
+          "relative_path": "assets/merged/thigh_2_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/merged/thigh_collision.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/merged/thigh_collision.stl",
+          "size_bytes": 1883784,
+          "sha256": "ada2ff2808d23cd042a658362fcee3851082747fe0249b9786b109e227caf3f2",
+          "relative_path": "assets/merged/thigh_collision.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/part_1.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1.stl",
+          "size_bytes": 15084,
+          "sha256": "780bff177eeca11396ea74e31d5f1eaf66fa3481a8bcc56e33c549b627501246",
+          "relative_path": "assets/part_1.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/part_1__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1__2.stl",
+          "size_bytes": 15084,
+          "sha256": "7de6ba54dc04ec57be7470aad68a947d53509e1b4ebf0867ad830c5c9209ca96",
+          "relative_path": "assets/part_1__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/part_1__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/part_1__3.stl",
+          "size_bytes": 211084,
+          "sha256": "0a207f6e0196197a7930ad8fa97eb7ec056b83bc0406444a3e23e150c731057d",
+          "relative_path": "assets/part_1__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/xm430.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm430.stl",
+          "size_bytes": 1216784,
+          "sha256": "070a941b6e4ce23f1886ca9f264132803430450405eb9c600a524ecf5f07dc10",
+          "relative_path": "assets/xm430.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/xm540.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540.stl",
+          "size_bytes": 1495784,
+          "sha256": "d271a77394cf33d0be4601f1b56252aec16b2e969413c84a3b05ceb98e7cbf1f",
+          "relative_path": "assets/xm540.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/xm540__2.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__2.stl",
+          "size_bytes": 1266084,
+          "sha256": "da612827183441fbf931e1daef57b123d1d6278608db408184ede5badaad935c",
+          "relative_path": "assets/xm540__2.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/xm540__3.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__3.stl",
+          "size_bytes": 1495784,
+          "sha256": "2970581fd2fae1e152fc6e0e8461ed13fe23e61f5d64c1e6aa637cd01251f172",
+          "relative_path": "assets/xm540__3.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/assets/xm540__4.stl",
+          "source_path": "reinforcement_learning/op3_model/src/model/assets/xm540__4.stl",
+          "size_bytes": 1495784,
+          "sha256": "2970581fd2fae1e152fc6e0e8461ed13fe23e61f5d64c1e6aa637cd01251f172",
+          "relative_path": "assets/xm540__4.stl"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/robot.xml",
+          "source_path": "reinforcement_learning/op3_model/src/model/robot.xml",
+          "size_bytes": 45827,
+          "sha256": "cc59e6446bc589e2954e2a9d82ad5c1c704dc8fccc3a1249fc2a88199444c29e",
+          "relative_path": "robot.xml"
+        },
+        {
+          "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/model/scene.xml",
+          "source_path": "reinforcement_learning/op3_model/src/model/scene.xml",
+          "size_bytes": 903,
+          "sha256": "0a970c57de8a487e4ea0a84b0723403e38c5759ce03632c3c307554458ed7229",
+          "relative_path": "scene.xml"
+        }
+      ],
+      "reward": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/FUNCAO_RECOMPENSA_EXATA_USADA.md",
+        "sha256": "878c051a362b0be517cc378be23936086d858ad86d55764b3759a8b60ae18374"
+      },
+      "readme": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/README.md",
+        "sha256": "5300586afeaa275c48fdcef0cc4ec112e79b332358d7ec8415f58ab4fa4e9298"
+      },
+      "manifest": {
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/env_snapshot/manifest.json",
+        "sha256": "85d89cd68e834fb3436f8816b7e55951db5eff9aa731173c9ddded758488a64e"
+      }
+    },
+    "plots": [
+      {
+        "name": "recompensa_treino",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/graficos/recompensa_treino.png"
+      },
+      {
+        "name": "convergencia_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/graficos/convergencia_avaliacao.png"
+      },
+      {
+        "name": "recompensa_episodios_avaliacao",
+        "path": "reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/graficos/recompensa_episodios_avaliacao.png"
+      }
+    ],
+    "commands": {
+      "tensorboard": "tensorboard --logdir reinforcement_learning/saida_optuna_atom/treino_gait_v3_mais_rapido_reto_estavel_v1/logs",
+      "view_best": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/best_model.zip --usar-env-snapshot --usar-gait-inicial --modo-gait-andando",
+      "view_final": "python reinforcement_learning/ver_modelo_atom.py --modelo reinforcement_learning/melhores_modelos/treino_gait_v3_mais_rapido_reto_estavel_v1/final_model.zip --usar-env-snapshot --usar-gait-inicial --modo-gait-andando"
+    }
   }
 ]
