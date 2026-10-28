@@ -331,6 +331,10 @@ def load_best_ppo_params(save_dir):
 
 
 def train_final_model(args, save_dir, ppo_params):
+    if args.learning_rate is not None:
+        if not 0 < args.learning_rate < 1:
+            raise ValueError("--learning-rate deve estar entre 0 e 1.")
+        ppo_params = {**ppo_params, "learning_rate": args.learning_rate}
     final_dir = save_dir / args.final_run_name
     log_dir = final_dir / "logs"
     best_dir = final_dir / "melhor_modelo"
@@ -370,6 +374,7 @@ def train_final_model(args, save_dir, ppo_params):
                 env=train_env,
                 device=args.device,
                 tensorboard_log=str(log_dir),
+                **({"learning_rate": args.learning_rate} if args.learning_rate is not None else {}),
             )
             model.verbose = 1
         else:
@@ -416,6 +421,7 @@ def train_final_model(args, save_dir, ppo_params):
                 ppo_params=ppo_params,
                 training_args={
                     "device": args.device,
+                    "learning_rate_override": args.learning_rate,
                     "seed": args.seed,
                     "final_timesteps": args.final_timesteps,
                     "eval_freq": args.eval_freq,
@@ -454,6 +460,8 @@ def parse_args():
     parser.add_argument("--final-run-name", default="treino_final_melhor")
     parser.add_argument("--device", default="cpu", choices=["cpu", "cuda"])
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--learning-rate", type=float, default=None,
+                        help="Taxa de aprendizado do treino final, inclusive ao continuar um modelo.")
     parser.add_argument("--study-name", default="ppo_atom_optuna")
     parser.add_argument("--save-dir", default=str(DEFAULT_SAVE_DIR))
     parser.add_argument("--storage", default=None)

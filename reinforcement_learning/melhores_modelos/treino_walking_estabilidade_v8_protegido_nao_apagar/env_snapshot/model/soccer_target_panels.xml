@@ -1,0 +1,14 @@
+<mujocoinclude>
+  <geom name="soccer_panel_0" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.27326653 0.96193836 0.00000000 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+  <geom name="soccer_panel_1" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.70710678 0.60150096 -0.37174803 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+  <geom name="soccer_panel_2" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.48696452 -0.00000000 -0.87342175 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+  <geom name="soccer_panel_3" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.96193836 0.27326653 0.00000000 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+  <geom name="soccer_panel_4" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.70710678 -0.60150096 -0.37174803 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+  <geom name="soccer_panel_5" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.48696452 -0.00000000 0.87342175 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+  <geom name="soccer_panel_6" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.27326653 -0.96193836 0.00000000 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+  <geom name="soccer_panel_7" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.70710678 0.60150096 0.37174803 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+  <geom name="soccer_panel_8" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.87342175 -0.00000000 -0.48696452 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+  <geom name="soccer_panel_9" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.96193836 -0.27326653 0.00000000 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+  <geom name="soccer_panel_10" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.70710678 -0.60150096 0.37174803 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+  <geom name="soccer_panel_11" type="mesh" mesh="soccer_black_panel" pos="0 0 0.1" quat="0.87342175 -0.00000000 0.48696452 0.00000000" rgba="0.025 0.025 0.025 1" contype="0" conaffinity="0" mass="0" group="2" />
+</mujocoinclude>

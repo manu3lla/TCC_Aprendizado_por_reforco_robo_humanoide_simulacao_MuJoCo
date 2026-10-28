@@ -146,6 +146,8 @@ class AtomEnv(gym.Env):
         self.frame_skip = 5
         self.dt = float(self.model.opt.timestep * self.frame_skip)
         self.max_episode_steps = 1000
+        if self.gait_walk_mode:
+            self.max_episode_steps = int(np.ceil(60.0 / self.dt))
 
         self.prev_x = 0.0
         self.current_step = 0
@@ -157,6 +159,7 @@ class AtomEnv(gym.Env):
         self.prev_right_contact = False
         self.prev_left_foot_pos = np.zeros(3, dtype=np.float64)
         self.prev_right_foot_pos = np.zeros(3, dtype=np.float64)
+        self.support_contact_seconds = np.zeros(2, dtype=np.float64)
 
         mujoco.mj_forward(self.model, self.data)
 
@@ -187,6 +190,10 @@ class AtomEnv(gym.Env):
         self.left_foot_body_id = self._body_id("left_foot")
         self.right_foot_body_id = self._body_id("right_foot")
         self.initial_torso_height = self._torso_height()
+        initial_rotation = self.data.xmat[self.chest_body_id].reshape(3, 3)
+        self.initial_target_heading_local = initial_rotation.T @ np.array(
+            [self.target_line_dir[0], self.target_line_dir[1], 0.0]
+        )
         self.initial_left_foot_z = float(self.data.xpos[self.left_foot_body_id][2])
         self.initial_right_foot_z = float(self.data.xpos[self.right_foot_body_id][2])
         self.initial_left_foot_rot = (
@@ -349,10 +356,10 @@ class AtomEnv(gym.Env):
                 {
                     "target_velocity": 6.15,
                     "distance_progress": 62.00,
-                    "target_alignment": 1.45,
-                    "crooked_velocity": 1.70,
-                    "lateral_drift": 2.25,
-                    "path_drift": 15.00,
+                    "target_alignment": 1.80,
+                    "crooked_velocity": 1.95,
+                    "lateral_drift": 2.50,
+                    "path_drift": 20.00,
                     "walk_speed": 0.90,
                     "safe_speed": 0.95,
                     "swing_foot_forward": 0.24,
@@ -360,11 +367,11 @@ class AtomEnv(gym.Env):
                     "human_stride": 0.32,
                     "stride_progress": 0.45,
                     "stride_forward_lean": 3.20,
-                    "forward_lean": 28.00,
-                    "unstable_forward_lean": 125.00,
-                    "moving_forward_lean": 9.50,
-                    "body_projection": 110.00,
-                    "moving_body_projection": 12.00,
+                    "forward_lean": 32.00,
+                    "unstable_forward_lean": 140.00,
+                    "moving_forward_lean": 11.00,
+                    "body_projection": 125.00,
+                    "moving_body_projection": 14.00,
                     "short_step": 0.25,
                     "footstep_landing": 0.28,
                     "step_transition": 0.68,
@@ -637,6 +644,7 @@ class AtomEnv(gym.Env):
         self.current_step = 0
 
         mujoco.mj_resetData(self.model, self.data)
+        self.support_contact_seconds[:] = 0.0
 
         self.data.qpos[:] = self.initial_qpos
         self.data.qvel[:] = self.initial_qvel
@@ -687,9 +695,52 @@ class AtomEnv(gym.Env):
 
         self.data.ctrl[:] = target_ctrl
 
-        # Executa a simulação
+        landing_speed = 0.0
+        premature_lift_penalty = 0.0
+        foot_ids = (self.left_foot_body_id, self.right_foot_body_id)
+
+        def ground_contact(body_id):
+            for contact in self.data.contact:
+                bodies = (self.model.geom_bodyid[contact.geom1],
+                          self.model.geom_bodyid[contact.geom2])
+                if body_id in bodies and 0 in bodies:
+                    return True
+            return False
+
+        foot_contacts = [ground_contact(body_id) for body_id in foot_ids]
+        # Sample before contact response, which can hide touchdown velocity.
         for _ in range(self.frame_skip):
+            downward_speeds = []
+            if self.gait_walk_mode:
+                upward_speeds = []
+                for body_id in foot_ids:
+                    velocity = np.zeros(6)
+                    mujoco.mj_objectVelocity(
+                        self.model, self.data, mujoco.mjtObj.mjOBJ_BODY,
+                        body_id, velocity, 0,
+                    )
+                    downward_speeds.append(max(0.0, -float(velocity[5])))
+                    upward_speeds.append(max(0.0, float(velocity[5])))
+                for idx in range(2):
+                    support_idx = 1 - idx
+                    support_age = (self.support_contact_seconds[support_idx]
+                                   if foot_contacts[support_idx] else 0.0)
+                    # A soft 40 ms transfer window; normal lifts remain allowed.
+                    unsettled = float(np.clip(1.0 - support_age / 0.04, 0.0, 1.0))
+                    fast_lift = float(np.clip((upward_speeds[idx] - 0.10) / 0.30, 0.0, 1.0))
+                    premature_lift_penalty += unsettled * fast_lift ** 2 / self.frame_skip
             mujoco.mj_step(self.model, self.data)
+            if self.gait_walk_mode:
+                for idx, body_id in enumerate(foot_ids):
+                    contact_now = ground_contact(body_id)
+                    if contact_now and not foot_contacts[idx]:
+                        landing_speed = max(landing_speed, downward_speeds[idx])
+                    self.support_contact_seconds[idx] = (
+                        self.support_contact_seconds[idx] + self.model.opt.timestep
+                        if contact_now and foot_contacts[idx]
+                        else 0.0
+                    )
+                    foot_contacts[idx] = contact_now
 
             if self.render_mode == "human":
                 self.render()
@@ -798,6 +849,24 @@ class AtomEnv(gym.Env):
             np.dot(robot_pos - self.initial_xy, self.target_line_normal)
         )
         path_drift = abs(path_lateral_error)
+        heading_error = 0.0
+        outward_velocity_penalty = 0.0
+        if self.gait_walk_mode:
+            rotation = self.data.xmat[self.chest_body_id].reshape(3, 3)
+            heading_xy = (rotation @ self.initial_target_heading_local)[:2]
+            heading_norm = float(np.linalg.norm(heading_xy))
+            heading_alignment = float(np.clip(
+                np.dot(heading_xy, phat) / max(heading_norm, 1e-6), -1.0, 1.0
+            ))
+            heading_error = 1.0 - heading_alignment
+            # Ignore normal side-to-side sway inside a 12 cm corridor.
+            corridor_excess = float(np.clip((path_drift - 0.12) / 0.12, 0.0, 1.0))
+            outward_speed = float(np.sign(path_lateral_error) * np.dot(
+                robot_vel, self.target_line_normal
+            ))
+            outward_velocity_penalty = corridor_excess * float(np.clip(
+                outward_speed / max(self.desired_walk_speed, 1e-6), 0.0, 1.0
+            ))
         straight_corridor_factor = float(np.exp(-((path_drift / 0.12) ** 2)))
         lateral_velocity_vec = robot_vel - velocity_to_target * phat
         lateral_velocity = float(np.linalg.norm(lateral_velocity_vec))
@@ -1254,6 +1323,10 @@ class AtomEnv(gym.Env):
             stance_foot_flat_score = 0.0
 
         reward_terms = {
+            "premature_lift": -0.30 * premature_lift_penalty,
+            "hard_landing": -0.30 * min(max(0.0, landing_speed - 0.10) / 0.30, 1.0) ** 2,
+            "target_heading": -0.8 * heading_error,
+            "outward_velocity": -0.8 * outward_velocity_penalty,
             "target_velocity": self.reward_weights["target_velocity"]
             * rewarded_velocity_to_target,
             "distance_progress": self.reward_weights["distance_progress"]
@@ -1419,6 +1492,16 @@ class AtomEnv(gym.Env):
 
         info = {
             "forward_velocity": forward_velocity,
+            "landing_downward_speed": landing_speed,
+            "premature_lift_penalty": premature_lift_penalty,
+            "left_support_seconds": float(self.support_contact_seconds[0]),
+            "right_support_seconds": float(self.support_contact_seconds[1]),
+            "target_heading_error": heading_error,
+            "outward_velocity_penalty": outward_velocity_penalty,
+            "is_success": bool(distance < self.target_radius and not fallen),
+            "fallen": bool(fallen),
+            "elapsed_simulation_seconds": self.current_step * self.dt,
+            "time_limit_reached": bool(truncated and not terminated),
             "x_position": current_x,
             "y_position": current_y,
             "torso_height": torso_height,

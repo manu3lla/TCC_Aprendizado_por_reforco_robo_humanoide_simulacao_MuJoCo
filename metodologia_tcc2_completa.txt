@@ -1,0 +1,349 @@
+% =====================================================================
+\section{Metodologia}
+\label{sec,metodologia}
+% =====================================================================
+
+A metodologia foi organizada em etapas de modelagem do robô, integração com o ambiente de simulação, definição da tarefa de locomoção e treinamento iterativo com Aprendizado por Reforço Profundo. O desenvolvimento iniciou com a preparação do modelo do Atom no Onshape e sua exportação para o formato MJCF. Em paralelo, foram realizados testes exploratórios com a infraestrutura disponibilizada por Gianzanti \cite{gianzanti2022}, visando compreender a integração entre o MuJoCo, o ambiente de aprendizado e o treinamento com PPO.
+
+Após a integração do Atom, foram investigadas diferentes formulações de recompensa. Inicialmente, o objetivo consistiu em incentivar o deslocamento frontal e a manutenção do equilíbrio. Posteriormente, foi introduzido um alvo na cena e, em uma etapa seguinte, uma referência periódica de marcha para orientar a forma da caminhada. Os experimentos foram acompanhados por registros de treinamento, avaliações periódicas e inspeção visual das políticas no MuJoCo.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\columnwidth,keepaspectratio]{fluxograma.png}
+\caption{Fluxograma geral do desenvolvimento, abrangendo modelagem, exportação, treinamento e avaliação. A avaliação em partidas da RoboCup 3D constitui uma extensão do treinamento de locomoção apresentado nesta seção.}
+\label{fig,fluxograma}
+\end{figure}
+
+A Figura~\ref{fig,fluxograma} apresenta a organização geral do projeto. Nos experimentos descritos nesta metodologia, o treinamento do Atom foi realizado diretamente no MuJoCo, por meio de um ambiente compatível com o Gymnasium.
+
+\subsection{Modelagem do Ambiente de Simulação}
+
+O MuJoCo \cite{todorov2012} foi utilizado como motor de simulação física para representar a dinâmica do Atom, seus atuadores e os contatos com o solo. Essa organização permitiu executar episódios de treinamento e observar os efeitos das ações sobre a postura e o deslocamento do robô.
+
+Os testes exploratórios com outras infraestruturas de simulação, incluindo o ambiente da RoboCup 3D e o modelo Booster T1 mencionado no desenvolvimento inicial, constituíram atividades de familiarização. Esses testes foram distintos do fluxo posteriormente empregado para o treinamento da política de locomoção do Atom.
+
+No fluxo de treinamento adotado, o modelo físico é carregado diretamente pela interface Python do MuJoCo. A interação com o agente ocorre por meio do ambiente \texttt{Atom-v1}, registrado no Gymnasium. O método \texttt{reset()} reinicializa o episódio, enquanto \texttt{step()} recebe uma ação, avança a simulação e retorna a nova observação, a recompensa e os indicadores de encerramento.
+
+A implementação utiliza um ambiente para coleta das experiências de treinamento e outro para avaliação periódica. Portanto, os experimentos atuais não dependem de comunicação por soquetes com o servidor da RoboCup nem correspondem à execução de oito ambientes de coleta simultâneos.
+
+\subsubsection*{Modelagem do Atom no Onshape}
+
+O ponto de partida para a representação do Atom foram as peças modeladas pela equipe de mecânica no Autodesk Fusion e posteriormente organizadas no Onshape. Nessa plataforma foram realizadas a montagem dos componentes, a atribuição de propriedades físicas e a definição das articulações.
+
+A utilização do Onshape também possibilitou a exportação pela ferramenta \textit{Onshape to Robot}, desenvolvida pela equipe Rhoban \cite{gondry2019,allali2024}. O modelo possui 20 articulações atuadas, distribuídas conforme a Tabela~\ref{tab,juntas}.
+
+\begin{table}[!h]
+\centering
+\caption{Distribuição das 20 juntas do robô Atom}
+\label{tab,juntas}
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.0cm} c >{\raggedright\arraybackslash}p{2.7cm}}
+\toprule
+\textbf{Região} & \textbf{Juntas} & \textbf{Movimentos principais} \\
+\midrule
+Perna esquerda & 6 & Quadril, joelho e tornozelo \\
+Perna direita  & 6 & Quadril, joelho e tornozelo \\
+Braço esquerdo & 3 & Ombro e cotovelo \\
+Braço direito  & 3 & Ombro e cotovelo \\
+Cabeça         & 2 & Pan e tilt \\
+\midrule
+\textbf{Total} & \textbf{20} & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A configuração de exportação incluiu a combinação e a simplificação de malhas destinadas às geometrias de colisão. Após a exportação, foram verificados os nomes das juntas, seus sentidos de movimento, a associação com os atuadores e a interação dos pés com o solo.
+
+As propriedades físicas atribuídas no CAD influenciam as massas e os momentos de inércia exportados. A Tabela~\ref{tab,materiais} apresenta os materiais e as densidades registrados na modelagem. Para componentes compostos por diferentes materiais, como motores, bateria e computador, essas atribuições devem ser interpretadas como representações equivalentes no CAD, e não como descrições literais de sua composição.
+
+\begin{table}[!h]
+\centering
+\caption{Materiais e densidades atribuídos na modelagem CAD}
+\label{tab,materiais}
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{3pt}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}p{1.6cm} c}
+\toprule
+\textbf{Componente} & \textbf{Material no CAD} & \textbf{lb/in$^3$} \\
+\midrule
+Tampa do peito, porta-bateria e puxador & PLA & 0{,}045 \\
+Capacete e amortecedores & ABS & 0{,}038 \\
+Computador NUC & Acrílico & 0{,}042 \\
+Bateria & Teflon & 0{,}078 \\
+Motores XM540/XM430 & Fluoroelastômero & 0{,}065 \\
+Peças estruturais & Alumínio 6061 & 0{,}098 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A distribuição de massa é particularmente relevante no tronco e nas pernas, pois influencia a resposta do robô durante o apoio simples e a transferência de peso. A Figura~\ref{fig,atom_centro} apresenta a visualização do centro de massa calculado pelo Onshape. Essa inspeção auxilia a análise do modelo, mas não substitui a validação experimental de suas propriedades físicas.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\columnwidth,height=8cm,keepaspectratio]{atom_centro.png}
+\caption{Visualização do centro de massa do Atom no Onshape, calculado a partir das propriedades atribuídas aos componentes.}
+\label{fig,atom_centro}
+\end{figure}
+
+A exportação produziu arquivos MJCF utilizados pelo MuJoCo. O arquivo \texttt{robot.xml} descreve os corpos, as juntas, as geometrias e os atuadores. O arquivo \texttt{scene.xml} inclui o robô e define elementos da cena, como o solo e o alvo.
+
+Foram utilizados atuadores de posição, com limites de comando e de força definidos por articulação. Os limites de comando dos atuadores não devem ser confundidos automaticamente com os limites mecânicos das juntas. A correspondência entre os parâmetros simulados e o hardware real constitui uma questão adicional de validação.
+
+A Figura~\ref{fig,atom_diagram} apresenta a identificação das articulações, enquanto a Tabela~\ref{tab,dof_table} registra sua nomenclatura. Na implementação, os nomes das juntas e dos atuadores são utilizados para associar os comandos aos movimentos correspondentes.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\columnwidth,height=7cm,keepaspectratio]{unnamed.png}
+\caption{Diagrama do Atom com a identificação das 20 articulações atuadas.}
+\label{fig,atom_diagram}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\includegraphics[width=\columnwidth,keepaspectratio]{unnamed (1).png}
+\caption{Correspondência entre a identificação das articulações e os nomes dos graus de liberdade do Atom. A ordem dos vetores utilizados no treinamento é determinada pelo modelo carregado no MuJoCo.}
+\label{tab,dof_table}
+\end{table}
+
+\FloatBarrier
+
+\subsubsection*{Adaptação da Infraestrutura de Treinamento}
+
+A integração do Atom utilizou como ponto de partida a infraestrutura associada ao projeto de Gianzanti \cite{gianzanti2022}, originalmente direcionada ao estudo de locomoção com o Darwin OP3. O reaproveitamento dessa base permitiu compreender o ciclo de interação entre agente e simulador antes da adaptação para o Atom.
+
+Sobre essa infraestrutura foram desenvolvidas adaptações no carregamento do modelo, no espaço de observações, no controle das articulações, na função de recompensa e nos critérios de encerramento dos episódios. Também foram acrescentados mecanismos de visualização, busca de hiperparâmetros, continuação de treinamentos e registro dos modelos selecionados.
+
+Assim, o ambiente utilizado constitui uma adaptação da base anterior às características do Atom e aos objetivos deste trabalho, e não uma implementação integralmente desenvolvida do zero.
+
+\subsubsection*{Espaços de Observações e Ações}
+
+O vetor de observações foi ampliado ao longo do desenvolvimento. Na configuração com referência de marcha utilizada nos modelos recentes, ele contém 62 componentes: 27 posições generalizadas, 26 velocidades generalizadas e nove variáveis adicionais relacionadas à tarefa.
+
+As posições generalizadas incluem a posição e a orientação da base livre, além dos ângulos das 20 articulações. As velocidades generalizadas incluem as velocidades da base e das juntas. As variáveis adicionais informam a fase da marcha, as alturas dos pés, os contatos, a verticalidade do tronco e o deslocamento horizontal até o alvo.
+
+\begin{table}[!h]
+\centering
+\caption{Vetor de observações da configuração com referência de marcha}
+\label{tab,observacoes}
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{3pt}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.0cm} c >{\raggedright\arraybackslash}p{2.1cm}}
+\toprule
+\textbf{Variável} & \textbf{Dim.} & \textbf{Informação} \\
+\midrule
+Posição da base & 3 & Localização \\
+Quaternion da base & 4 & Orientação \\
+Posições articulares & 20 & Configuração \\
+Velocidades da base & 6 & Movimento global \\
+Velocidades articulares & 20 & Movimento das juntas \\
+Seno e cosseno da fase & 2 & Fase da marcha \\
+Alturas relativas dos pés & 2 & Elevação dos pés \\
+Indicadores de contato & 2 & Apoio \\
+Verticalidade do tronco & 1 & Postura \\
+Vetor horizontal até o alvo & 2 & Direção e distância \\
+\midrule
+\textbf{Total} & \textbf{62} & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+O espaço de ações possui 20 componentes contínuas normalizadas em $[-1,1]$, uma para cada atuador. O agente não fornece torques diretamente. Suas ações são convertidas em correções das referências de posição das articulações, e o MuJoCo calcula as forças e os movimentos resultantes.
+
+Na configuração sem referência periódica, as correções são aplicadas em torno de uma configuração inicial. Na configuração com gait, elas são aplicadas sobre uma referência variável ao longo do ciclo de marcha.
+
+\FloatBarrier
+
+\subsection{Treinamento e Avaliação do Agente}
+
+\subsubsection*{Arquitetura das Redes Neurais}
+
+O treinamento utiliza a implementação do PPO da biblioteca Stable-Baselines3, com política \texttt{MlpPolicy}. A arquitetura é do tipo Actor-Critic, composta por uma rede de política, denominada \textit{actor}, e uma rede de valor, denominada \textit{critic}.
+
+O actor recebe as observações e produz os parâmetros da distribuição das ações contínuas. O critic estima o retorno esperado a partir da observação e auxilia o cálculo das atualizações da política.
+
+No checkpoint protegido utilizado como base para os refinamentos recentes, cada rede possui duas camadas ocultas com 64 neurônios e função de ativação Tanh. A entrada possui 62 componentes. A saída da política corresponde a 20 ações, enquanto a rede de valor produz uma estimativa escalar.
+
+\begin{figure}[h!]
+\centering
+\fbox{\includegraphics[width=0.94\columnwidth,height=4.5cm,keepaspectratio]{rede_neural.png}}
+\caption{Ilustração de uma rede neural densa multicamada. No modelo recente do Atom, as redes da política e de valor utilizam duas camadas ocultas com 64 neurônios e ativação Tanh. A política recebe 62 observações e produz 20 ações contínuas. A imagem é conceitual e não representa necessariamente essa topologia. Fonte: \cite{redeneural_ufop}.}
+\label{fig,rede}
+\end{figure}
+
+A Figura~\ref{fig,rede} apresenta uma referência visual do processamento em camadas. As dimensões efetivamente empregadas foram verificadas no modelo salvo, evitando confundir a arquitetura implementada com configurações inicialmente planejadas.
+
+O PPO coleta experiências de interação e as utiliza em atualizações por minibatches. Durante o treinamento, as ações são amostradas da distribuição da política. Nas avaliações periódicas, são utilizadas ações determinísticas, permitindo acompanhar o comportamento da política sem a mesma amostragem exploratória.
+
+\subsubsection*{Configuração e Continuação dos Treinamentos}
+
+Foram realizados experimentos exploratórios com diferentes hiperparâmetros, além de buscas utilizando Optuna. Após a obtenção de políticas utilizadas como referência, novos experimentos puderam ser inicializados com seus pesos, por meio da continuação do treinamento.
+
+A Tabela~\ref{tab,hiperparametros} apresenta os parâmetros identificados no checkpoint protegido adotado como base para os refinamentos recentes. Esses valores não representam necessariamente todos os experimentos anteriores.
+
+\begin{table}[!h]
+\centering
+\caption{Configuração do checkpoint utilizado como base para os refinamentos}
+\label{tab,hiperparametros}
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{4pt}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3.4cm}}
+\toprule
+\textbf{Parâmetro} & \textbf{Configuração} \\
+\midrule
+Política & MlpPolicy \\
+Camadas ocultas por rede & 64 e 64 neurônios \\
+Ativação & Tanh \\
+Observações & 62 \\
+Ações & 20 \\
+\texttt{n\_steps} & 512 \\
+\texttt{batch\_size} & 64 \\
+\texttt{n\_epochs} & 10 \\
+$\gamma$ & 0{,}98 \\
+$\lambda_{\mathrm{GAE}}$ & 0{,}95 \\
+Coeficiente de entropia & 0{,}0 \\
+Taxa de aprendizado no checkpoint & $10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Nas etapas de refinamento foram utilizadas taxas de aprendizado reduzidas, incluindo $10^{-5}$ e $5 \times 10^{-6}$, com o objetivo de limitar a intensidade das alterações em políticas previamente treinadas. O número de interações e a frequência de avaliação foram definidos por experimento.
+
+O treinamento das redes utiliza PyTorch, com opção de processamento em GPU por CUDA. A simulação física é executada pelo MuJoCo. O tempo de simulação de um episódio, portanto, deve ser distinguido do tempo real necessário para executar o treinamento.
+
+\subsubsection*{Evolução da Função de Recompensa}
+
+A função de recompensa foi desenvolvida de forma iterativa. As alterações buscaram conciliar deslocamento, equilíbrio, direção e características da marcha, considerando que um aumento no retorno pode corresponder a comportamentos diferentes daqueles desejados pelo projetista \cite{kober2013}.
+
+\paragraph{Deslocamento frontal sem alvo.}
+
+Nas primeiras versões, o agente recebeu incentivos para avançar em um eixo frontal, manter a postura e prolongar o episódio. Uma versão recuperada do histórico do projeto pode ser resumida por:
+
+\begin{equation}
+r_t = w_x\Delta x_t + b + w_sH_t
+- w_a\|\mathbf{a}_t\|^2 - w_f\mathbb{1}_{\mathrm{queda}}.
+\end{equation}
+
+Nessa expressão, $\Delta x_t$ representa o deslocamento no eixo considerado, $b$ é uma parcela constante por passo, $H_t$ reúne medidas de altura e verticalidade, e $\mathbf{a}_t$ representa a ação normalizada. O indicador de queda ativa uma penalidade adicional.
+
+Essa expressão resume uma versão específica, e não uma função única mantida ao longo de todo o projeto. A penalidade sobre a ação representa regularização do comando, não uma medição direta de torque ou consumo energético.
+
+\paragraph{Introdução de um alvo.}
+
+A tarefa foi posteriormente reformulada pela inclusão de um alvo fixo na cena. Considerando a posição horizontal do robô $\mathbf{p}_t$ e a posição do alvo $\mathbf{p}_g$, a direção desejada é:
+
+\begin{equation}
+\mathbf{e}_t = \frac{\mathbf{p}_g-\mathbf{p}_t}{\|\mathbf{p}_g-\mathbf{p}_t\|}.
+\end{equation}
+
+Para distância não nula, a velocidade na direção do alvo é calculada por:
+
+\begin{equation}
+v_t^{g} = \mathbf{v}_t^{\mathsf T}\mathbf{e}_t.
+\end{equation}
+
+Também foi considerado o progresso entre estados consecutivos:
+
+\begin{equation}
+\Delta d_t = d_{t-1}-d_t,
+\qquad d_t = \|\mathbf{p}_g-\mathbf{p}_t\|.
+\end{equation}
+
+Assim, o agente passou a receber informação sobre o avanço em relação a um objetivo espacial, em vez de depender apenas do deslocamento em um eixo fixo.
+
+Nas versões orientadas ao alvo, foram investigados incentivos ao progresso e penalidades associadas às configurações dos joelhos e à orientação corporal. As versões seguintes incorporaram termos de alinhamento, desvio lateral, velocidade, projeção do tronco, apoio dos pés e suavidade dos comandos.
+
+Uma representação agrupada dessas formulações é:
+
+\begin{multline}
+r_t = b + \sum_i w_iR_i(s_t,a_t)
+- \sum_j\beta_jP_j(s_t,a_t) \\
++ B_g\mathbb{1}_{\mathrm{chegada}} - F\mathbb{1}_{\mathrm{queda}}.
+\end{multline}
+
+Os termos $R_i$ representam incentivos e os termos $P_j$ representam penalidades. Essa equação organiza os componentes por finalidade; as expressões e os pesos exatos dependem da versão do ambiente utilizada em cada experimento.
+
+% Inserir a citacao da referencia indicada da Unicamp somente apos
+% conferir o documento e sua entrada BibTeX:
+% https://repositorio.unicamp.br/acervo/detalhe/1162057
+
+\subsubsection*{Referência de Marcha e Controle Residual}
+
+Além do deslocamento até o alvo, o desenvolvimento passou a considerar a forma da locomoção. Para orientar a alternância das pernas e a flexão das articulações, foi construída uma referência periódica de marcha, denominada \textit{gait}.
+
+A referência especifica movimentos de quadril, joelho e tornozelo ao longo de um ciclo, incluindo uma postura de flexão e intervalos programados de apoio duplo. Uma prévia cinemática permitiu inspecionar as poses e a orientação das solas dos pés.
+
+Essa prévia altera diretamente a configuração do modelo e, portanto, não demonstra que o movimento será dinamicamente estável. Sua finalidade foi verificar a referência antes de utilizá-la no treinamento com interação física.
+
+O treinamento com referência foi organizado em duas etapas. Primeiro, o PPO foi treinado para acompanhar o gait no lugar, com incentivos à reprodução das poses e penalidades para deslocamento horizontal e perda de equilíbrio. Em seguida, a política obtida foi utilizada como ponto de partida para o treinamento de deslocamento, reintroduzindo os objetivos de avanço e chegada ao alvo.
+
+O erro de acompanhamento da referência nas juntas das pernas foi representado por:
+
+\begin{equation}
+E_t = \frac{1}{|J|}\sum_{j\in J}
+\left(\frac{\delta q_{j,t}-\delta q^{\mathrm{ref}}_{j,t}}{\sigma_j}\right)^2,
+\end{equation}
+
+em que $J$ é o conjunto de juntas consideradas, $\delta q_{j,t}$ é o deslocamento articular em relação à configuração inicial, $\delta q^{\mathrm{ref}}_{j,t}$ é a referência correspondente e $\sigma_j$ é uma escala de normalização.
+
+Uma parcela de recompensa associada à proximidade da referência foi calculada por:
+
+\begin{equation}
+R_t^{\mathrm{pose}} = \exp(-E_t).
+\end{equation}
+
+O comando desejado dos atuadores combina a referência e a correção produzida pela rede neural:
+
+\begin{equation}
+\mathbf{u}^{*}_t = \operatorname{clip}\!\left(
+\mathbf{u}^{\mathrm{ref}}(\phi_t)+\mathbf{S}\mathbf{a}_t\right),
+\end{equation}
+
+em que $\phi_t$ é a fase da marcha e $\mathbf{S}$ reúne as escalas de correção por atuador. O operador de limitação respeita os intervalos de comando definidos no modelo.
+
+Uma filtragem temporal é aplicada antes do envio do comando:
+
+\begin{equation}
+\mathbf{u}_t = \operatorname{clip}\!\left[
+\mathbf{u}_{t-1}+\alpha(\mathbf{u}^{*}_t-\mathbf{u}_{t-1})\right].
+\end{equation}
+
+A estratégia constitui um controle residual orientado por referência: o gait fornece parte da estrutura do movimento, enquanto a rede neural treinada pelo PPO aprende correções a partir das observações e recompensas. Portanto, a política continua sendo aprendida por reforço profundo, embora a forma da marcha não seja descoberta integralmente do zero.
+
+Os intervalos programados no gait não garantem que os contatos físicos ocorram exatamente nas fases previstas. A postura, a dinâmica e as correções da política podem alterar a sequência efetiva de apoio dos pés.
+
+\subsubsection*{Refinamentos de Estabilidade e Suavidade}
+
+Os refinamentos foram conduzidos a partir de checkpoints selecionados, buscando preservar comportamentos úteis enquanto eram alterados objetivos específicos. Foram investigadas penalidades para inclinação excessiva do tronco, projeção do corpo à frente dos pés, desvio da trajetória e rotação em relação ao alvo.
+
+Nas versões exploratórias mais recentes, também foram acrescentadas medições da velocidade vertical dos pés na aterrissagem e do tempo de contato contínuo do pé de apoio. Essas medições fundamentaram penalidades suaves para aterrissagens rápidas e para a elevação brusca da outra perna antes de uma janela inicial de apoio de 40~ms.
+
+Esses termos representam incentivos de aprendizado, e não bloqueios mecânicos ou garantias de estabilidade. Sua contribuição deve ser avaliada comparando os modelos com os checkpoints de referência, considerando simultaneamente progresso, quedas e características do movimento.
+
+\subsubsection*{Episódios e Critérios de Encerramento}
+
+Na configuração recente, cada ação do agente corresponde a cinco passos físicos de 2~ms, resultando em uma interação a cada 10~ms. O limite de 60~s de simulação corresponde, portanto, a 6.000 interações por episódio.
+
+A chegada é reconhecida quando a distância horizontal ao alvo fica abaixo de 0,30~m e o robô não satisfaz os critérios de queda. Os episódios terminam por chegada ou queda e são truncados quando atingem o limite temporal.
+
+A identificação de queda considera altura, verticalidade e inclinação excessiva do tronco. Esses critérios não equivalem apenas à detecção de contato de partes do corpo com o solo.
+
+\subsubsection*{Avaliação e Preservação dos Experimentos}
+
+Durante o treinamento foram realizadas avaliações periódicas com ações determinísticas, utilizando, em diferentes tentativas, cinco episódios por avaliação. Foram registrados retornos e durações dos episódios, além de curvas de treinamento e avaliação.
+
+O mecanismo automático de seleção preserva o checkpoint com maior retorno médio de avaliação. A inspeção visual no MuJoCo complementa essa seleção, permitindo identificar comportamentos como inclinação progressiva, desvio lateral, pisadas bruscas e trocas inadequadas de apoio.
+
+A recompensa acumulada não foi considerada suficiente, isoladamente, para caracterizar a qualidade da caminhada. Além disso, recompensas obtidas com formulações diferentes não constituem uma escala comum de comparação.
+
+A análise da locomoção considera a chegada ao alvo, o tempo de percurso, a ocorrência de quedas, o desvio lateral e características das pisadas. A obtenção de taxas de sucesso e de queda exige a contabilização de episódios; uma execução visual isolada não permite afirmar ausência geral de falhas.
+
+Para preservar as tentativas selecionadas, foram mantidas cópias identificadas como protegidas, contendo o checkpoint e, quando disponíveis, os parâmetros, os registros, os gráficos e o snapshot do ambiente. Esse snapshot inclui o código do ambiente e os arquivos do modelo MuJoCo necessários à execução.
+
+Checkpoints intermediários também puderam ser preservados antes da conclusão do treinamento. Quando o snapshot foi capturado posteriormente, essa procedência foi registrada, pois a cópia dos arquivos atuais não comprova automaticamente sua identidade com aqueles existentes no início do experimento.
+
+Esse procedimento distingue a preservação dos pesos da rede neural da preservação das condições de execução, permitindo documentar com maior clareza as configurações associadas aos resultados apresentados.

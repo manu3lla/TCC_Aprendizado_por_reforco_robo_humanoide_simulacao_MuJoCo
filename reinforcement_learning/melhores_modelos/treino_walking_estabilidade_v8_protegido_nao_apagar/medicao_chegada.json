@@ -1,0 +1,37 @@
+{
+  "model": "reinforcement_learning/saida_optuna_atom/treino_walking_estabilidade_v8/melhor_modelo/best_model.zip",
+  "sha256": "c8e8c803d7a603f89382251d482cd9d2d3ba198e52206f5747ef5201ed66c4c0",
+  "checkpoint_num_timesteps": 17150000,
+  "environment": "current env, same as visualization with --sem-env-snapshot",
+  "deterministic": true,
+  "seed": 42,
+  "start_xy": [
+    0.0,
+    0.0
+  ],
+  "end_xy": [
+    -4.707878796988703,
+    0.062061627372660716
+  ],
+  "target_xy": [
+    -5.0,
+    0.0
+  ],
+  "arrival_radius_m": 0.3,
+  "initial_target_distance_m": 5.0,
+  "final_target_distance_m": 0.29864119587869453,
+  "simulation_seconds": 20.63,
+  "distance_walked_xy_m": 5.319089167708509,
+  "net_displacement_m": 4.7082878430197885,
+  "progress_to_target_m": 4.7013588041213055,
+  "mean_path_speed_m_s": 0.2578327274701168,
+  "mean_target_progress_m_s": 0.22788942336991302,
+  "max_lateral_deviation_m": 0.11334211379289627,
+  "peak_forward_lean": 0.15544592081143915,
+  "minimum_upright": 0.9876060897756493,
+  "reached_target": true,
+  "fell": false,
+  "time_limit_reached": false,
+  "return": 26216.41814329231,
+  "evaluation_wall_seconds": 2.89538200100651
+}

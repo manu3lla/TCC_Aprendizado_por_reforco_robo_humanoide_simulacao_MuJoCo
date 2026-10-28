@@ -10,6 +10,7 @@
   </visual>
 
   <asset>
+    <include file="soccer_target_assets.xml"/>
     <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
     <texture name="grass" file="assets/grass2.png" type="2d" width="1359" height="1359" />
     <material name="grass_mat" texture="grass" texuniform="true" texrepeat="1 1" reflectance="0.0" />
@@ -19,7 +20,9 @@
     <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
     <geom name="floor" size="0 0 0.05" type="plane" material="grass_mat"/>
     <body name="target" pos="-5 0 0.0">
-      <geom name="my_sphere" type="sphere" size="0.1" rgba="0 0 0 1"/>
+      <geom name="my_sphere" type="sphere" size="0.1" rgba="0 0 0 0"/>
+      <geom name="soccer_ball_visual" type="sphere" size="0.1" pos="0 0 0.1" rgba="0.95 0.95 0.95 1" contype="0" conaffinity="0" mass="0" group="2"/>
+      <include file="soccer_target_panels.xml"/>
     </body>
   </worldbody>
 </mujoco>

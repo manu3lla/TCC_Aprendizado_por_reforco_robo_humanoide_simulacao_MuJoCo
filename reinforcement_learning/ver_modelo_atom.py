@@ -70,6 +70,14 @@ def parse_args():
         help="Caminho do arquivo .zip do modelo PPO.",
     )
     parser.add_argument(
+        "--seguir-robo", action="store_true",
+        help="Camera acompanha o tronco durante a caminhada.",
+    )
+    parser.add_argument(
+        "--distancia-camera", type=float, default=1.8,
+        help="Distancia inicial da camera que segue o robo (metros).",
+    )
+    parser.add_argument(
         "--max-steps",
         type=int,
         default=10_000,
@@ -245,6 +253,24 @@ def make_visualization_env(args, snapshot_dir):
     return gym.make("Atom-v1", **env_kwargs)
 
 
+def configure_follow_camera(env, args):
+    if not args.seguir_robo:
+        return
+    atom_env = env.unwrapped
+    body_id = mujoco.mj_name2id(atom_env.model, mujoco.mjtObj.mjOBJ_BODY, "chest")
+    if body_id < 0:
+        raise ValueError("Tronco 'chest' nao encontrado para seguir com a camera.")
+    atom_env.render()
+    with atom_env.viewer.lock():
+        camera = atom_env.viewer.cam
+        camera.type = mujoco.mjtCamera.mjCAMERA_TRACKING
+        camera.trackbodyid = body_id
+        camera.distance = args.distancia_camera
+        camera.elevation = -15.0
+        camera.lookat[:] = atom_env.data.xpos[body_id]
+    atom_env.viewer.sync()
+
+
 def smoothstep(value):
     value = float(np.clip(value, 0.0, 1.0))
     return value * value * (3.0 - 2.0 * value)
@@ -322,6 +348,7 @@ def apply_kinematic_gait_preview(atom_env, step):
 def run_gait_preview(env, args):
     atom_env = env.unwrapped
     env.reset()
+    configure_follow_camera(env, args)
 
     print("Previa cinemática do gait: agachado, alternando os pes no lugar.")
 
@@ -351,6 +378,8 @@ def run_gait_preview(env, args):
 
 def main():
     args = parse_args()
+    if not np.isfinite(args.distancia_camera) or args.distancia_camera <= 0:
+        raise SystemExit("--distancia-camera deve ser positiva e finita.")
     if args.usar_env_snapshot and args.sem_env_snapshot:
         raise SystemExit("Use apenas um: --usar-env-snapshot ou --sem-env-snapshot.")
     if args.somente_gait:
@@ -393,6 +422,7 @@ def main():
         )
 
     obs, info = env.reset()
+    configure_follow_camera(env, args)
     total_reward = 0.0
     episode = 1
 
