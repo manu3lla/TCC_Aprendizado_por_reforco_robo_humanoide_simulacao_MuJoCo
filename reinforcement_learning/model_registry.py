@@ -372,6 +372,14 @@ def read_eval_summary(log_dir):
         "train_monitor": read_monitor_summary(log_dir / "train.monitor.csv"),
         "eval_monitor": read_monitor_summary(log_dir / "eval.monitor.csv"),
     }
+    speed_evaluations = load_json(log_dir / "speed_evaluations.json")
+    if speed_evaluations:
+        selected = [ev for ev in speed_evaluations if ev["selected"]]
+        summary["speed_selection"] = {
+            "criterion": "fastest_with_all_successes_and_zero_falls",
+            "best": selected[-1] if selected else None,
+            "last": speed_evaluations[-1],
+        }
 
     if not npz_path.exists():
         return summary
@@ -531,6 +539,9 @@ def command_for_model(
     gait_stand_mode=False,
     gait_walk_mode=False,
     use_env_snapshot=False,
+    fast_walk_mode=False,
+    desired_walk_speed=None,
+    gait_period_steps=None,
 ):
     command = [
         "python",
@@ -546,6 +557,12 @@ def command_for_model(
         command.append("--modo-gait-parado")
     if gait_walk_mode:
         command.append("--modo-gait-andando")
+    if fast_walk_mode:
+        command.append("--modo-gait-rapido")
+    if desired_walk_speed is not None:
+        command += ["--velocidade-alvo", str(desired_walk_speed)]
+    if gait_period_steps is not None:
+        command += ["--periodo-gait", str(gait_period_steps)]
     if max_steps is not None:
         command += ["--max-steps", str(max_steps)]
     if sleep is not None:
@@ -583,6 +600,24 @@ def write_readme(entry_dir, metadata):
         lines.append(f"- Melhor avaliacao: `{best_model['path']}`")
     if final_model:
         lines.append(f"- Modelo final: `{final_model['path']}`")
+
+    speed_selection = metadata["evaluation"].get("speed_selection")
+    if speed_selection:
+        lines += [
+            "",
+            "## Velocidade ate o alvo",
+            "",
+            "Selecao: maior velocidade com chegada ao alvo em todos os episodios e zero quedas.",
+        ]
+        selected = speed_selection["best"]
+        if selected:
+            lines += [
+                f"- Velocidade media de progresso: `{selected['mean_progress_speed_m_s']:.4f} m/s`",
+                f"- Tempo medio ate o alvo: `{selected['mean_seconds']:.2f} s`",
+                f"- Timesteps do checkpoint selecionado: `{selected['timesteps']}`",
+            ]
+        else:
+            lines.append("Nenhum checkpoint passou o criterio de chegada sem queda.")
 
     env_snapshot = metadata.get("env_snapshot") or {}
     if env_snapshot:
@@ -774,6 +809,11 @@ def register_training_run(
     use_reference_gait = bool(metadata["training"].get("usar_gait_inicial"))
     gait_stand_mode = bool(metadata["training"].get("modo_gait_parado"))
     gait_walk_mode = bool(metadata["training"].get("modo_gait_andando"))
+    speed_options = {
+        "fast_walk_mode": bool(metadata["training"].get("modo_gait_rapido")),
+        "desired_walk_speed": metadata["training"].get("velocidade_alvo"),
+        "gait_period_steps": metadata["training"].get("periodo_gait"),
+    }
     commands = {"tensorboard": tensorboard_command(log_dir)}
     if best_model:
         commands["view_best"] = command_for_model(
@@ -782,6 +822,7 @@ def register_training_run(
             gait_stand_mode=gait_stand_mode,
             gait_walk_mode=gait_walk_mode,
             use_env_snapshot=bool(env_snapshot),
+            **speed_options,
         )
     if final_model:
         commands["view_final"] = command_for_model(
@@ -790,6 +831,7 @@ def register_training_run(
             gait_stand_mode=gait_stand_mode,
             gait_walk_mode=gait_walk_mode,
             use_env_snapshot=bool(env_snapshot),
+            **speed_options,
         )
     metadata["commands"] = commands
 

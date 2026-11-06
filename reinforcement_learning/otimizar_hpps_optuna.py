@@ -1,6 +1,7 @@
 import argparse
 import contextlib
 import json
+import math
 import os
 import sys
 from pathlib import Path
@@ -37,7 +38,8 @@ sys.path.insert(0, str(SRC_PATH))
 
 import atom  # noqa: E402,F401
 
-from model_registry import DEFAULT_REGISTRY_DIR, register_training_run
+from model_registry import DEFAULT_REGISTRY_DIR, json_safe, register_training_run, sha256sum
+from avaliar_locomocao import SafeSpeedEvalCallback, restore_env_args
 
 
 DEFAULT_SAVE_DIR = PROJECT_ROOT / "saida_optuna_atom"
@@ -134,12 +136,18 @@ def make_env(
     use_reference_gait=False,
     gait_stand_mode=False,
     gait_walk_mode=False,
+    fast_walk_mode=False,
+    desired_walk_speed=None,
+    gait_period_steps=None,
 ):
     env_kwargs = {
         "render_mode": None,
         "use_reference_gait": use_reference_gait,
         "gait_stand_mode": gait_stand_mode,
         "gait_walk_mode": gait_walk_mode,
+        "fast_walk_mode": fast_walk_mode,
+        "desired_walk_speed": desired_walk_speed,
+        "gait_period_steps": gait_period_steps,
     }
 
     if quiet:
@@ -238,6 +246,9 @@ def objective(trial, args, save_dir):
         use_reference_gait=args.usar_gait_inicial,
         gait_stand_mode=args.modo_gait_parado,
         gait_walk_mode=args.modo_gait_andando,
+        fast_walk_mode=args.modo_gait_rapido,
+        desired_walk_speed=args.velocidade_alvo,
+        gait_period_steps=args.periodo_gait,
     )
     eval_env = make_env(
         seed=seed + 10_000,
@@ -246,6 +257,9 @@ def objective(trial, args, save_dir):
         use_reference_gait=args.usar_gait_inicial,
         gait_stand_mode=args.modo_gait_parado,
         gait_walk_mode=args.modo_gait_andando,
+        fast_walk_mode=args.modo_gait_rapido,
+        desired_walk_speed=args.velocidade_alvo,
+        gait_period_steps=args.periodo_gait,
     )
 
     try:
@@ -330,11 +344,37 @@ def load_best_ppo_params(save_dir):
     return data["ppo_params"]
 
 
+def final_ppo_overrides(args):
+    overrides = {}
+    for name in ("learning_rate", "gamma", "gae_lambda", "n_epochs", "clip_range", "target_kl"):
+        value = getattr(args, name, None)
+        if value is None:
+            continue
+        valid = math.isfinite(value) and value > 0
+        if name in ("gamma", "gae_lambda"):
+            valid = valid and value <= 1
+        elif name in ("learning_rate", "clip_range"):
+            valid = valid and value < 1
+        if not valid:
+            raise ValueError(f"Valor invalido para --{name.replace('_', '-')}: {value}")
+        overrides[name] = value
+    return overrides
+
+
+def effective_ppo_params(model):
+    params = {}
+    for name in (
+        "learning_rate", "n_steps", "batch_size", "n_epochs", "gamma",
+        "gae_lambda", "clip_range", "ent_coef", "vf_coef", "max_grad_norm", "target_kl",
+    ):
+        value = getattr(model, name)
+        params[name] = value(1.0) if callable(value) else value
+    return params
+
+
 def train_final_model(args, save_dir, ppo_params):
-    if args.learning_rate is not None:
-        if not 0 < args.learning_rate < 1:
-            raise ValueError("--learning-rate deve estar entre 0 e 1.")
-        ppo_params = {**ppo_params, "learning_rate": args.learning_rate}
+    overrides = final_ppo_overrides(args)
+    ppo_params = {**ppo_params, **overrides}
     final_dir = save_dir / args.final_run_name
     log_dir = final_dir / "logs"
     best_dir = final_dir / "melhor_modelo"
@@ -349,6 +389,9 @@ def train_final_model(args, save_dir, ppo_params):
         use_reference_gait=args.usar_gait_inicial,
         gait_stand_mode=args.modo_gait_parado,
         gait_walk_mode=args.modo_gait_andando,
+        fast_walk_mode=args.modo_gait_rapido,
+        desired_walk_speed=args.velocidade_alvo,
+        gait_period_steps=args.periodo_gait,
     )
     eval_env = make_env(
         seed=args.seed + 100_000,
@@ -357,6 +400,9 @@ def train_final_model(args, save_dir, ppo_params):
         use_reference_gait=args.usar_gait_inicial,
         gait_stand_mode=args.modo_gait_parado,
         gait_walk_mode=args.modo_gait_andando,
+        fast_walk_mode=args.modo_gait_rapido,
+        desired_walk_speed=args.velocidade_alvo,
+        gait_period_steps=args.periodo_gait,
     )
 
     try:
@@ -373,8 +419,9 @@ def train_final_model(args, save_dir, ppo_params):
                 str(continue_from),
                 env=train_env,
                 device=args.device,
+                seed=args.seed + 99_000,
                 tensorboard_log=str(log_dir),
-                **({"learning_rate": args.learning_rate} if args.learning_rate is not None else {}),
+                **overrides,
             )
             model.verbose = 1
         else:
@@ -388,15 +435,36 @@ def train_final_model(args, save_dir, ppo_params):
                 **ppo_params,
             )
 
-        eval_callback = EvalCallback(
-            eval_env,
-            best_model_save_path=str(best_dir),
-            log_path=str(log_dir),
-            eval_freq=args.eval_freq,
-            n_eval_episodes=args.n_eval_episodes,
-            deterministic=True,
-            render=False,
+        ppo_params = effective_ppo_params(model)
+        starting_timesteps = model.num_timesteps
+        run_config = {
+            "args": vars(args),
+            "ppo_params": ppo_params,
+            "starting_timesteps": starting_timesteps,
+            "env_sha256": sha256sum(SRC_PATH / "atom" / "env.py"),
+            "parent_model_sha256": sha256sum(continue_from) if continue_from else None,
+            "evaluation_protocol": "deterministic policy and reset; current env.py",
+        }
+        (final_dir / "run_config.json").write_text(
+            json.dumps(json_safe(run_config), indent=2), encoding="utf-8"
         )
+        print(f"PPO efetivo: {json.dumps(ppo_params)}", flush=True)
+
+        if args.modo_gait_rapido:
+            eval_callback = SafeSpeedEvalCallback(
+                eval_env, best_dir, log_dir, args.eval_freq,
+                args.n_eval_episodes, args.seed + 100_000,
+            )
+        else:
+            eval_callback = EvalCallback(
+                eval_env,
+                best_model_save_path=str(best_dir),
+                log_path=str(log_dir),
+                eval_freq=args.eval_freq,
+                n_eval_episodes=args.n_eval_episodes,
+                deterministic=True,
+                render=False,
+            )
 
         model.learn(
             total_timesteps=args.final_timesteps,
@@ -408,8 +476,16 @@ def train_final_model(args, save_dir, ppo_params):
 
         final_model_path = final_dir / "ppo_atom_optuna_final"
         model.save(final_model_path)
+        run_config["additional_timesteps"] = model.num_timesteps - starting_timesteps
+        run_config["ending_timesteps"] = model.num_timesteps
+        (final_dir / "run_config.json").write_text(
+            json.dumps(json_safe(run_config), indent=2), encoding="utf-8"
+        )
         print(f"Modelo final salvo em: {final_model_path}.zip")
-        print(f"Melhor modelo da avaliacao salvo em: {best_dir / 'best_model.zip'}")
+        if (best_dir / "best_model.zip").exists():
+            print(f"Melhor modelo da avaliacao salvo em: {best_dir / 'best_model.zip'}")
+        else:
+            print("Nenhum checkpoint elegivel foi salvo como melhor modelo.")
 
         if not args.sem_registrar_modelo:
             result = register_training_run(
@@ -433,6 +509,13 @@ def train_final_model(args, save_dir, ppo_params):
                     "usar_gait_inicial": args.usar_gait_inicial,
                     "modo_gait_parado": args.modo_gait_parado,
                     "modo_gait_andando": args.modo_gait_andando,
+                    "modo_gait_rapido": args.modo_gait_rapido,
+                    "velocidade_alvo": args.velocidade_alvo,
+                    "periodo_gait": args.periodo_gait,
+                    "checkpoint_selection": (
+                        "fastest_with_all_successes_and_zero_falls"
+                        if args.modo_gait_rapido else "mean_reward"
+                    ),
                 },
                 registry_dir=args.model_registry_dir,
                 best_params_path=save_dir / "best_params.json",
@@ -462,6 +545,12 @@ def parse_args():
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--learning-rate", type=float, default=None,
                         help="Taxa de aprendizado do treino final, inclusive ao continuar um modelo.")
+    parser.add_argument("--gamma", type=float, default=None)
+    parser.add_argument("--gae-lambda", type=float, default=None)
+    parser.add_argument("--n-epochs", type=int, default=None)
+    parser.add_argument("--clip-range", type=float, default=None)
+    parser.add_argument("--target-kl", type=float, default=None)
+    parser.add_argument("--periodo-gait", type=int, default=None)
     parser.add_argument("--study-name", default="ppo_atom_optuna")
     parser.add_argument("--save-dir", default=str(DEFAULT_SAVE_DIR))
     parser.add_argument("--storage", default=None)
@@ -487,6 +576,14 @@ def parse_args():
         help="Treina a marcha andando para frente mantendo a imitacao do gait.",
     )
     parser.add_argument("--treinar-melhor", action="store_true")
+    parser.add_argument(
+        "--modo-gait-rapido", action="store_true",
+        help="Busca 0.35 m/s e seleciona o mais rapido que chega ao alvo sem cair.",
+    )
+    parser.add_argument(
+        "--velocidade-alvo", type=float, default=None,
+        help="Velocidade desejada em m/s (padrao do modo rapido: 0.35).",
+    )
     parser.add_argument("--somente-treinar-melhor", action="store_true")
     parser.add_argument("--model-registry-dir", default=str(DEFAULT_REGISTRY_DIR))
     parser.add_argument("--sem-registrar-modelo", action="store_true")
@@ -500,6 +597,12 @@ def parse_args():
 
 def main():
     args = parse_args()
+    if args.continuar_de:
+        restore_env_args(args, args.continuar_de)
+    if args.modo_gait_rapido:
+        if not (args.somente_treinar_melhor or args.treinar_melhor):
+            raise SystemExit("Use --modo-gait-rapido com um modo de treino final.")
+        args.modo_gait_andando = True
     if args.modo_gait_parado and args.modo_gait_andando:
         raise SystemExit(
             "Use apenas um modo por treino: --modo-gait-parado ou --modo-gait-andando."

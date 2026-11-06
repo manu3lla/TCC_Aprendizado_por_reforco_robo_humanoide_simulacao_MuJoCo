@@ -1,0 +1,26 @@
+{
+  "success_rate": 1.0,
+  "fall_rate": 0.0,
+  "mean_progress_speed_m_s": 0.22788942336991302,
+  "mean_seconds": 20.63,
+  "max_path_drift_m": 0.11334211379289627,
+  "mean_reward": 11179.476471029435,
+  "episodes": [
+    {
+      "seed": 42,
+      "success": true,
+      "fallen": false,
+      "seconds": 20.63,
+      "progress_m": 4.7013588041213055,
+      "progress_speed_m_s": 0.22788942336991302,
+      "max_path_drift_m": 0.11334211379289627,
+      "min_upright": 0.9876060897756493,
+      "reward": 11179.476471029435,
+      "length": 2063
+    }
+  ],
+  "model": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/melhores_modelos/treino_walking_estabilidade_v8_protegido_nao_apagar/best_model.zip",
+  "environment": "current env.py; deterministic policy and reset",
+  "fast_walk_mode": true,
+  "desired_walk_speed": 0.35
+}

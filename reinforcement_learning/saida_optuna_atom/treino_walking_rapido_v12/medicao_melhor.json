@@ -1,0 +1,74 @@
+{
+  "success_rate": 1.0,
+  "fall_rate": 0.0,
+  "mean_progress_speed_m_s": 0.2342045716327042,
+  "mean_seconds": 20.07,
+  "max_path_drift_m": 0.18795032799243927,
+  "mean_reward": 12834.218758974428,
+  "episodes": [
+    {
+      "seed": 42,
+      "success": true,
+      "fallen": false,
+      "seconds": 20.07,
+      "progress_m": 4.700485752668373,
+      "progress_speed_m_s": 0.2342045716327042,
+      "max_path_drift_m": 0.18795032799243927,
+      "min_upright": 0.984843427253573,
+      "reward": 12834.218758974428,
+      "length": 2007
+    },
+    {
+      "seed": 43,
+      "success": true,
+      "fallen": false,
+      "seconds": 20.07,
+      "progress_m": 4.700485752668373,
+      "progress_speed_m_s": 0.2342045716327042,
+      "max_path_drift_m": 0.18795032799243927,
+      "min_upright": 0.984843427253573,
+      "reward": 12834.218758974428,
+      "length": 2007
+    },
+    {
+      "seed": 44,
+      "success": true,
+      "fallen": false,
+      "seconds": 20.07,
+      "progress_m": 4.700485752668373,
+      "progress_speed_m_s": 0.2342045716327042,
+      "max_path_drift_m": 0.18795032799243927,
+      "min_upright": 0.984843427253573,
+      "reward": 12834.218758974428,
+      "length": 2007
+    },
+    {
+      "seed": 45,
+      "success": true,
+      "fallen": false,
+      "seconds": 20.07,
+      "progress_m": 4.700485752668373,
+      "progress_speed_m_s": 0.2342045716327042,
+      "max_path_drift_m": 0.18795032799243927,
+      "min_upright": 0.984843427253573,
+      "reward": 12834.218758974428,
+      "length": 2007
+    },
+    {
+      "seed": 46,
+      "success": true,
+      "fallen": false,
+      "seconds": 20.07,
+      "progress_m": 4.700485752668373,
+      "progress_speed_m_s": 0.2342045716327042,
+      "max_path_drift_m": 0.18795032799243927,
+      "min_upright": 0.984843427253573,
+      "reward": 12834.218758974428,
+      "length": 2007
+    }
+  ],
+  "model": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_walking_rapido_v12/melhor_modelo/best_model.zip",
+  "environment": "current env.py; deterministic policy and reset",
+  "fast_walk_mode": true,
+  "desired_walk_speed": 0.35
+}

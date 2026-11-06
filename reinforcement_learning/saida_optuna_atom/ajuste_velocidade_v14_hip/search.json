@@ -1,0 +1,459 @@
+{
+  "method": "grid search of symmetric actor output adjustments",
+  "source": "/home/rafaelaaltheman/Projetos/TCC_Aprendizado_por_reforco_robo_humanoide_simulacao_MuJoCo/reinforcement_learning/saida_optuna_atom/treino_walking_rapido_v12/melhor_modelo/best_model.zip",
+  "source_sha256": "d93fc84c3db7604e3b3b12d44b4e8efcc4cac4e5bbc385fc729701bdac8fd9ee",
+  "desired_walk_speed": 0.35,
+  "deterministic_reset": true,
+  "evaluations": [
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.2342045716327042,
+      "mean_seconds": 20.07,
+      "max_path_drift_m": 0.18795032799243927,
+      "mean_reward": 12834.218758974428,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 20.07,
+          "progress_m": 4.700485752668373,
+          "progress_speed_m_s": 0.2342045716327042,
+          "max_path_drift_m": 0.18795032799243927,
+          "min_upright": 0.984843427253573,
+          "reward": 12834.218758974428,
+          "length": 2007
+        }
+      ],
+      "adjustment": {
+        "gain": 1.0,
+        "hip": 0.0,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 0,
+      "selected": true
+    },
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.22348191981799415,
+      "mean_seconds": 21.04,
+      "max_path_drift_m": 0.10383664816617966,
+      "mean_reward": 11891.962970163262,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 21.04,
+          "progress_m": 4.702059592970596,
+          "progress_speed_m_s": 0.22348191981799415,
+          "max_path_drift_m": 0.10383664816617966,
+          "min_upright": 0.9808010523724099,
+          "reward": 11891.962970163262,
+          "length": 2104
+        }
+      ],
+      "adjustment": {
+        "gain": 0.85,
+        "hip": -0.2,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 1,
+      "selected": false
+    },
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.21793049765090627,
+      "mean_seconds": 21.57,
+      "max_path_drift_m": 0.2862183749675751,
+      "mean_reward": 8302.129705501728,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 21.57,
+          "progress_m": 4.700760834330048,
+          "progress_speed_m_s": 0.21793049765090627,
+          "max_path_drift_m": 0.2862183749675751,
+          "min_upright": 0.9920277805201739,
+          "reward": 8302.129705501728,
+          "length": 2157
+        }
+      ],
+      "adjustment": {
+        "gain": 0.85,
+        "hip": -0.1,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 2,
+      "selected": false
+    },
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.22679508733046722,
+      "mean_seconds": 20.73,
+      "max_path_drift_m": 0.126165509223938,
+      "mean_reward": 11873.143164264018,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 20.73,
+          "progress_m": 4.7014621603605855,
+          "progress_speed_m_s": 0.22679508733046722,
+          "max_path_drift_m": 0.126165509223938,
+          "min_upright": 0.9928135160470593,
+          "reward": 11873.143164264018,
+          "length": 2073
+        }
+      ],
+      "adjustment": {
+        "gain": 0.85,
+        "hip": 0.0,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 3,
+      "selected": false
+    },
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.2350172963565053,
+      "mean_seconds": 20.0,
+      "max_path_drift_m": 0.17327043414115906,
+      "mean_reward": 12991.078927709164,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 20.0,
+          "progress_m": 4.7003459271301065,
+          "progress_speed_m_s": 0.2350172963565053,
+          "max_path_drift_m": 0.17327043414115906,
+          "min_upright": 0.9935300010271904,
+          "reward": 12991.078927709164,
+          "length": 2000
+        }
+      ],
+      "adjustment": {
+        "gain": 0.85,
+        "hip": 0.1,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 4,
+      "selected": true
+    },
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.2343099561414362,
+      "mean_seconds": 20.06,
+      "max_path_drift_m": 0.10985324531793594,
+      "mean_reward": 13788.630673509375,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 20.06,
+          "progress_m": 4.70025772019721,
+          "progress_speed_m_s": 0.2343099561414362,
+          "max_path_drift_m": 0.10985324531793594,
+          "min_upright": 0.9932158648052593,
+          "reward": 13788.630673509375,
+          "length": 2006
+        }
+      ],
+      "adjustment": {
+        "gain": 0.85,
+        "hip": 0.2,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 5,
+      "selected": false
+    },
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.21152159350034092,
+      "mean_seconds": 22.22,
+      "max_path_drift_m": 0.27234357595443726,
+      "mean_reward": 5930.98714697745,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 22.22,
+          "progress_m": 4.700009807577575,
+          "progress_speed_m_s": 0.21152159350034092,
+          "max_path_drift_m": 0.27234357595443726,
+          "min_upright": 0.9806115616967365,
+          "reward": 5930.98714697745,
+          "length": 2222
+        }
+      ],
+      "adjustment": {
+        "gain": 1.0,
+        "hip": -0.2,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 6,
+      "selected": false
+    },
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.21830586262384977,
+      "mean_seconds": 21.53,
+      "max_path_drift_m": 0.23392322659492493,
+      "mean_reward": 6815.028135739134,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 21.53,
+          "progress_m": 4.7001252222914855,
+          "progress_speed_m_s": 0.21830586262384977,
+          "max_path_drift_m": 0.23392322659492493,
+          "min_upright": 0.9884002080522255,
+          "reward": 6815.028135739134,
+          "length": 2153
+        }
+      ],
+      "adjustment": {
+        "gain": 1.0,
+        "hip": -0.1,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 7,
+      "selected": false
+    },
+    {
+      "success_rate": 0.0,
+      "fall_rate": 1.0,
+      "mean_progress_speed_m_s": 0.13095828921455022,
+      "mean_seconds": 28.490000000000002,
+      "max_path_drift_m": 0.6374110579490662,
+      "mean_reward": -12426.133396884785,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": false,
+          "fallen": true,
+          "seconds": 28.490000000000002,
+          "progress_m": 3.731001659722536,
+          "progress_speed_m_s": 0.13095828921455022,
+          "max_path_drift_m": 0.6374110579490662,
+          "min_upright": 0.8525818050693541,
+          "reward": -12426.133396884785,
+          "length": 2849
+        }
+      ],
+      "adjustment": {
+        "gain": 1.0,
+        "hip": 0.1,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 8,
+      "selected": false
+    },
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.22286318984345463,
+      "mean_seconds": 21.09,
+      "max_path_drift_m": 0.34161803126335144,
+      "mean_reward": 7027.161936734532,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 21.09,
+          "progress_m": 4.700184673798458,
+          "progress_speed_m_s": 0.22286318984345463,
+          "max_path_drift_m": 0.34161803126335144,
+          "min_upright": 0.9878780125293636,
+          "reward": 7027.161936734532,
+          "length": 2109
+        }
+      ],
+      "adjustment": {
+        "gain": 1.0,
+        "hip": 0.2,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 9,
+      "selected": false
+    },
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.2135634296140283,
+      "mean_seconds": 22.01,
+      "max_path_drift_m": 0.2766483426094055,
+      "mean_reward": 7605.955031152118,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 22.01,
+          "progress_m": 4.700531085804763,
+          "progress_speed_m_s": 0.2135634296140283,
+          "max_path_drift_m": 0.2766483426094055,
+          "min_upright": 0.9648908669902682,
+          "reward": 7605.955031152118,
+          "length": 2201
+        }
+      ],
+      "adjustment": {
+        "gain": 1.15,
+        "hip": -0.2,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 10,
+      "selected": false
+    },
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.2218001884168291,
+      "mean_seconds": 21.2,
+      "max_path_drift_m": 0.1320204734802246,
+      "mean_reward": 10772.916546379367,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 21.2,
+          "progress_m": 4.702163994436777,
+          "progress_speed_m_s": 0.2218001884168291,
+          "max_path_drift_m": 0.1320204734802246,
+          "min_upright": 0.9864034891520075,
+          "reward": 10772.916546379367,
+          "length": 2120
+        }
+      ],
+      "adjustment": {
+        "gain": 1.15,
+        "hip": -0.1,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 11,
+      "selected": false
+    },
+    {
+      "success_rate": 1.0,
+      "fall_rate": 0.0,
+      "mean_progress_speed_m_s": 0.22330496751024456,
+      "mean_seconds": 21.05,
+      "max_path_drift_m": 0.13849224150180817,
+      "mean_reward": 10943.051025662697,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": true,
+          "fallen": false,
+          "seconds": 21.05,
+          "progress_m": 4.700569566090648,
+          "progress_speed_m_s": 0.22330496751024456,
+          "max_path_drift_m": 0.13849224150180817,
+          "min_upright": 0.9856280795557009,
+          "reward": 10943.051025662697,
+          "length": 2105
+        }
+      ],
+      "adjustment": {
+        "gain": 1.15,
+        "hip": 0.0,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 12,
+      "selected": false
+    },
+    {
+      "success_rate": 0.0,
+      "fall_rate": 1.0,
+      "mean_progress_speed_m_s": 0.11660254863393277,
+      "mean_seconds": 28.66,
+      "max_path_drift_m": 1.4300134181976318,
+      "mean_reward": -23425.443283738445,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": false,
+          "fallen": true,
+          "seconds": 28.66,
+          "progress_m": 3.341829043848513,
+          "progress_speed_m_s": 0.11660254863393277,
+          "max_path_drift_m": 1.4300134181976318,
+          "min_upright": 0.8919683875041171,
+          "reward": -23425.443283738445,
+          "length": 2866
+        }
+      ],
+      "adjustment": {
+        "gain": 1.15,
+        "hip": 0.1,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 13,
+      "selected": false
+    },
+    {
+      "success_rate": 0.0,
+      "fall_rate": 1.0,
+      "mean_progress_speed_m_s": 0.14871144562268168,
+      "mean_seconds": 26.48,
+      "max_path_drift_m": 0.7952887415885925,
+      "mean_reward": -6101.969641212069,
+      "episodes": [
+        {
+          "seed": 42,
+          "success": false,
+          "fallen": true,
+          "seconds": 26.48,
+          "progress_m": 3.937879080088611,
+          "progress_speed_m_s": 0.14871144562268168,
+          "max_path_drift_m": 0.7952887415885925,
+          "min_upright": 0.2962464465182276,
+          "reward": -6101.969641212069,
+          "length": 2648
+        }
+      ],
+      "adjustment": {
+        "gain": 1.15,
+        "hip": 0.2,
+        "knee": 0.0,
+        "ankle": 0.0
+      },
+      "index": 14,
+      "selected": false
+    }
+  ]
+}

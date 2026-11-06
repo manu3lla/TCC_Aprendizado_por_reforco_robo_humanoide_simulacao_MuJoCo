@@ -1,0 +1,6 @@
+{
+  "fast_walk_mode": true,
+  "gait_walk_mode": true,
+  "desired_walk_speed": 0.35,
+  "gait_period_steps": 64
+}

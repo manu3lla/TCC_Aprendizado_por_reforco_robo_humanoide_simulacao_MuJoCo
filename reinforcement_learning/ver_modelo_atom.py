@@ -17,6 +17,7 @@ import mujoco
 import numpy as np
 
 from stable_baselines3 import PPO
+from avaliar_locomocao import restore_env_args
 
 
 # ============================================================
@@ -86,8 +87,8 @@ def parse_args():
     parser.add_argument(
         "--sleep",
         type=float,
-        default=0.01,
-        help="Pausa entre passos para facilitar a visualizacao.",
+        default=None,
+        help="Pausa extra por passo; 0 roda sem limite. Padrao: tempo real da simulacao.",
     )
     parser.add_argument(
         "--estocastico",
@@ -119,6 +120,9 @@ def parse_args():
         action="store_true",
         help="Mostra apenas a marcha base, sem carregar o modelo PPO.",
     )
+    parser.add_argument("--modo-gait-rapido", action="store_true")
+    parser.add_argument("--velocidade-alvo", type=float, default=None)
+    parser.add_argument("--periodo-gait", type=int, default=None)
     parser.add_argument(
         "--usar-env-snapshot",
         action="store_true",
@@ -243,6 +247,13 @@ def make_visualization_env(args, snapshot_dir):
         "gait_stand_mode": args.modo_gait_parado,
         "gait_walk_mode": args.modo_gait_andando,
     }
+    # Older snapshots do not accept the new speed configuration.
+    if args.modo_gait_rapido:
+        env_kwargs["fast_walk_mode"] = True
+    if args.velocidade_alvo is not None:
+        env_kwargs["desired_walk_speed"] = args.velocidade_alvo
+    if getattr(args, "periodo_gait", None) is not None:
+        env_kwargs["gait_period_steps"] = args.periodo_gait
 
     if snapshot_dir:
         print(f"Usando env_snapshot: {snapshot_dir}")
@@ -353,6 +364,7 @@ def run_gait_preview(env, args):
     print("Previa cinemática do gait: agachado, alternando os pes no lugar.")
 
     for step in range(args.max_steps):
+        step_start = time.perf_counter()
         apply_kinematic_gait_preview(atom_env, step)
         atom_env.render()
 
@@ -372,14 +384,27 @@ def run_gait_preview(env, args):
                 f"h={atom_env.data.qpos[2]:.3f}"
             )
 
-        if args.sleep > 0:
-            time.sleep(args.sleep)
+        pace_simulation_step(step_start, atom_env.dt, args.sleep)
+
+
+def pace_simulation_step(step_start, timestep, extra_delay):
+    delay = extra_delay
+    if delay is None:
+        delay = timestep - (time.perf_counter() - step_start)
+    if delay > 0:
+        time.sleep(delay)
 
 
 def main():
     args = parse_args()
+    if not args.somente_gait:
+        restore_env_args(args, args.modelo)
+    if args.modo_gait_rapido:
+        args.modo_gait_andando = True
     if not np.isfinite(args.distancia_camera) or args.distancia_camera <= 0:
         raise SystemExit("--distancia-camera deve ser positiva e finita.")
+    if args.sleep is not None and (not np.isfinite(args.sleep) or args.sleep < 0):
+        raise SystemExit("--sleep deve ser positivo ou zero e finito.")
     if args.usar_env_snapshot and args.sem_env_snapshot:
         raise SystemExit("Use apenas um: --usar-env-snapshot ou --sem-env-snapshot.")
     if args.somente_gait:
@@ -427,6 +452,7 @@ def main():
     episode = 1
 
     for step in range(args.max_steps):
+        step_start = time.perf_counter()
         if model is None:
             action = env.action_space.sample() * 0.0
         else:
@@ -434,7 +460,7 @@ def main():
         obs, reward, terminated, truncated, info = env.step(action)
         total_reward += float(reward)
 
-        print(
+        status = (
             f"ep={episode} | "
             f"step={step} | "
             f"x={info.get('x_position', 0):.4f} | "
@@ -486,9 +512,10 @@ def main():
             f"reward={reward:.4f} | "
             f"total={total_reward:.2f}"
         )
+        if args.debug_reward or step % 10 == 0 or terminated or truncated:
+            print(status)
 
-        if args.sleep > 0:
-            time.sleep(args.sleep)
+        pace_simulation_step(step_start, env.unwrapped.dt, args.sleep)
 
         if terminated or truncated:
             print(

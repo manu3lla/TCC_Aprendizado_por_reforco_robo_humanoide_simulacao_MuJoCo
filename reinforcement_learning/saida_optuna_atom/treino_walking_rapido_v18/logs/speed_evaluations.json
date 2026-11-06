@@ -1,0 +1,26 @@
+[
+  {
+    "success_rate": 1.0,
+    "fall_rate": 0.0,
+    "mean_progress_speed_m_s": 0.2517485084091018,
+    "mean_seconds": 18.68,
+    "max_path_drift_m": 0.2975972890853882,
+    "mean_reward": 12002.901039493792,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": true,
+        "fallen": false,
+        "seconds": 18.68,
+        "progress_m": 4.702662137082021,
+        "progress_speed_m_s": 0.2517485084091018,
+        "max_path_drift_m": 0.2975972890853882,
+        "min_upright": 0.9921431694272425,
+        "reward": 12002.901039493792,
+        "length": 1868
+      }
+    ],
+    "timesteps": 17305000,
+    "selected": true
+  }
+]

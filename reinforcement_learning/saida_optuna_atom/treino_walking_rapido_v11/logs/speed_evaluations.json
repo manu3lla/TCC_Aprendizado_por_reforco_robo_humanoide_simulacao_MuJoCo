@@ -1,0 +1,290 @@
+[
+  {
+    "success_rate": 1.0,
+    "fall_rate": 0.0,
+    "mean_progress_speed_m_s": 0.2342045716327042,
+    "mean_seconds": 20.07,
+    "max_path_drift_m": 0.18795032799243927,
+    "mean_reward": 24130.486932618078,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": true,
+        "fallen": false,
+        "seconds": 20.07,
+        "progress_m": 4.700485752668373,
+        "progress_speed_m_s": 0.2342045716327042,
+        "max_path_drift_m": 0.18795032799243927,
+        "min_upright": 0.984843427253573,
+        "reward": 24130.486932618078,
+        "length": 2007
+      }
+    ],
+    "timesteps": 17180000,
+    "selected": true
+  },
+  {
+    "success_rate": 0.0,
+    "fall_rate": 1.0,
+    "mean_progress_speed_m_s": 0.17403048300245016,
+    "mean_seconds": 24.150000000000002,
+    "max_path_drift_m": 0.9846591949462891,
+    "mean_reward": 7820.861482468512,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": false,
+        "fallen": true,
+        "seconds": 24.150000000000002,
+        "progress_m": 4.202836164509172,
+        "progress_speed_m_s": 0.17403048300245016,
+        "max_path_drift_m": 0.9846591949462891,
+        "min_upright": 0.27492104228394065,
+        "reward": 7820.861482468512,
+        "length": 2415
+      }
+    ],
+    "timesteps": 17190000,
+    "selected": false
+  },
+  {
+    "success_rate": 1.0,
+    "fall_rate": 0.0,
+    "mean_progress_speed_m_s": 0.21973448017519898,
+    "mean_seconds": 21.39,
+    "max_path_drift_m": 0.3375852108001709,
+    "mean_reward": 18631.521066264275,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": true,
+        "fallen": false,
+        "seconds": 21.39,
+        "progress_m": 4.7001205309475065,
+        "progress_speed_m_s": 0.21973448017519898,
+        "max_path_drift_m": 0.3375852108001709,
+        "min_upright": 0.9904282655280473,
+        "reward": 18631.521066264275,
+        "length": 2139
+      }
+    ],
+    "timesteps": 17200000,
+    "selected": false
+  },
+  {
+    "success_rate": 1.0,
+    "fall_rate": 0.0,
+    "mean_progress_speed_m_s": 0.22346800941859468,
+    "mean_seconds": 21.04,
+    "max_path_drift_m": 0.12205315381288528,
+    "mean_reward": 23155.66899211322,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": true,
+        "fallen": false,
+        "seconds": 21.04,
+        "progress_m": 4.701766918167232,
+        "progress_speed_m_s": 0.22346800941859468,
+        "max_path_drift_m": 0.12205315381288528,
+        "min_upright": 0.9746522744485271,
+        "reward": 23155.66899211322,
+        "length": 2104
+      }
+    ],
+    "timesteps": 17210000,
+    "selected": false
+  },
+  {
+    "success_rate": 1.0,
+    "fall_rate": 0.0,
+    "mean_progress_speed_m_s": 0.22930530775051597,
+    "mean_seconds": 20.5,
+    "max_path_drift_m": 0.11921070516109467,
+    "mean_reward": 23871.207961458003,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": true,
+        "fallen": false,
+        "seconds": 20.5,
+        "progress_m": 4.700758808885578,
+        "progress_speed_m_s": 0.22930530775051597,
+        "max_path_drift_m": 0.11921070516109467,
+        "min_upright": 0.9889059005907581,
+        "reward": 23871.207961458003,
+        "length": 2050
+      }
+    ],
+    "timesteps": 17220000,
+    "selected": false
+  },
+  {
+    "success_rate": 1.0,
+    "fall_rate": 0.0,
+    "mean_progress_speed_m_s": 0.2300859822478105,
+    "mean_seconds": 20.43,
+    "max_path_drift_m": 0.18843412399291992,
+    "mean_reward": 22172.309492665,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": true,
+        "fallen": false,
+        "seconds": 20.43,
+        "progress_m": 4.700656617322768,
+        "progress_speed_m_s": 0.2300859822478105,
+        "max_path_drift_m": 0.18843412399291992,
+        "min_upright": 0.9884288532948009,
+        "reward": 22172.309492665,
+        "length": 2043
+      }
+    ],
+    "timesteps": 17230000,
+    "selected": false
+  },
+  {
+    "success_rate": 1.0,
+    "fall_rate": 0.0,
+    "mean_progress_speed_m_s": 0.21975231315637714,
+    "mean_seconds": 21.39,
+    "max_path_drift_m": 0.26338669657707214,
+    "mean_reward": 21709.411186128596,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": true,
+        "fallen": false,
+        "seconds": 21.39,
+        "progress_m": 4.700501978414907,
+        "progress_speed_m_s": 0.21975231315637714,
+        "max_path_drift_m": 0.26338669657707214,
+        "min_upright": 0.9865682517656504,
+        "reward": 21709.411186128596,
+        "length": 2139
+      }
+    ],
+    "timesteps": 17240000,
+    "selected": false
+  },
+  {
+    "success_rate": 0.0,
+    "fall_rate": 1.0,
+    "mean_progress_speed_m_s": 0.15726716243453986,
+    "mean_seconds": 25.64,
+    "max_path_drift_m": 0.6487608551979065,
+    "mean_reward": 12986.034490645656,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": false,
+        "fallen": true,
+        "seconds": 25.64,
+        "progress_m": 4.032330044821602,
+        "progress_speed_m_s": 0.15726716243453986,
+        "max_path_drift_m": 0.6487608551979065,
+        "min_upright": 0.8651569417836421,
+        "reward": 12986.034490645656,
+        "length": 2564
+      }
+    ],
+    "timesteps": 17250000,
+    "selected": false
+  },
+  {
+    "success_rate": 0.0,
+    "fall_rate": 1.0,
+    "mean_progress_speed_m_s": 0.13903220692740312,
+    "mean_seconds": 26.94,
+    "max_path_drift_m": 0.7217243313789368,
+    "mean_reward": 10907.692848906658,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": false,
+        "fallen": true,
+        "seconds": 26.94,
+        "progress_m": 3.74552765462424,
+        "progress_speed_m_s": 0.13903220692740312,
+        "max_path_drift_m": 0.7217243313789368,
+        "min_upright": 0.8801499071354673,
+        "reward": 10907.692848906658,
+        "length": 2694
+      }
+    ],
+    "timesteps": 17260000,
+    "selected": false
+  },
+  {
+    "success_rate": 1.0,
+    "fall_rate": 0.0,
+    "mean_progress_speed_m_s": 0.22288753184190377,
+    "mean_seconds": 21.09,
+    "max_path_drift_m": 0.16165032982826233,
+    "mean_reward": 23980.161923220967,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": true,
+        "fallen": false,
+        "seconds": 21.09,
+        "progress_m": 4.70069804654575,
+        "progress_speed_m_s": 0.22288753184190377,
+        "max_path_drift_m": 0.16165032982826233,
+        "min_upright": 0.9893776368397588,
+        "reward": 23980.161923220967,
+        "length": 2109
+      }
+    ],
+    "timesteps": 17270000,
+    "selected": false
+  },
+  {
+    "success_rate": 1.0,
+    "fall_rate": 0.0,
+    "mean_progress_speed_m_s": 0.22632401121603207,
+    "mean_seconds": 20.77,
+    "max_path_drift_m": 0.2507678270339966,
+    "mean_reward": 23251.111864905506,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": true,
+        "fallen": false,
+        "seconds": 20.77,
+        "progress_m": 4.700749712956986,
+        "progress_speed_m_s": 0.22632401121603207,
+        "max_path_drift_m": 0.2507678270339966,
+        "min_upright": 0.988690671332615,
+        "reward": 23251.111864905506,
+        "length": 2077
+      }
+    ],
+    "timesteps": 17280000,
+    "selected": false
+  },
+  {
+    "success_rate": 1.0,
+    "fall_rate": 0.0,
+    "mean_progress_speed_m_s": 0.22901638269711422,
+    "mean_seconds": 20.53,
+    "max_path_drift_m": 0.07784715294837952,
+    "mean_reward": 24672.303163547724,
+    "episodes": [
+      {
+        "seed": 100042,
+        "success": true,
+        "fallen": false,
+        "seconds": 20.53,
+        "progress_m": 4.701706336771755,
+        "progress_speed_m_s": 0.22901638269711422,
+        "max_path_drift_m": 0.07784715294837952,
+        "min_upright": 0.9862317110148447,
+        "reward": 24672.303163547724,
+        "length": 2053
+      }
+    ],
+    "timesteps": 17280352,
+    "selected": false
+  }
+]

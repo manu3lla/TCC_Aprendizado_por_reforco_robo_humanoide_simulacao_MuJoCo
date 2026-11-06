@@ -1,0 +1,30 @@
+{
+  "success_rate": 1.0,
+  "fall_rate": 0.0,
+  "mean_progress_speed_m_s": 0.2350172963565053,
+  "mean_seconds": 20.0,
+  "max_path_drift_m": 0.17327043414115906,
+  "mean_reward": 12991.078927709164,
+  "episodes": [
+    {
+      "seed": 42,
+      "success": true,
+      "fallen": false,
+      "seconds": 20.0,
+      "progress_m": 4.7003459271301065,
+      "progress_speed_m_s": 0.2350172963565053,
+      "max_path_drift_m": 0.17327043414115906,
+      "min_upright": 0.9935300010271904,
+      "reward": 12991.078927709164,
+      "length": 2000
+    }
+  ],
+  "adjustment": {
+    "gain": 0.85,
+    "hip": 0.1,
+    "knee": 0.0,
+    "ankle": 0.0
+  },
+  "index": 4,
+  "selected": true
+}

@@ -15,9 +15,25 @@ class AtomEnv(gym.Env):
         use_reference_gait=False,
         gait_stand_mode=False,
         gait_walk_mode=False,
+        fast_walk_mode=False,
+        desired_walk_speed=None,
+        gait_period_steps=None,
     ):
 
         super().__init__()
+
+        if fast_walk_mode and gait_stand_mode:
+            raise ValueError("Marcha rapida nao pode usar o modo parado.")
+        if desired_walk_speed is not None and (
+            not np.isfinite(desired_walk_speed) or desired_walk_speed <= 0
+        ):
+            raise ValueError("A velocidade alvo deve ser positiva e finita.")
+        gait_walk_mode = gait_walk_mode or fast_walk_mode
+        if gait_period_steps is not None and (
+            not np.isfinite(gait_period_steps) or gait_period_steps < 2
+            or int(gait_period_steps) != gait_period_steps
+        ):
+            raise ValueError("O periodo da marcha deve ser um inteiro >= 2.")
 
         self.render_mode = render_mode
         self.viewer = None
@@ -38,6 +54,7 @@ class AtomEnv(gym.Env):
         self.debug_reward = debug_reward
         self.gait_stand_mode = gait_stand_mode
         self.gait_walk_mode = gait_walk_mode
+        self.fast_walk_mode = fast_walk_mode
 
         # Espaço de observação: posições, velocidades, fase da marcha,
         # contato/altura dos pes e direcao ate o alvo.
@@ -92,7 +109,7 @@ class AtomEnv(gym.Env):
         self.use_reference_gait = (
             use_reference_gait or gait_stand_mode or gait_walk_mode
         )
-        self.gait_period_steps = 76
+        self.gait_period_steps = 76 if gait_period_steps is None else int(gait_period_steps)
         self.gait_phase_offset = 0.0
 
         # Escala residual do PPO. A marcha base ja movimenta as pernas; estes
@@ -405,6 +422,20 @@ class AtomEnv(gym.Env):
                     "target_reached": 300.0,
                 }
             )
+
+        if self.fast_walk_mode:
+            self.desired_walk_speed = 0.35
+            self.reward_weights.update({
+                "walk_speed": 3.00,
+                "safe_speed": 2.00,
+                "slow_velocity": 1.30,
+            })
+        if desired_walk_speed is not None:
+            self.desired_walk_speed = float(desired_walk_speed)
+        if self.fast_walk_mode:
+            self.desired_step_length = float(np.clip(
+                0.080 * np.sqrt(self.desired_walk_speed / 0.145), 0.080, 0.140
+            ))
 
         # self.initial_height = float(self.initial_qpos[2])
 
@@ -742,8 +773,8 @@ class AtomEnv(gym.Env):
                     )
                     foot_contacts[idx] = contact_now
 
-            if self.render_mode == "human":
-                self.render()
+        if self.render_mode == "human":
+            self.render()
 
         # ------------------------------
         # Estado atual
@@ -834,6 +865,17 @@ class AtomEnv(gym.Env):
             fallen = True
             rewarded_velocity_to_target = min(0.0, rewarded_velocity_to_target)
             rewarded_progress_to_target = min(0.0, rewarded_progress_to_target)
+
+        # Fast movement only pays while balanced and moving toward the target.
+        fast_movement_quality = 1.0
+        if self.fast_walk_mode:
+            fast_movement_quality = 0.0 if fallen else float(balance_velocity_factor)
+            rewarded_velocity_to_target = min(0.0, velocity_to_target) + max(
+                0.0, velocity_to_target
+            ) * fast_movement_quality
+            rewarded_progress_to_target = min(0.0, progress_to_target) + max(
+                0.0, progress_to_target
+            ) * fast_movement_quality
 
         desired_crouch = self.desired_crouch
         allowed_crouch = self.allowed_crouch
@@ -1203,7 +1245,9 @@ class AtomEnv(gym.Env):
             1.0,
         )
         standstill_penalty = np.exp(-((velocity_to_target / 0.025) ** 2))
-        min_target_speed = 0.11
+        min_target_speed = (
+            0.8 * self.desired_walk_speed if self.fast_walk_mode else 0.11
+        )
         slow_velocity_penalty = 0.0
         if self.current_step > 20 and not fallen:
             slow_velocity_penalty = min(
@@ -1302,6 +1346,11 @@ class AtomEnv(gym.Env):
             max(velocity_to_target / max(self.desired_walk_speed, 1e-6), 0.0),
             1.0,
         )
+        if self.fast_walk_mode:
+            speed_quality = fast_movement_quality * max(0.0, velocity_alignment)
+            walk_speed_score = -min(target_speed_error ** 2, 4.0)
+            safe_speed_score *= speed_quality
+            gait_forward_score *= speed_quality
         left_foot_angle_error = self._body_rotation_error(
             self.left_foot_body_id,
             self.initial_left_foot_rot,
@@ -1459,6 +1508,16 @@ class AtomEnv(gym.Env):
             * vertical_motion_penalty,
         }
 
+        if self.fast_walk_mode:
+            # Per-step posture bonuses otherwise favor taking longer to arrive.
+            progress_terms = {
+                "target_velocity", "distance_progress", "walk_speed",
+                "safe_speed", "gait_forward", "target_alignment",
+            }
+            for name, value in reward_terms.items():
+                if value > 0.0 and name not in progress_terms:
+                    reward_terms[name] = value * speed_quality * forward_motion_score
+
         reward = sum(reward_terms.values())
 
         # penalidade por queda
@@ -1508,6 +1567,7 @@ class AtomEnv(gym.Env):
             "torso_upright": torso_upright,
             "distance_to_target": distance,
             "velocity_to_target": velocity_to_target,
+            "desired_walk_speed": self.desired_walk_speed,
             "lateral_velocity": lateral_velocity,
             "rewarded_velocity_to_target": rewarded_velocity_to_target,
             "progress_to_target": progress_to_target,
